@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  26 MAR 2017 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  27 MAR 2017 01:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,9 +128,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `ComputationalVision.toc'.
 
  [2]
-Overfull \hbox (26.79706pt too wide) in paragraph at lines 15--16
+Overfull \hbox (26.79706pt too wide) in paragraph at lines 15--18
 \OT1/cmr/m/n/10 exam. This year the mod-ule was run by Hamid Deghani (H.Dehghan
-i@cs.bham.ac.uk). 
+i@cs.bham.ac.uk).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+
  []
 
 [1]
@@ -140,18 +145,18 @@ runsystem(makeindex ComputationalVision.idx)...executed safely (allowed).
 Here is how much of TeX's memory you used:
  734 strings out of 494497
  10345 string characters out of 6172400
- 60135 words of memory out of 5000000
+ 62135 words of memory out of 5000000
  4191 multiletter control sequences out of 15000+600000
  7588 words of font info for 27 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 27i,6n,19p,279b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,6n,19p,391b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr17.pfb>
-Output written on ComputationalVision.pdf (3 pages, 58793 bytes).
+Output written on ComputationalVision.pdf (3 pages, 69403 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
