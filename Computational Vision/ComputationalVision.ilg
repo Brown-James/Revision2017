@@ -1,4 +1,6 @@
 This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
-Scanning input file ComputationalVision.idx...done (0 entries accepted, 0 rejected).
-Nothing written in ComputationalVision.ind.
+Scanning input file ComputationalVision.idx....done (16 entries accepted, 0 rejected).
+Sorting entries....done (83 comparisons).
+Generating output file ComputationalVision.ind....done (37 lines written, 0 warnings).
+Output written in ComputationalVision.ind.
 Transcript written in ComputationalVision.ilg.
