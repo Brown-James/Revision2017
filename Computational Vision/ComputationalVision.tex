@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{imakeidx}
 \usepackage{graphicx}
+\usepackage{mathtools}
 \graphicspath{{images/}}
 \usepackage{geometry}
 \geometry{a4paper,
@@ -10,6 +11,10 @@ right = 30mm,
 bottom = 30mm,
 top = 30mm
 }
+
+
+
+\usepackage{multicol}
 \title{Computational Vision \linebreak Revision Notes}
 \author{James Brown}
 \makeindex
@@ -45,9 +50,30 @@ top = 30mm
 		\label{fig:visual pathway}
 	\end{figure}
 	
+	
 	\section{Edge Detection}
-	An intensity image is a data matrix whose values represent intensities within some range. Each element of the matrix corresponds to one image pixel.
+	\subsection{Intensity Images}
+	An intensity image\index{intensity image} is a data matrix whose values represent intensities within some range. Each element of the matrix corresponds to one image pixel\index{pixel}. An indexed image consists of a data matrix, $X$, and a colour map\index{colour map} matrix, $map$. $map$ is a $m$-by-3 array of double containing floating point values in the range $[0, 1]$. Each row in the map specifies the red, green an blue components of a single color. Each cell in the indexed image then specifies the corresponding colour from the colour map. In an intensity image can be thought of as a function $f(x, y)$ mapping coordinates to intensity. From this we can calculate an intensity gradient\index{intensity gradient}.
+	\begingroup
+	\renewcommand*{\arraystretch}{1.5}
+	\[ \overrightarrow{G}[f(x,y)] = \begin{bmatrix}G_{x} \\ G_{y} \end{bmatrix} = \begin{bmatrix} \frac{df}{dx} \\ \frac{df}{dy} \end{bmatrix} \]	
+	\endgroup
 
+	 This is a vector which we can think of as having an $x$ and $y$ component. We can calculate both the magnitude (1) and direction (2) for this gradient of intensity. 
+	\begin{multicols}{2}
+		\noindent
+		\begin{equation}
+			M(\overrightarrow{G}) = \sqrt{G_{x}^{2} + G_{y}^{2}}
+		\end{equation}
+		\begin{equation}
+			\alpha(x, y) = \tan^{-1}\left(\frac{G_y}{G_x}\right)
+		\end{equation}
+	\end{multicols}
+	
+	\subsection{Approximating the Intensity Gradient}
+	
+	\subsection{Filtering}
+	
 	\section{Noise Filtering}
 
 	\section{Advanced Edge Detection}
