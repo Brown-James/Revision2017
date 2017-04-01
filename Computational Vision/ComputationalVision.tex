@@ -50,6 +50,14 @@ top = 30mm
 		\label{fig:visual pathway}
 	\end{figure}
 	
+	\subsection{Colour Processing}
+	Objects in the world selectively absorb some wavelengths (a colour) and reflect other wavelengths. Human retinas contain three different types of cones to respond to different colours. This gives us the ability to distinguish different forms of the same object - for example: unripe, ripe and off fruit. Many theories of colour vision have been proposed and some have been hard to disprove until recently. 
+	\par	
+	In 1802 Young proposed that the eye has three different types of receptors, each of which are sensitive to a single hue. From this he proposed that any colour can be produced by appropriate mixing of the three primary colours. This is known as the trichromatic theory\index{trichromatic theory}.
+	
+	\par 
+	Hering suggested that colour may be represented in a visual system as 'opponent colours' in the 1930's.
+	
 	
 	\section{Edge Detection}
 	\subsection{Intensity Images}
@@ -59,15 +67,12 @@ top = 30mm
 	\[ \overrightarrow{G}[f(x,y)] = \begin{bmatrix}G_{x} \\ G_{y} \end{bmatrix} = \begin{bmatrix} \frac{df}{dx} \\ \frac{df}{dy} \end{bmatrix} \]	
 	\endgroup
 
-	 This is a vector which we can think of as having an $x$ and $y$ component. We can calculate both the magnitude (1) and direction (2) for this gradient of intensity. 
+	 This is a vector which we can think of as having an $x$ and $y$ component. We can calculate both the magnitude and direction for this gradient of intensity. 
 	\begin{multicols}{2}
 		\noindent
-		\begin{equation}
-			M(\overrightarrow{G}) = \sqrt{G_{x}^{2} + G_{y}^{2}}
-		\end{equation}
-		\begin{equation}
-			\alpha(x, y) = \tan^{-1}\left(\frac{G_y}{G_x}\right)
-		\end{equation}
+		\centering
+			$M(\overrightarrow{G}) = \sqrt{G_{x}^{2} + G_{y}^{2}}$ \\
+			$\alpha(x, y) = \tan^{-1}\left(\frac{G_y}{G_x}\right)$
 	\end{multicols}
 	
 	\subsection{Approximating the Intensity Gradient}
@@ -75,19 +80,28 @@ top = 30mm
 	\subsection{Filtering}
 	
 	\section{Noise Filtering}
+	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{Gaussian filter}.
 
 	\section{Advanced Edge Detection}
 
 	\section{Hough Transform}
 
-	\section{SIFT}
+	\section{Scale Invariant Feature Transform}
 
 	\section{Face Recognition}
 
 	\section{Motion}
 
 	\section{ROC Analysis}
-
+	ROC analysis provides tools to select possibly optimal models and to discard suboptimal ones
+	
+	\begin{multicols}{2}
+		\noindent
+		\centering
+			$ \text{Sensitivity} = \frac{TP}{TP+FN}$ \\
+			$ \text{Specificity} = \frac{TN}{TN+FP}$
+	\end{multicols}		
+		
 	\section{Object Recognition}
 
 	\section{Model Based Object Recognition}
