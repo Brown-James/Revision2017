@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{imakeidx}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{mathtools}
 \graphicspath{{images/}}
 \usepackage{geometry}
@@ -93,14 +94,25 @@ top = 30mm
 	\section{Motion}
 
 	\section{ROC Analysis}
-	ROC analysis provides tools to select possibly optimal models and to discard suboptimal ones
+	Receiver operating characteristic analysis provides us tools to select possibly optimal models and to discard suboptimal ones. In order to carry out ROC analysis we need to count the different kind of errors that are possible. When classifying if a pixel is an edge or not, there are 4 possible situations - \textbf{true positive} (predicted it was an edge and it was), \textbf{false positive} (predicted it was an edge and it wasn't), \textbf{false negative} (predicted it wasn't an edge and it actually was) and \textbf{true negative} (predicted it wasn't an edge and it wasn't).
 	
+Once classifying each pixel, we then count the total number of each label (TP, FP, TN, FN) over the large dataset. In ROC analysis we use two statistics:
 	\begin{multicols}{2}
 		\noindent
 		\centering
 			$ \text{Sensitivity} = \frac{TP}{TP+FN}$ \\
 			$ \text{Specificity} = \frac{TN}{TN+FP}$
-	\end{multicols}		
+	\end{multicols}	
+	Sensitivity is the likelihood of spotting a positive case when presented with one or the proportion of edges we find. Specificity is the likelihood of spotting a negative case when presented with one or the proportion of non edges that we find. To define a ROC space we only need the true positive rate (TPR) and the false positive rate (FPR). The TPR is simply the sensitivity and the FPR is $1 - \text{specificity}$. We use the FPR and TPR as x and y axes respectively of the ROC space.
+	
+	\begin{wrapfigure}{r}{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.4\textwidth]{roc_analysis}
+		\caption{A sample ROC space}
+		\label{fig:roc_analysis}
+	\end{wrapfigure}
+	
+	All of the optimal detectors lie on the convex hull - the best possible position is for a detector to lie in the top left corner. It should be noted that if the edge detector lies below the dotted line then we can instantly make the detector better by simply just flipping the output of the algorithm!
 		
 	\section{Object Recognition}
 

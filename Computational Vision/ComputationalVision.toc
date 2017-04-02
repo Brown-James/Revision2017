@@ -15,5 +15,5 @@
 \contentsline {section}{\numberline {8}Face Recognition}{3}
 \contentsline {section}{\numberline {9}Motion}{3}
 \contentsline {section}{\numberline {10}ROC Analysis}{3}
-\contentsline {section}{\numberline {11}Object Recognition}{3}
-\contentsline {section}{\numberline {12}Model Based Object Recognition}{3}
+\contentsline {section}{\numberline {11}Object Recognition}{4}
+\contentsline {section}{\numberline {12}Model Based Object Recognition}{4}
