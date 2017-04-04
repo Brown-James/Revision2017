@@ -77,12 +77,44 @@ top = 30mm
 	\end{multicols}
 	
 	\subsection{Approximating the Intensity Gradient}
-	
-	\subsection{Filtering}
+	In order to approximate the gradient we may use a variety of different masks over the image, such as the Roberts and Sobel detectors. These masks use the idea of convolution in order to calculate the rate of change of intensity at each pixel. Convolution is the computation of weighted sums of image pixels. For each pixel in the image, the new value is calculated by translating the mask to the pixel and taking the weighted sum of all the pixels in the neighbourhood. Once we have a value for the rate of change of the intensity gradient we can threshold our image to produce the locations of edges.
 	
 	\section{Noise Filtering}
-	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{Gaussian filter}.
+	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{Gaussian filter}, although there are other simpler filters such as the mean filter\index{mean filter}.
+	\begin{figure}[ht]
+	\begin{minipage}{.5\textwidth}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} \frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+								\frac{1}{9} & \frac{1}{9} & \frac{1}{9} \\
+								\frac{1}{9} & \frac{1}{9} & \frac{1}{9}
+			\end{bmatrix} \]
+			\endgroup
+			\caption{An example mean filter}
+			\label{fig:mean filter}
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\[ \begin{bmatrix} 0 & .01 & .02 & .01 & 0 \\
+								.01 & .06 & .11 & .06 & .01 \\ 
+							    .02 & .11 & .16 & .11 & .02 \\
+							    .01 & .06 & .11 & .06 & .01 \\
+							    0 & .01 & .02 & .01 & 0
+				\end{bmatrix} \]
+		\caption{An example Gaussian filter}
+		\label{fig:gaussian filter}
 
+	\end{minipage}
+	\end{figure}
+	
+	The mean filter averages a pixels value with all of the surrounding intensities for a new value. A Gaussian filter follows the same principle as this but uses a weighting, valuing pixels closer to the original more than pixels farther away.	The Gaussian filter has an extra bonus of being able to be applied as 2 individual 1D Gaussian filters in sequence rather than one large 2D filter as shown below.
+	
+	\begin{multicols}{2}
+		\[\begin{bmatrix} 0.0545 & 0.2442 & 0.4026 & 0.2442 & 0.0545 \end{bmatrix} \] \\
+		\[\begin{bmatrix} 0.0545 \\ 0.2442 \\ 0.4026 \\ 0.2442 \\ 0.0545 \end{bmatrix} \]
+	\end{multicols}
+	
 	\section{Advanced Edge Detection}
 
 	\section{Hough Transform}
