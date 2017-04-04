@@ -116,6 +116,19 @@ top = 30mm
 	\end{multicols}
 	
 	\section{Advanced Edge Detection}
+	Intensity changes can be caused by geometric events such as surface orientation discontinuities, depth discontinuities, color discontinuities and texture discontinuities. It can also be caused by non-geometric events such as illumination changes, specularities, shadows and inter-reflections.
+	
+	\subsection{Main steps in Edge Detection}
+		\begin{enumerate}
+			\item \textbf{Smoothing}: suppress as much noise as possible, without destroying any of the true edges.
+			\item \textbf{Enhancement}: apply differentiation to enhance the quality of edges (i.e. sharpening).
+			\item \textbf{Thresholding}: determine which edge pixels should be discarded as  noise and which should be retained (i.e. threshold edge magnitude).
+			
+			\item \textbf{Localization}: determine the exact edge location.
+		\end{enumerate}
+
+	\subsection{Hysteresis}
+	
 
 	\section{Hough Transform}
 

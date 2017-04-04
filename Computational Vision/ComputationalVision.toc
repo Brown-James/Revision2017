@@ -8,7 +8,9 @@
 \contentsline {subsection}{\numberline {3.1}Intensity Images}{2}
 \contentsline {subsection}{\numberline {3.2}Approximating the Intensity Gradient}{3}
 \contentsline {section}{\numberline {4}Noise Filtering}{3}
-\contentsline {section}{\numberline {5}Advanced Edge Detection}{4}
+\contentsline {section}{\numberline {5}Advanced Edge Detection}{3}
+\contentsline {subsection}{\numberline {5.1}Main steps in Edge Detection}{3}
+\contentsline {subsection}{\numberline {5.2}Hysteresis}{4}
 \contentsline {section}{\numberline {6}Hough Transform}{4}
 \contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{4}
 \contentsline {section}{\numberline {8}Face Recognition}{4}

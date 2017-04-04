@@ -35,7 +35,26 @@ top = 30mm
 	
 	\section{Language Membership Problems and Regular Expressions}
 	\subsection{Language Membership Problems}
-	Suppose we have a set of characters $\Sigma$, which we will call the \textit{alphabet}\index{alphabet}.
+	Suppose we have a set of characters $\Sigma$, which we will call the \textit{alphabet}\index{alphabet}. A \textit{word}\index{word} is a finite sequence of characters, and we write $\Sigma^{*}$ for the set of all words. We can \textit{concatenate}\index{concatenate} words. A \textit{language}\index{language} is a set of words and a subset of $\Sigma^{*}$. Given a word, we want to know is it in the language or not? If we take an example alphabet ${a, b, c}$, here are some languages:
+	\begin{itemize}
+		\item All words which contain exactly 3 \textit{b}'s
+		\item All words whose length is prime
+		\item All words that have more \textit{b}'s than \textit{a}'s
+		\item The words \textit{abc}, \textit{bac} and \textit{cb}
+		\item No words at all
+		\item The empty word
+	\end{itemize}
+	
+	These examples are largely pretty useless, but this problem does have real world applications such as 
+	\begin{itemize}
+		\item Java has rules about what you can call a variable. Is the word read by the compiler a valid variable name?
+		\item A user makes an account and enters a password, is it valid?
+		\item A student has submitted code for an assignment, is it correct?
+		\item Will this code crash when it's run?
+	\end{itemize}
+	
+	In each one of these examples, we are provided with a word and we want to know whether it is an acceptable word. We want to make a computer tell us the answer.
+	
 	
 	\subsection{Regex}
 	\textbf{Regular Expressions}\index{Regular Expressions} are a useful notation for describing languages.
