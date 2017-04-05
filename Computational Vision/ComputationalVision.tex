@@ -76,6 +76,8 @@ top = 30mm
 			$\alpha(x, y) = \tan^{-1}\left(\frac{G_y}{G_x}\right)$
 	\end{multicols}
 	
+	When calculating the magnitude, figuring out a square root can be very computationally expensive. It's possible to replace this with an approximation: $M(\overrightarrow{G}) = |G_{x}| + |G_{y}|$
+	
 	\subsection{Approximating the Intensity Gradient}
 	In order to approximate the gradient we may use a variety of different masks over the image, such as the Roberts and Sobel detectors. These masks use the idea of convolution in order to calculate the rate of change of intensity at each pixel. Convolution is the computation of weighted sums of image pixels. For each pixel in the image, the new value is calculated by translating the mask to the pixel and taking the weighted sum of all the pixels in the neighbourhood. Once we have a value for the rate of change of the intensity gradient we can threshold our image to produce the locations of edges.
 	
@@ -116,9 +118,10 @@ top = 30mm
 	\end{multicols}
 	
 	\section{Advanced Edge Detection}
-	Intensity changes can be caused by geometric events such as surface orientation discontinuities, depth discontinuities, color discontinuities and texture discontinuities. It can also be caused by non-geometric events such as illumination changes, specularities, shadows and inter-reflections.
+	Intensity changes can be caused by geometric events such as surface orientation discontinuities, depth discontinuities, color discontinuities and texture discontinuities. It can also be caused by non-geometric events such as illumination changes, specularities, shadows and inter-reflections. All of these events can be used to try to find edges in the image. When we try to detect edges, we are trying to produce a line 'drawing' of a scene from an image of that scene. We use this to extract important features of an image, such as corners and curves. These features are then used by higher-level computer vision algorithms.
 	
 	\subsection{Main steps in Edge Detection}
+	Regardless of methods, there a few major steps to edge detection:
 		\begin{enumerate}
 			\item \textbf{Smoothing}: suppress as much noise as possible, without destroying any of the true edges.
 			\item \textbf{Enhancement}: apply differentiation to enhance the quality of edges (i.e. sharpening).
@@ -127,8 +130,26 @@ top = 30mm
 			\item \textbf{Localization}: determine the exact edge location.
 		\end{enumerate}
 
-	\subsection{Hysteresis}
+	\par
+	Most of the time, points that lie on an edge are detected by 
+		\begin{enumerate}
+			\item Detecting the local \textit{maxima} or \textit{minima} of the first derivative.
+			\item Detecting the \textit{zero-crossings}\index{zero crossing} of the second derivative
+		\end{enumerate}
+		
+	There are a few practical issues that come with this. When smoothing an image, the smoothing effect achieved depends on the mask size (for example, with a Gaussian filter it depends on $\sigma$). A larger mask will reduce noise more, but it also worsens localization and adds uncertainty to the location of the edge.
 	
+	Based on this we can draw up some criteria for an optimal method of edge detection:
+	\begin{enumerate}
+		\item \textbf{Good detection}: Minimize the probability of false positives and false negatives (spurious edges and missing real egdes).
+		\item \textbf{Good localization}\index{localization}: Detected edges must be as close as possible to the true edges.
+		\item \textbf{Single response}\index{single response}: Minimise the number of local maxima around the true edge.
+	\end{enumerate}
+
+	Canny showed that the first derivative of Gaussian closely approximates the operator that optimizes the product of signal-to-noise ratio\index{signal-to-noise ratio} and localization\index{localization}.
+
+	\subsection{Hysteresis}
+	Hysteresis thresholding\index{hysteresis thresholding} uses two thresholds - a low threshold $t_{l}$ and a high threshold $t_{h}$ (usually this is $2t_{l}$). This makes the assumption that important edges should be along continuous curves in the image. It allows us to follow a faint section of a given line and to discard a few noisy pixels that do not constitute a line but have produced large gradients. We begin by applying the high threshold - this marks edges that we can be fairly sure that are genuine. Starting from these points, and using the directional information derived earlier, edges can be traced throughout the whole image. While tracing an edge, we apply the lower threshold, allowing us to trace faint sections of edges as long as we find a starting point. 
 
 	\section{Hough Transform}
 
