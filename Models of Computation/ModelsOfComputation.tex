@@ -55,15 +55,20 @@ top = 30mm
 	
 	In each one of these examples, we are provided with a word and we want to know whether it is an acceptable word. We want to make a computer tell us the answer.
 	
-	
 	\subsection{Regex}
-	\textbf{Regular Expressions}\index{Regular Expressions} are a useful notation for describing languages.
+	\textbf{Regular Expressions}\index{Regular Expressions} are a useful notation for describing languages. We write Empty for the language consisting of no words (the empty set). We write \textit{a} for the language consisting of just the single-character a, and $\epsilon$ for the language consisting of just the empty word. If we have a language \textit{\textbf{L}} and \textit{\textbf{L'}}, we write \textit{\textbf{LL'}} for the set of words that are a concatenation of a word in \textit{\textbf{L}} and a word in \textit{\textbf{L'}}. We can also write \textit{\textbf{L|L'}} for the set of words that are in \textit{\textbf{L}} or \textit{\textbf{L'}} - the union of the two languages. We write \textit{\textbf{L*}} for the set of words that are a concatenation of some number of words in \textit{\textbf{L}} (some number may be 0).
+	Just like arithmetic, regular expressions have precedence rules. $*$ has the highest precedence, then juxtaposition and then $|$.
+	
+	\par 
+	Regular expressions in theoretical computer science mean an expression built from the above operations and nothing more. Regular expressions are used much more widely in programming with far more operations, but they cannot be used in the module. For example, $+$ is a very common operation but not available to us.
 	
 	
 	\section{Finite State Automata}
+
+	\section{Regular Languages}	
 	
 	\section{Bisimulation and Minimisation}
-	
+		
 	\section{The Halting Problem}
 	
 	\section{Properties of Code}
