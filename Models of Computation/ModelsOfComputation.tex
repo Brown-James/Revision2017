@@ -70,7 +70,80 @@ top = 30mm
 	\section{Bisimulation and Minimisation}
 		
 	\section{The Halting Problem}
+	In Computer Science there are many problems that we encounter. These all have an input (some string, a number, three strings etc.) and an output. Often this output is yes or no, but it may be a number or string or some other value. If a problem returns a yes or no result, then it is a decision problem\index{decision problem}. We have to draw a distinction between problems\index{problem} and instances\index{instance}. 'Is the word $abbab$ accepted by the regexp $ab*(ab*|b)$?' is an instance of a more general problem 'Is a word $w$ accepted by the regexp $ab*(ab*|b)$?'. Even more generally we could describe this problem as 'Given a word $w$ and a regexp $E$, is $w$ accepted by $E$?'.
 	
+	\par 
+	Typically we want to consider problems which have a countably infinite set of acceptable inputs and acceptable outputs. Refer to Mathematical Techniques for Computer Science to see how we can ensure something is countably infinite. A problem can also be called a function\index{function}, and we can also describe it as a subset of the set of inputs. 
+	\begin{itemize}
+		\item Problem: given a positive integer, is it prime?
+		\item The function that maps a positive integer to 'true' if it's prime and 'false' otherwise
+		\item The subset of the set of positive integers consisting of all prime integers
+	\end{itemize}
+	If the set of inputs is the set of words over some alphabet, then the subset will be a language.
+	
+	\par
+	\textbf{Key concepts:}
+	\begin{itemize}
+		\item A decision problem (a problem which returns a yes or no answer) is decidable if it can be solved on a computer.
+		\item A function is computable if it can be computed on a computer.
+		\item A subset of the set of inputs (a language) is decidable if the corresponding decision problem can be solved on a computer.
+	\end{itemize}
+	
+	We still haven't come up with a definition for \textit{computer} yet! We get around this for now by saying a problem is 'Java-decidable' or 'Java-computable' for example, meaning that we can accomplish the task with a Java program.
+
+	\subsection{Reducing a problem to another problem to solve the Halting problem}
+	Suppose we have two problems - $P$ and $Q$. If we can show how to solve $Q$ using a black box which solves $P$ then we can say that we have reduced\index{reduce} the problem $Q$ to the problem $P$. If we can reduce $Q$ to $P$ then if $P$ is decidable\index{decidable}, $Q$ is decidable and if $Q$ is undecidable\index{undecideable}, $P$ is undecidable.
+	
+	\par
+	Given a nullary Java method such as the one below, can we tell if it will terminate or not? We keep things simple by assuming integers are unbounded, no exceptions are thrown and any such method when called either terminates or hangs forever).
+	\begin{verbatim}
+		void f (){
+		    ...
+		}
+	\end{verbatim}
+	
+	This is an example of the \textbf{Halting Problem}\index{halting problem}. Turing proved that the halting problem was undecidable. To prove this, we assume that it is decidable.
+	
+	\begin{enumerate}
+		\item Consider the \textbf{unary halting problem}. Given a unary Java method
+		\begin{verbatim}
+			void f (String x) {
+			    ...
+			}
+		\end{verbatim}			
+		and a string $y$, does \texttt{f} terminate when called with $y$? We reduce the unary halting problem to the nullary one. Given the unary method \texttt{f} and a string $x$, obtain a nullary method \texttt{g} by taking the code of \texttt{f} and replacing \texttt{x} with $y$ - that is substitute in the argument values. Then, \texttt{g} terminates when called if \texttt{t} terminates when called with argument $y$. Since we assume the nullary halting problem is solvable, the unary one is too. This gives us a program
+		\begin{verbatim}
+			boolean haltcheck (String somemethod, String y)
+		\end{verbatim}
+		
+		where \texttt{somemethod} is the body of a unary method. When we apply with $M$ and $y$ this method returns true when $M$ applied to $y$ terminates, otherwise it returns false.
+	
+	\item We build on this method further
+		\begin{verbatim}
+			void hangcheck (String somemethod, String y) {
+			   if haltcheck(somemethod, y) {
+			      while true {}
+			   } else {
+			      return;
+			   }
+			}
+		\end{verbatim}	
+		
+		This method when applied to $M$ and $y$, hangs if $M$ applied to $y$ terminates, otherwise it returns.
+				
+	\item We build on this even further with a new program
+		\begin{verbatim}
+			void doublehang (String y) {
+			    haltcheck(y, y)
+			}
+		\end{verbatim}
+		
+		This method when applied to $y$ (the body of the unary method), will hang if $y$ applied to $y$ terminates, otherwise it returns.
+	
+	\item Finally, let $z$ be the body of \texttt{doublehang}. We see that \texttt{doublehang}, when applied to $z$, terminates if and only if it hangs. This is a contradiction, so there cannot be any program which solves the halting problem.	
+	
+	\end{enumerate}
+		
 	\section{Properties of Code}
 	
 	\section{Turing Machines}
@@ -83,4 +156,7 @@ top = 30mm
 	
 	\section{Lambda-calculus}
 	
+	\newpage
+	\listoffigures
+	\printindex
 \end{document}

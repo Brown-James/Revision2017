@@ -12,9 +12,12 @@
 \contentsline {subsection}{\numberline {5.1}Main steps in Edge Detection}{4}
 \contentsline {subsection}{\numberline {5.2}Hysteresis}{4}
 \contentsline {section}{\numberline {6}Hough Transform}{4}
-\contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{4}
-\contentsline {section}{\numberline {8}Face Recognition}{4}
-\contentsline {section}{\numberline {9}Motion}{4}
-\contentsline {section}{\numberline {10}ROC Analysis}{4}
-\contentsline {section}{\numberline {11}Object Recognition}{5}
-\contentsline {section}{\numberline {12}Model Based Object Recognition}{5}
+\contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{5}
+\contentsline {subsection}{\numberline {7.1}Dealing with Illumination Invariance}{5}
+\contentsline {subsection}{\numberline {7.2}Dealing with Scale Invariance}{5}
+\contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{5}
+\contentsline {section}{\numberline {8}Face Recognition}{5}
+\contentsline {section}{\numberline {9}Motion}{5}
+\contentsline {section}{\numberline {10}ROC Analysis}{5}
+\contentsline {section}{\numberline {11}Object Recognition}{6}
+\contentsline {section}{\numberline {12}Model Based Object Recognition}{6}

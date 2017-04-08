@@ -19,7 +19,7 @@
 \indexentry{pixel}{2}
 \indexentry{colour map}{2}
 \indexentry{intensity gradient}{2}
-\indexentry{Gaussian filter}{3}
+\indexentry{gaussian filter}{3}
 \indexentry{mean filter}{3}
 \indexentry{zero crossing}{4}
 \indexentry{localization}{4}
@@ -27,3 +27,12 @@
 \indexentry{signal-to-noise ratio}{4}
 \indexentry{localization}{4}
 \indexentry{hysteresis thresholding}{4}
+\indexentry{hough transform}{4}
+\indexentry{hough transform}{5}
+\indexentry{object recognition}{5}
+\indexentry{wide baseline matching}{5}
+\indexentry{tracking}{5}
+\indexentry{pyramids}{5}
+\indexentry{scale space}{5}
+\indexentry{DOG method}{5}
+\indexentry{rotational invariance}{5}

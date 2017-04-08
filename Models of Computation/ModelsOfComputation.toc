@@ -3,11 +3,13 @@
 \contentsline {subsection}{\numberline {2.1}Language Membership Problems}{1}
 \contentsline {subsection}{\numberline {2.2}Regex}{2}
 \contentsline {section}{\numberline {3}Finite State Automata}{2}
-\contentsline {section}{\numberline {4}Bisimulation and Minimisation}{2}
-\contentsline {section}{\numberline {5}The Halting Problem}{2}
-\contentsline {section}{\numberline {6}Properties of Code}{2}
-\contentsline {section}{\numberline {7}Turing Machines}{2}
-\contentsline {section}{\numberline {8}Church's Thesis}{2}
-\contentsline {section}{\numberline {9}Complexity and P}{2}
-\contentsline {section}{\numberline {10}NP}{2}
-\contentsline {section}{\numberline {11}Lambda-calculus}{2}
+\contentsline {section}{\numberline {4}Regular Languages}{2}
+\contentsline {section}{\numberline {5}Bisimulation and Minimisation}{2}
+\contentsline {section}{\numberline {6}The Halting Problem}{2}
+\contentsline {subsection}{\numberline {6.1}Reducing a problem to another problem to solve the Halting problem}{3}
+\contentsline {section}{\numberline {7}Properties of Code}{4}
+\contentsline {section}{\numberline {8}Turing Machines}{4}
+\contentsline {section}{\numberline {9}Church's Thesis}{4}
+\contentsline {section}{\numberline {10}Complexity and P}{4}
+\contentsline {section}{\numberline {11}NP}{4}
+\contentsline {section}{\numberline {12}Lambda-calculus}{4}

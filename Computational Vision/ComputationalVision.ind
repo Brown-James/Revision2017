@@ -6,11 +6,16 @@
 
   \indexspace
 
-  \item ganglion cell, 1
-  \item Gaussian filter, 3
+  \item DOG method, 5
 
   \indexspace
 
+  \item ganglion cell, 1
+  \item gaussian filter, 3
+
+  \indexspace
+
+  \item hough transform, 4, 5
   \item hysteresis thresholding, 4
 
   \indexspace
@@ -30,6 +35,7 @@
 
   \indexspace
 
+  \item object recognition, 5
   \item optic nerve, 2
 
   \indexspace
@@ -39,26 +45,34 @@
   \item photoreceptors, 1
   \item pinhole camera, 1
   \item pixel, 2
+  \item pyramids, 5
 
   \indexspace
 
   \item receptive field, 1
   \item retina, 1
   \item rods, 1
+  \item rotational invariance, 5
 
   \indexspace
 
+  \item scale space, 5
   \item signal-to-noise ratio, 4
   \item single response, 4
 
   \indexspace
 
+  \item tracking, 5
   \item trichromatic theory, 2
 
   \indexspace
 
   \item visible light, 1
   \item visual cortex, 2
+
+  \indexspace
+
+  \item wide baseline matching, 5
 
   \indexspace
 

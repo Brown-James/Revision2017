@@ -13,8 +13,6 @@ bottom = 30mm,
 top = 30mm
 }
 
-
-
 \usepackage{multicol}
 \title{Computational Vision \linebreak Revision Notes}
 \author{James Brown}
@@ -82,7 +80,7 @@ top = 30mm
 	In order to approximate the gradient we may use a variety of different masks over the image, such as the Roberts and Sobel detectors. These masks use the idea of convolution in order to calculate the rate of change of intensity at each pixel. Convolution is the computation of weighted sums of image pixels. For each pixel in the image, the new value is calculated by translating the mask to the pixel and taking the weighted sum of all the pixels in the neighbourhood. Once we have a value for the rate of change of the intensity gradient we can threshold our image to produce the locations of edges.
 	
 	\section{Noise Filtering}
-	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{Gaussian filter}, although there are other simpler filters such as the mean filter\index{mean filter}.
+	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{gaussian filter}, although there are other simpler filters such as the mean filter\index{mean filter}.
 	\begin{figure}[ht]
 	\begin{minipage}{.5\textwidth}
 			\begingroup
@@ -110,12 +108,15 @@ top = 30mm
 	\end{minipage}
 	\end{figure}
 	
-	The mean filter averages a pixels value with all of the surrounding intensities for a new value. A Gaussian filter follows the same principle as this but uses a weighting, valuing pixels closer to the original more than pixels farther away.	The Gaussian filter has an extra bonus of being able to be applied as 2 individual 1D Gaussian filters in sequence rather than one large 2D filter as shown below.
-	
+	The mean filter averages a pixels value with all of the surrounding intensities for a new value. A Gaussian filter follows the same principle as this but uses a weighting, valuing pixels closer to the original more than pixels farther away.	The Gaussian filter has an extra bonus of being able to be applied as two individual 1D Gaussian filters in sequence rather than one large 2D filter as shown below.
+	\begin{figure}[ht]
 	\begin{multicols}{2}
 		\[\begin{bmatrix} 0.0545 & 0.2442 & 0.4026 & 0.2442 & 0.0545 \end{bmatrix} \] \\
 		\[\begin{bmatrix} 0.0545 \\ 0.2442 \\ 0.4026 \\ 0.2442 \\ 0.0545 \end{bmatrix} \]
 	\end{multicols}
+	\caption{A Gaussian filter deconstructed to two 1D filters which can be applied in sequence}
+	\label{fig:1d gaussian filter}
+	\end{figure}
 	
 	\section{Advanced Edge Detection}
 	Intensity changes can be caused by geometric events such as surface orientation discontinuities, depth discontinuities, color discontinuities and texture discontinuities. It can also be caused by non-geometric events such as illumination changes, specularities, shadows and inter-reflections. All of these events can be used to try to find edges in the image. When we try to detect edges, we are trying to produce a line 'drawing' of a scene from an image of that scene. We use this to extract important features of an image, such as corners and curves. These features are then used by higher-level computer vision algorithms.
@@ -152,9 +153,27 @@ top = 30mm
 	Hysteresis thresholding\index{hysteresis thresholding} uses two thresholds - a low threshold $t_{l}$ and a high threshold $t_{h}$ (usually this is $2t_{l}$). This makes the assumption that important edges should be along continuous curves in the image. It allows us to follow a faint section of a given line and to discard a few noisy pixels that do not constitute a line but have produced large gradients. We begin by applying the high threshold - this marks edges that we can be fairly sure that are genuine. Starting from these points, and using the directional information derived earlier, edges can be traced throughout the whole image. While tracing an edge, we apply the lower threshold, allowing us to trace faint sections of edges as long as we find a starting point. 
 
 	\section{Hough Transform}
+	So far we haven't actually found edge segments, just lots and lots of edge points. The Hough Transform\index{hough transform} is a common approach to finding parameterised line segments. Every straight line in an image can be described by an equation. Each edge point in an image, if considered in isolation, could lie on an infinite number of straight lines. In Hough Transform each edge point votes for every line it could be on, and the lines with the most votes win.
 
 	\section{Scale Invariant Feature Transform}
-
+	We can now detect features in images. The most basic feature is edges, but through the use of Hough transform\index{hough transform} we can also detect lines and even geometric shapes such as circles. We want to detect features for various reasons, such as object recognition\index{object recognition}, wide baseline matching\index{wide baseline matching} and tracking\index{tracking}. In order to do this we need to make sure our features are scale invariant. Good features should be robust to all sorts of nastiness that can occur between two different images. There are many different causes of invariance:
+	\begin{itemize}
+		\item Illumination
+		\item Scale
+		\item Rotation
+		\item Affine transformation (scaling and streching)
+		\item Full perspective
+	\end{itemize}
+	
+	\subsection{Dealing with Illumination Invariance}
+	The easiest way to do this is to normalise the image. This is done by creating a histogram of all intensity values within the image. We can then stretch the histogram to match others of the same image in different illuminations (other images with different illumination should still have the same shape of histogram, even in not the exact same histogram). This stretch can be achieved through simple linear normalization.
+	
+	\subsection{Dealing with Scale Invariance}
+	 One way to ensure our image is scale invariant is by trying to scale it up and down, and see if a feature exists regardless of how much the image is scaled. There are two main methods to achieve this: Pyramids\index{pyramids} and Scale Space\index{scale space} (DOG method\index{DOG method}).
+	
+	\subsection{Dealing with Rotational Invariance}
+		We can deal with rotational invariance\index{rotational invariance} in much the same way as we deal with illumination invariance.
+		
 	\section{Face Recognition}
 
 	\section{Motion}
