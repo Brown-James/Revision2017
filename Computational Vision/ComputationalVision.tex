@@ -161,18 +161,18 @@ top = 30mm
 		\item Illumination
 		\item Scale
 		\item Rotation
-		\item Affine transformation (scaling and streching)
+		\item Affine transformation (scaling and stretching)
 		\item Full perspective
 	\end{itemize}
 	
 	\subsection{Dealing with Illumination Invariance}
-	The easiest way to do this is to normalise the image. This is done by creating a histogram of all intensity values within the image. We can then stretch the histogram to match others of the same image in different illuminations (other images with different illumination should still have the same shape of histogram, even in not the exact same histogram). This stretch can be achieved through simple linear normalization.
+	The easiest way to achieve illumination invariance\index{illumination invariance} is to normalise the image. This is done by creating a histogram of all intensity values within the image. We can then stretch the histogram to match others of the same image in different illuminations (other images with different illumination should still have the same shape of histogram, even in not the exact same histogram). This stretch can be achieved through simple linear normalization.
 	
 	\subsection{Dealing with Scale Invariance}
-	 One way to ensure our image is scale invariant is by trying to scale it up and down, and see if a feature exists regardless of how much the image is scaled. There are two main methods to achieve this: Pyramids\index{pyramids} and Scale Space\index{scale space} (DOG method\index{DOG method}). 
+	 One way to ensure our image is scale invariant\index{scale invariant} is by trying to scale it up and down, and see if a feature exists regardless of how much the image is scaled. There are two main methods to achieve this: Pyramids\index{pyramids} and Scale Space\index{scale space} (DOG method\index{DOG method}). 
 	
 	\par	 
-	 In the pyramids method, we divide the width and height of the image by 2. We take the average of 4 pixels for each new pixel and repeat this process until the image is very small. We can then run our filters (edge detectors) over the image to check for the existence of certain features. If the feature still exists all the way down, we can say that the feature is scale invariant. On the other hand, the DOG (Difference of Gaussian) method is very similar to pyramids. Instead will fill the gaps with blurred images. This is like having a nice linear scaling without any expense. We take the features from the differences of the images, and if the feature is repeatably present in between Difference of Gaussians it is scale invariant and we should keep it.
+	 In the pyramids method\index{pyramid method}, we divide the width and height of the image by 2. We take the average of 4 pixels for each new pixel and repeat this process until the image is very small. We can then run our filters (edge detectors) over the image to check for the existence of certain features. If the feature still exists all the way down, we can say that the feature is scale invariant. On the other hand, the DOG (Difference of Gaussian\index{difference of gaussian}) method is very similar to pyramids. Instead will fill the gaps with blurred images. This is like having a nice linear scaling without any expense. We take the features from the differences of the images, and if the feature is repeatably present in between Difference of Gaussians it is scale invariant and we should keep it.
 	
 	\subsection{Dealing with Rotational Invariance}
 		We can deal with rotational invariance\index{rotational invariance} in much the same way as we deal with illumination invariance. We want to rotate all features to go in the same way in a determined manner. To do this, we take a histogram of all edge directions in the image and then rotate the image to the most dominant rotation (or possibly even the second most dominant if it's good enough).

@@ -6,6 +6,7 @@
 
   \indexspace
 
+  \item difference of gaussian, 5
   \item DOG method, 5
 
   \indexspace
@@ -20,6 +21,7 @@
 
   \indexspace
 
+  \item illumination invariance, 5
   \item intensity gradient, 2
   \item intensity image, 2
 
@@ -45,6 +47,7 @@
   \item photoreceptors, 1
   \item pinhole camera, 1
   \item pixel, 2
+  \item pyramid method, 5
   \item pyramids, 5
 
   \indexspace
@@ -56,6 +59,7 @@
 
   \indexspace
 
+  \item scale invariant, 5
   \item scale space, 5
   \item signal-to-noise ratio, 4
   \item single response, 4
