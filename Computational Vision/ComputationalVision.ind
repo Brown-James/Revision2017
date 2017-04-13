@@ -3,11 +3,18 @@
   \item chiasm, 2
   \item colour map, 2
   \item cones, 1
+  \item covariance, 6
 
   \indexspace
 
   \item difference of gaussian, 5
   \item DOG method, 5
+
+  \indexspace
+
+  \item eigenface, 6
+  \item eigenvalue, 6
+  \item eigenvector, 6
 
   \indexspace
 
@@ -47,6 +54,7 @@
   \item photoreceptors, 1
   \item pinhole camera, 1
   \item pixel, 2
+  \item principle components analysis, 6
   \item pyramid method, 5
   \item pyramids, 5
 

@@ -178,7 +178,49 @@ top = 30mm
 		We can deal with rotational invariance\index{rotational invariance} in much the same way as we deal with illumination invariance. We want to rotate all features to go in the same way in a determined manner. To do this, we take a histogram of all edge directions in the image and then rotate the image to the most dominant rotation (or possibly even the second most dominant if it's good enough).
 		
 	\section{Face Recognition}
-
+	This section is about face recognition, not detection - we will not be taking an image and finding the face within.
+	
+	\subsection{Eigenfaces}
+	We can have a face, which is a weighted combination of some parts or basis faces. The basis faces are called eigenfaces\index{eigenface}. The basis faces can be differently weighted to represent any face, so we can use different vectors of weights to represent different faces.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{eigenfaces}
+		\caption{A figure showing how to build any face from a set of basis faces}
+		\label{fig:eigenfaces}
+	\end{figure}
+	
+	Obviously we must pick the set of basis faces, and to do this we need a set of real training faces. From these we can then learn a set of basis faces which best represent the differences between each of the training faces. We'll use a statistical criterion for measuring the notion of 'best representation of the differences between training faces'. Then we can store each face as a set of weights from those basis faces.
+	
+	\subsection{Finding Eigenfaces}
+	There are two possible ways we can use eigenfaces - firstly we can store and then reconstruct a face from a set of weights and secondly we can recognise a new picture of a familiar face.
+	
+	Initially, we have to figure out how to learn eigenfaces. A method called principle components analysis (PCA)\index{principle components analysis}. In order to use this we have to understand what an eigenvector\index{eigenvector} is and also what covariance\index{covariance} is.
+	
+	To begin, we imagine that our face is simply a (high dimensional) vector of pixels. For humans it's easier to think about 2 dimensions, so we'll do just that and have our data in just two dimensions. But when we have data in two dimensions, we only really need one dimension to represent it. To do this we can take a line through space, and then take the projection of each point onto that line - doing this means we have represented our data in 'one' dimension. The choice of line is important, some lines represent the data in this way well, and some badly. The projection onto some lines separates the data well, and the projection onto some lines separates it badly. However, rather than using a line we can perfom roughly the same trick using a vector $v$. When using a vector, we instead have to scale the vector to obtain any point on the line and this vector is called an \textbf{eigenvector}\index{eigenvector}. The value $\mu$, which we use to project any point on the vector, is our \textbf{eigenvalue}\index{eigenvalue}.
+	
+		$\text{An eigenvector is a vector v that obeys the rule } \mathbf{A}v = \mu v$ where $\mathbf{A}$ is a matrix, $\mu$ is a eigenvalue. A few rules about eigenvectors:
+		\begin{itemize}
+			\item We think of matrices as performing transformations on vectors
+			\item We think of eigenvectors of a matrix as being special vectors that are scaled by that matrix
+			\item Different matrices have different eigenvectors
+			\item Only square matrices can have eigenvectors, and not all square matrices even have them
+			\item An $n$ by $n$ matrix has at most $n$ different eigenvectors
+			\item All the distinct eigenvectors of a matrix are orthogonal (perpendicular).
+		\end{itemize}
+		
+	With our data, we need to find the vector which can be used to separate the points in our data as much as possible. This vector turns out to be the vector which expresses the direction of the correlation. The covariances then can be expressed as a matrix. The covariance of two variables is
+	\[ cov(x_{1}, x_{2}) = \frac{\sum_{i=1}^{n}(x_{1}^{i} - \bar{x_{1}})(x_{2}^{i} - \bar{x_{2}})}{n - 1} \]	
+	
+	This covariance matrix has eigenvectors and eigenvalues. The largest eigenvalue shows you the most dominant vector (corresponding to the direction in which the data varies more). This is principle components analysis.
+	
+	\subsection{Using Eigenfaces}
+	All we are going to do is treat the face as a point in a high dimensional space, and then treat the training set of face pictures as out set of points. In order to train, we calculate the covariance matrix of the faces and then find the eigenvectors of that covariance matrix. The found eigenvectors are the eigenfaces or basis faces. Eigenfaces with bigger values will explain more of the variation in the set of faces (they are more distinguishing).
+	
+	\par
+	When we see an image of a face we can transform it to the face space with $\mathbf{W}_{k} = \mathbf{X}^{\mathbf{i}} . \mathit{v}_{k}$. There are $k=1...n$ eigenfaces $v_{k}$, and the $i^{\text{th}}$ face in the image space is a vector $x^{i}$ with corresponding weight $w_{k}$. We calculate the corresponding weight for every eigenface. Recognition is now simple, we can find the euclidean distance $d$ between our face and all the other stored faces in the face space with \[ d(w^{1}, w^{2}) = \sqrt{\sum_{i=1}^{n}(w_{i}^{1} - w_{i}^{2})^{2}} \]
+	
+	The closest face in the face space is the chosen match.
 	\section{Motion}
 
 	\section{ROC Analysis}

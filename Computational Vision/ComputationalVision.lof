@@ -2,4 +2,5 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces An example mean filter}}{3}
 \contentsline {figure}{\numberline {3}{\ignorespaces An example Gaussian filter}}{3}
 \contentsline {figure}{\numberline {4}{\ignorespaces A Gaussian filter deconstructed to two 1D filters which can be applied in sequence}}{3}
-\contentsline {figure}{\numberline {5}{\ignorespaces A sample ROC space}}{6}
+\contentsline {figure}{\numberline {5}{\ignorespaces A figure showing how to build any face from a set of basis faces}}{6}
+\contentsline {figure}{\numberline {6}{\ignorespaces A sample ROC space}}{8}
