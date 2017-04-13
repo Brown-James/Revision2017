@@ -1,13 +1,21 @@
 \begin{theindex}
 
+  \item 4-neighbours, 8
+  \item 8-neighbours, 8
+
+  \indexspace
+
   \item chiasm, 2
   \item colour map, 2
   \item cones, 1
+  \item connectedness, 7
+  \item consistency, 8
   \item covariance, 6
 
   \indexspace
 
   \item difference of gaussian, 5
+  \item discreteness, 8
   \item DOG method, 5
 
   \indexspace
@@ -41,6 +49,13 @@
   \indexspace
 
   \item mean filter, 3
+  \item moravec operator, 8
+  \item motion, 7
+  \item motion correspondence, 8
+
+  \indexspace
+
+  \item noise, 7
 
   \indexspace
 
@@ -70,6 +85,7 @@
   \item scale invariant, 5
   \item scale space, 5
   \item signal-to-noise ratio, 4
+  \item similarity, 8
   \item single response, 4
 
   \indexspace

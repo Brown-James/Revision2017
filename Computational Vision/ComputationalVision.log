@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  13 APR 2017 15:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  13 APR 2017 20:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -411,29 +411,25 @@ Package pdftex.def Info: images/eigenfaces.png used on input line 188.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6 <./images/eigenfaces.png>]
-<images/roc_analysis.png, id=45, 552.0625pt x 450.68375pt>
+[5] [6 <./images/eigenfaces.png>] [7]
+<images/roc_analysis.png, id=49, 552.0625pt x 450.68375pt>
 File: images/roc_analysis.png Graphic file (type png)
 
 <use images/roc_analysis.png>
-Package pdftex.def Info: images/roc_analysis.png used on input line 240.
+Package pdftex.def Info: images/roc_analysis.png used on input line 276.
 (pdftex.def)             Requested size: 170.71393pt x 139.36667pt.
- [7] [8 <./images/roc_analysis.png>]
+ [8] [9 <./images/roc_analysis.png>]
 (./ComputationalVision.lof)
 \tf@lof=\write5
 \openout5 = `ComputationalVision.lof'.
 
- [9]
+ [10]
 runsystem(makeindex ComputationalVision.idx)...executed safely (allowed).
 
- (./ComputationalVision.ind) [10
+ (./ComputationalVision.ind) [11
 
 ]
-(./ComputationalVision.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(./ComputationalVision.aux) ) 
 Here is how much of TeX's memory you used:
  3699 strings out of 494497
  53253 string characters out of 6172400
@@ -442,23 +438,24 @@ Here is how much of TeX's memory you used:
  10686 words of font info for 38 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  38i,14n,64p,1280b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ComputationalVision.pdf (12 pages, 620377 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti10.pfb>
+Output written on ComputationalVision.pdf (13 pages, 625737 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

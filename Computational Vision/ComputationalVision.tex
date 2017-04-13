@@ -222,6 +222,42 @@ top = 30mm
 	
 	The closest face in the face space is the chosen match.
 	\section{Motion}
+	We aim to detect which changes have occurred in two different frames, and we can use this to deduce what motions have induced those changes. There are four possible possibilities for a dynamic camera and world:
+	\begin{itemize}
+		\item Stationary camera, stationary object
+		\item Stationary camera, moving objects
+		\item Moving camera, stationary object
+		\item Moving camera, moving objects
+	\end{itemize}
+	
+	But how do we detect changes? Firstly, detect features in two different frames. Then simply look at the difference between features at time $t$ and time $t + 1$. Any differences in the two features, indicate motion. More formally, we can say $F(x, y, i)$ is the intensity of the image at time $i$, at point $x, y$. It follows that the difference picture, $DP$, is defined as 
+	\[ DP_{12}(x, y) = \begin{cases}
+		1 \text{ if } |F(x, y, 1) - F(x, y, 2)| > \tau \\
+		0 \text{ otherwise}
+		\end{cases} \]
+		
+	This approach is not without issues. If we have random noise in the image, the difference image will include all the noise\index{noise} points in both images even if no motion\index{motion} has occurred at all. To solve this, we may want to filter out all pixels that are not part of some larger structure. We use the idea of connectedness\index{connectedness} to achieve this, in particular 4 or 8 connectedness. Two pixels can be said to be 4-neighbours\index{4-neighbours} is they share a common boundary. Two pixels are said to be 8-neighbours\index{8-neighbours} if they share at least one common corner. Two pixels are also 8-neighbours if we can create a path of 8-neighbours from one to the other. To remove noise, pixels that are not in a connected cluster of a certain size are removed from the difference image.
+	
+	\par 
+	When determining motion, there is not enough information in the local intensity changes to give us the information that we want. This can be demonstrated via the aperture problem. When we only have a small area in which to observe, we cannot tell exactly what direction the object is moving (for example, something appearing to move down and right may only be moving to the right). To get around this we have to pick the particularly interesting areas of the image. This explains why edges are very bad for determining motion. Corners are a good example of particularly interesting areas. Once we have found these particularly interesting areas, we would like to match them between different images over time.
+	
+	\par 
+	The Moravec operator\index{moravec operator} is a corner detector. It defines interest points as points where there is a large intensity variation in every direction, which is the case at corners. One side-effect is that it is very sensitive to detecting isolated pixels as corners.
+	
+	\par 
+	Once we have points of interest, we try to match the points in one image with the points in another. Using this we can estimate the motion that has occured. Motion correspondance\index{motion correspondence} is guided by three principles:
+	\begin{enumerate}
+		\item \textbf{Discreteness}\index{discreteness}: a measure of the distinctiveness of individual points
+		\item \textbf{Similarity}\index{similarity}: a measure of how closely two points resemble one another
+		\item \textbf{Consistency}\index{consistency}: a measure of how well a match conforms with nearby matches
+	\end{enumerate}
+	
+	To calculate the degree of similarity between two patches take the sum of the squared differences in the pixel values (L1-norm - absolute difference).
+	
+	\[ w_{ij} = \frac{1}{1 + \alpha s_{ij}} \]
+	
+	When we want to try to match two patches, we calculate the weights for all the possible matches for patch i(t). How to calculate the weight is shown in the above equation. We assume some value for $\alpha$, such as $1$. Once we have all the weights, we normalise to produce probabilities for each of the patches to calculate the best matches between patches.
+	
 
 	\section{ROC Analysis}
 	Receiver operating characteristic analysis provides us tools to select possibly optimal models and to discard suboptimal ones. In order to carry out ROC analysis we need to count the different kind of errors that are possible. When classifying if a pixel is an edge or not, there are 4 possible situations - \textbf{true positive} (predicted it was an edge and it was), \textbf{false positive} (predicted it was an edge and it wasn't), \textbf{false negative} (predicted it wasn't an edge and it actually was) and \textbf{true negative} (predicted it wasn't an edge and it wasn't).

@@ -21,6 +21,6 @@
 \contentsline {subsection}{\numberline {8.2}Finding Eigenfaces}{6}
 \contentsline {subsection}{\numberline {8.3}Using Eigenfaces}{7}
 \contentsline {section}{\numberline {9}Motion}{7}
-\contentsline {section}{\numberline {10}ROC Analysis}{7}
-\contentsline {section}{\numberline {11}Object Recognition}{8}
-\contentsline {section}{\numberline {12}Model Based Object Recognition}{8}
+\contentsline {section}{\numberline {10}ROC Analysis}{8}
+\contentsline {section}{\numberline {11}Object Recognition}{9}
+\contentsline {section}{\numberline {12}Model Based Object Recognition}{9}
