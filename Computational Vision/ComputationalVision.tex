@@ -142,7 +142,7 @@ top = 30mm
 	
 	Based on this we can draw up some criteria for an optimal method of edge detection:
 	\begin{enumerate}
-		\item \textbf{Good detection}: Minimize the probability of false positives and false negatives (spurious edges and missing real egdes).
+		\item \textbf{Good detection}: Minimize the probability of false positives and false negatives (spurious edges and missing real edges).
 		\item \textbf{Good localization}\index{localization}: Detected edges must be as close as possible to the true edges.
 		\item \textbf{Single response}\index{single response}: Minimise the number of local maxima around the true edge.
 	\end{enumerate}
@@ -153,8 +153,32 @@ top = 30mm
 	Hysteresis thresholding\index{hysteresis thresholding} uses two thresholds - a low threshold $t_{l}$ and a high threshold $t_{h}$ (usually this is $2t_{l}$). This makes the assumption that important edges should be along continuous curves in the image. It allows us to follow a faint section of a given line and to discard a few noisy pixels that do not constitute a line but have produced large gradients. We begin by applying the high threshold - this marks edges that we can be fairly sure that are genuine. Starting from these points, and using the directional information derived earlier, edges can be traced throughout the whole image. While tracing an edge, we apply the lower threshold, allowing us to trace faint sections of edges as long as we find a starting point. 
 
 	\section{Hough Transform}
-	So far we haven't actually found edge segments, just lots and lots of edge points. The Hough Transform\index{hough transform} is a common approach to finding parameterised line segments. Every straight line in an image can be described by an equation. Each edge point in an image, if considered in isolation, could lie on an infinite number of straight lines. In Hough Transform each edge point votes for every line it could be on, and the lines with the most votes win.
-
+	So far we haven't actually found edge segments, just lots and lots of edge points. The Hough Transform\index{hough transform} is a common approach to finding parametrised line segments. Every straight line in an image can be described by an equation. Each edge point in an image, if considered in isolation, could lie on an infinite number of straight lines. In Hough Transform each edge point votes for every line it could be on, and the lines with the most votes win.
+	
+	\par
+	Any line can be represented by using just two numbers - $w$ and $\phi$ - as long as we have a fixed origin point that we describe all lines in relation to. We use $w$ as the distance away from the agreed origin and $\phi$ as the angle to the horizontal. Using these two values we can find a single point in space - we define the line we want to represent as passing through this point and perpendicular to our line which we used to define the point. 
+	
+	\par 
+	Since we can define any line in the image space using $(w, \phi)$, we can represent any line in the image space as a point in the plane defined by $(w, \phi)$. The plane defined by $(w, \phi)$ is known as the \textbf{Hough space}\index{hough space}. We do this for all possible (or as many as we feasibly can do) lines that could pass through the point in the image space, mapping them all to the Hough space. The result of this is a sinusoidal curve in the Hough space. When we expand this to mapping two points in the image space to the Hough space, we will have two sinusoidal curves in the Hough space. The intersection of these two curves has two 'votes' and represents the straight line in the image space that passes through both points. 	
+	
+	The Hough transform also has generalised versions versions for other geometric shapes, such as ellipses and circles.
+	
+	\par 
+	We can sketch an algorithm to describe how the Hough transform works:
+	
+	\begin{verbatim}
+	for each point (x, y)
+	    for each angle p
+	        w = x * cos(p) + y * sin(p)
+	        A[p, w] = A[p, w] + 1
+	    end
+	end
+	
+	where A > Threshold return a line
+	\end{verbatim}
+	
+	When using the straight line transform we need to suppress non-local maxima. We also need to make sure to apply edge thinning to our image before we apply the Hough transform.
+	
 	\section{Scale Invariant Feature Transform}
 	We can now detect features in images. The most basic feature is edges, but through the use of Hough transform\index{hough transform} we can also detect lines and even geometric shapes such as circles. We want to detect features for various reasons, such as object recognition\index{object recognition}, wide baseline matching\index{wide baseline matching} and tracking\index{tracking}. In order to do this we need to make sure our features are scale invariant. Good features should be robust to all sorts of nastiness that can occur between two different images. There are many different causes of invariance:
 	\begin{itemize}
@@ -197,7 +221,7 @@ top = 30mm
 	
 	Initially, we have to figure out how to learn eigenfaces. A method called principle components analysis (PCA)\index{principle components analysis}. In order to use this we have to understand what an eigenvector\index{eigenvector} is and also what covariance\index{covariance} is.
 	
-	To begin, we imagine that our face is simply a (high dimensional) vector of pixels. For humans it's easier to think about 2 dimensions, so we'll do just that and have our data in just two dimensions. But when we have data in two dimensions, we only really need one dimension to represent it. To do this we can take a line through space, and then take the projection of each point onto that line - doing this means we have represented our data in 'one' dimension. The choice of line is important, some lines represent the data in this way well, and some badly. The projection onto some lines separates the data well, and the projection onto some lines separates it badly. However, rather than using a line we can perfom roughly the same trick using a vector $v$. When using a vector, we instead have to scale the vector to obtain any point on the line and this vector is called an \textbf{eigenvector}\index{eigenvector}. The value $\mu$, which we use to project any point on the vector, is our \textbf{eigenvalue}\index{eigenvalue}.
+	To begin, we imagine that our face is simply a (high dimensional) vector of pixels. For humans it's easier to think about 2 dimensions, so we'll do just that and have our data in just two dimensions. But when we have data in two dimensions, we only really need one dimension to represent it. To do this we can take a line through space, and then take the projection of each point onto that line - doing this means we have represented our data in 'one' dimension. The choice of line is important, some lines represent the data in this way well, and some badly. The projection onto some lines separates the data well, and the projection onto some lines separates it badly. However, rather than using a line we can perform roughly the same trick using a vector $v$. When using a vector, we instead have to scale the vector to obtain any point on the line and this vector is called an \textbf{eigenvector}\index{eigenvector}. The value $\mu$, which we use to project any point on the vector, is our \textbf{eigenvalue}\index{eigenvalue}.
 	
 		$\text{An eigenvector is a vector v that obeys the rule } \mathbf{A}v = \mu v$ where $\mathbf{A}$ is a matrix, $\mu$ is a eigenvalue. A few rules about eigenvectors:
 		\begin{itemize}
@@ -245,7 +269,7 @@ top = 30mm
 	The Moravec operator\index{moravec operator} is a corner detector. It defines interest points as points where there is a large intensity variation in every direction, which is the case at corners. One side-effect is that it is very sensitive to detecting isolated pixels as corners.
 	
 	\par 
-	Once we have points of interest, we try to match the points in one image with the points in another. Using this we can estimate the motion that has occured. Motion correspondance\index{motion correspondence} is guided by three principles:
+	Once we have points of interest, we try to match the points in one image with the points in another. Using this we can estimate the motion that has occurred. Motion correspondence\index{motion correspondence} is guided by three principles:
 	\begin{enumerate}
 		\item \textbf{Discreteness}\index{discreteness}: a measure of the distinctiveness of individual points
 		\item \textbf{Similarity}\index{similarity}: a measure of how closely two points resemble one another
@@ -281,8 +305,40 @@ Once classifying each pixel, we then count the total number of each label (TP, F
 	All of the optimal detectors lie on the convex hull - the best possible position is for a detector to lie in the top left corner. It should be noted that if the edge detector lies below the dotted line then we can instantly make the detector better by simply just flipping the output of the algorithm!
 		
 	\section{Object Recognition}
+	Object recognition\index{object recognition} aims to find objects in the real world from an image of the real world using previously known models. We could define this as a labelling problem based on models of known objects. In order to successfully recognise objects, we need the following components
+	\begin{itemize}
+		\item A model database, sometimes referred to as a model base
+		\item A feature detector
+		\item A hypothesizer
+		\item A hypothesis verifier
+	\end{itemize}
 
+	The \textbf{model database} contains all models known to the system. Information in a model depends on the approach used for recognition. It may be precise geometric surface information or something more abstract such as a functional description. The \textbf{feature detector}\index{feature detector} applies operators to the image and identifies the location of features. This depends on the type of objects and organisation of the model database. The \textbf{hypothesizer}\index{hypothesizer} uses detected features in an image to assign likelihoods to the objects present. This reduces the search space by using certain features. The \textbf{hypothesis verifier}\index{hypothesis verifier} uses object models to verify the hypothesis to refine the likelihoods of objects.
+	
+	\par 
+	This method is not without issues. We need to consider how exactly we should represent our models in the model base compared to how the object is in real life. For example a red ball may not always be circular if it is a bouncy ball. The representation should capture all relevant information and be well organised. Additionally, when extracting features we need to decide on the features to extract as we may only be interested in a select few kinds.
+	
 	\section{Model Based Object Recognition}
+	In the 1970s David Marr defined a coherent approach to the study of vision. He stated that vision is primarily a complex information task with a goal of capturing and representing the various aspects of the world that are of use. For example, if we are looking for something right in front of us, we might not care about the information on the periphery as that's not in use. Marr saw the brain as being exactly the same as a very complex computer, and used his ideas to try and model the function of the visual system. His computational approach had three levels:
+	\begin{itemize}
+		\item \textbf{Computational theory}: What is the model trying to accomplish? What are the processes for?
+		\item \textbf{Algorithmic level}: What algorithm is needed? What sort of process might be needed?
+		\item \textbf{Mechanism level}: What mechanism is needed to implement the algorithm? For example, with the brain this would be its neurology.
+	\end{itemize}
+	
+	The problem that presents itself is that we can't be entirely sure that these theories are truly representative of actual brain functions because we cannot infer an algorithm from the properties of cells. Marrs contribution was to the 'computational theory' step in the vision process.
+	
+	\par 
+	According to Marr, vision was a process of reconstructing the 3D scene from 2D information. The vision system must therefore have representations of 3D geometric structures so selecting models and recovering their parameters from image data is a key task in vision. Marr's approach was based on three main representations: the primal sketch, the 2.5D sketch and the 3D model. The primal sketch is the description of the intensity changes in the image and their local geometry - intensity variations in the image are likely to correspond to the physical reality. The 2.5D sketch is the viewer centred description of orientation, contour and depth. The 3D model is the object centred representation of 3D objects.
+	
+	\par 
+	The Model based approach takes a somewhat object-centred approach and states that object recognition involves finding axes of symmetry\index{axes of symmetry} to interpret objects. It also identifies the use of 'generalised cones'\index{generalised cones} in recognising things. For example, the brain may treat a human as a set of conical shapes, like a mannequin. This makes sense, as it would be very inefficient when looking at a person for the visual system to process every single hair on their head. Instead, Marr says we generalise it to get a general impression of 'hairiness'.
+	
+	\par 
+	There is an infinite variety of objects - how would we go about storing, representing and accessing models of them efficiently? One possible solution is to use a small library of 3D parts, from which we will construct many complex models. There are many schemes which use this approach: generalised cylinders, Geons etc. Biederman's 'Recognition by Components Theory' proposes that visual input is matched against structural representations of objects in the brain, consisting of geons and their interrelations. One problem of this comes from the idea of model vs appearance. To demonstrate this - something may look very different if viewed from the side rather than straight on. As a result, we would have to build many many models to deal with the same object from different perspectives. An approach to fixing this was the use of statistics - for example using a SIFT based recognition. When recognising a model, if we have 75\% of the features with a 95\% match, we can be reasonably certain we have the correct model.
+	
+	\par 
+	Another problem is proposed once we move to category level recognition. We no longer have exact correspondence between features. For example, two different cars may look roughly the same but not exactly and do not have the same features as one another such as the lights being in different places. We need to encode structure to fix this problem. We use various parts of the image separately in order to determine if and where an object of interest exists. We use smaller part detectors and make a judgement about whether an image has an object based on the relative positions in which the components exist.
 	\newpage
 	\listoffigures
 	\printindex

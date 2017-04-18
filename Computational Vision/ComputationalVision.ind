@@ -5,33 +5,45 @@
 
   \indexspace
 
-  \item chiasm, 2
-  \item colour map, 2
-  \item cones, 1
-  \item connectedness, 7
-  \item consistency, 8
-  \item covariance, 6
+  \item axes of symmetry, 10
 
   \indexspace
 
-  \item difference of gaussian, 5
+  \item chiasm, 2
+  \item colour map, 2
+  \item cones, 1
+  \item connectedness, 8
+  \item consistency, 8
+  \item covariance, 7
+
+  \indexspace
+
+  \item difference of gaussian, 6
   \item discreteness, 8
-  \item DOG method, 5
+  \item DOG method, 6
 
   \indexspace
 
   \item eigenface, 6
-  \item eigenvalue, 6
-  \item eigenvector, 6
+  \item eigenvalue, 7
+  \item eigenvector, 7
+
+  \indexspace
+
+  \item feature detector, 9
 
   \indexspace
 
   \item ganglion cell, 1
   \item gaussian filter, 3
+  \item generalised cones, 10
 
   \indexspace
 
+  \item hough space, 5
   \item hough transform, 4, 5
+  \item hypothesis verifier, 9
+  \item hypothesizer, 9
   \item hysteresis thresholding, 4
 
   \indexspace
@@ -50,16 +62,16 @@
 
   \item mean filter, 3
   \item moravec operator, 8
-  \item motion, 7
+  \item motion, 8
   \item motion correspondence, 8
 
   \indexspace
 
-  \item noise, 7
+  \item noise, 8
 
   \indexspace
 
-  \item object recognition, 5
+  \item object recognition, 5, 9
   \item optic nerve, 2
 
   \indexspace
@@ -69,21 +81,21 @@
   \item photoreceptors, 1
   \item pinhole camera, 1
   \item pixel, 2
-  \item principle components analysis, 6
-  \item pyramid method, 5
-  \item pyramids, 5
+  \item principle components analysis, 7
+  \item pyramid method, 6
+  \item pyramids, 6
 
   \indexspace
 
   \item receptive field, 1
   \item retina, 1
   \item rods, 1
-  \item rotational invariance, 5
+  \item rotational invariance, 6
 
   \indexspace
 
-  \item scale invariant, 5
-  \item scale space, 5
+  \item scale invariant, 6
+  \item scale space, 6
   \item signal-to-noise ratio, 4
   \item similarity, 8
   \item single response, 4

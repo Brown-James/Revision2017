@@ -8,4 +8,5 @@
 \contentsline {subsection}{\numberline {3.2}Section 2}{2}
 \contentsline {subsection}{\numberline {3.3}Section 3}{2}
 \contentsline {section}{\numberline {4}Data Protection Act}{2}
-\contentsline {section}{\numberline {5}Freedom of Information Act}{2}
+\contentsline {section}{\numberline {5}Regulation of Investigatory Powers}{3}
+\contentsline {section}{\numberline {6}Freedom of Information Act}{4}

@@ -1,0 +1,31 @@
+\indexentry{instructions}{1}
+\indexentry{data}{1}
+\indexentry{high level language}{1}
+\indexentry{assembly language}{1}
+\indexentry{operating system}{1}
+\indexentry{instruction set}{1}
+\indexentry{microarchitecture}{1}
+\indexentry{digital logic}{1}
+\indexentry{transistor}{1}
+\indexentry{von Neumann architecture}{1}
+\indexentry{main memory}{1}
+\indexentry{volatile}{2}
+\indexentry{load/store unit}{2}
+\indexentry{registers}{2}
+\indexentry{instruction register}{2}
+\indexentry{control unit}{2}
+\indexentry{ALU}{2}
+\indexentry{ALU}{2}
+\indexentry{arithmetic and logic unit}{2}
+\indexentry{program counter}{2}
+\indexentry{cache}{2}
+\indexentry{long-term memory}{2}
+\indexentry{IO controller}{2}
+\indexentry{bus}{2}
+\indexentry{bus controller}{2}
+\indexentry{instruction execution cycle}{2}
+\indexentry{fetch-decode-execute cycle}{3}
+\indexentry{main memory}{3}
+\indexentry{entry point}{3}
+\indexentry{von Neumann bottleneck}{4}
+\indexentry{harvard architecture}{4}

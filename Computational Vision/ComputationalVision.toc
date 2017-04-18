@@ -14,13 +14,13 @@
 \contentsline {section}{\numberline {6}Hough Transform}{4}
 \contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{5}
 \contentsline {subsection}{\numberline {7.1}Dealing with Illumination Invariance}{5}
-\contentsline {subsection}{\numberline {7.2}Dealing with Scale Invariance}{5}
-\contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{5}
-\contentsline {section}{\numberline {8}Face Recognition}{5}
+\contentsline {subsection}{\numberline {7.2}Dealing with Scale Invariance}{6}
+\contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{6}
+\contentsline {section}{\numberline {8}Face Recognition}{6}
 \contentsline {subsection}{\numberline {8.1}Eigenfaces}{6}
-\contentsline {subsection}{\numberline {8.2}Finding Eigenfaces}{6}
+\contentsline {subsection}{\numberline {8.2}Finding Eigenfaces}{7}
 \contentsline {subsection}{\numberline {8.3}Using Eigenfaces}{7}
-\contentsline {section}{\numberline {9}Motion}{7}
-\contentsline {section}{\numberline {10}ROC Analysis}{8}
+\contentsline {section}{\numberline {9}Motion}{8}
+\contentsline {section}{\numberline {10}ROC Analysis}{9}
 \contentsline {section}{\numberline {11}Object Recognition}{9}
-\contentsline {section}{\numberline {12}Model Based Object Recognition}{9}
+\contentsline {section}{\numberline {12}Model Based Object Recognition}{10}

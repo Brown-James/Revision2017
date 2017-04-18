@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  7 APR 2017 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  17 APR 2017 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -210,15 +210,14 @@ Overfull \hbox (1.70831pt too wide) in paragraph at lines 36--36
 s 
  []
 
-[1] [2] [3] [4] (./ModelsOfComputation.lof)
+[1] [2] [3] [4] [5] (./ModelsOfComputation.lof)
 \tf@lof=\write5
 \openout5 = `ModelsOfComputation.lof'.
 
- [5]
+ [6]
 runsystem(makeindex ModelsOfComputation.idx)...executed safely (allowed).
 
- (./ModelsOfComputation.ind)
-[6
+ (./ModelsOfComputation.ind) [7
 
 ] (./ModelsOfComputation.aux) ) 
 Here is how much of TeX's memory you used:
@@ -240,10 +239,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ModelsOfComputation.pdf (8 pages, 145639 bytes).
+Output written on ModelsOfComputation.pdf (9 pages, 148488 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

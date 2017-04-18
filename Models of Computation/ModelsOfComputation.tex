@@ -65,7 +65,7 @@ top = 30mm
 	
 	\section{Finite State Automata}
 
-	\section{Regular Languages}	
+	\section{Regular Languages}
 	
 	\section{Bisimulation and Minimisation}
 		
@@ -146,7 +146,19 @@ top = 30mm
 		
 	\section{Properties of Code}
 	
+	\subsection{Rice's Theorem}
+	Rice's theorem\index{rice's theorem} states that every non-trivial semantic property of code is undecidable. We define a trivial property\index{trivial property} is one which either holds for everything or holds for nothing.
+	\par 
+	To prove Rice's theorem, we let $\alpha$ be a non-trivial semantic property of code and let \texttt{alwayshang} be a piece of code that always hangs regardless of argument. We say that \texttt{alwayshang} doesn't satisfy $\alpha$, and since $\alpha$ is non-trivial we can say that there is another piece of code $C$ that does. For any nullary program $P$, we form $F(P)$ by inserting $P$ at the start of the code $C$.
+	\begin{itemize}
+		\item If $P$ terminates, then $F(P)$ has the same semantics as $C$. Because $\alpha$ is semantic and $C$ satisfies $\alpha$, $F(P)$ does too.
+		\item If $P$ hangs, then $F(P)$ has the same semantics as \texttt{alwayshang}. Since $\alpha$ is semantic and \texttt{alwayshang} doesn't satisfy $\alpha$, $F(P)$ also doesn't.
+	\end{itemize}
+	
+	In short, $P$ will terminate if and only if $F(P)$ satisfies $\alpha$. This means that if we can test for $\alpha$, we can also test whether $P$ terminates by testing if $F(P)$ satisfies $\alpha$. We've already proven that we can't prove $P$ terminates, so we must not be able to test for $\alpha$ - meaning $\alpha$ is undecidable\index{undecidable}.
+	
 	\section{Turing Machines}
+	In 1936, Alan Turing\index{alan turing} invented the \textbf{turing machine}\index{turing machine}. Turing machines are very simple computers, and have a very limited set of instructions that they can execute. They have finitely many states, but also have an infinite tape which they can compute upon. Because of this, a Turing machine is an idealized computer and can never exist in the physical world.
 	
 	\section{Church's Thesis}
 	
