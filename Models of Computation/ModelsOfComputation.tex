@@ -158,15 +158,44 @@ top = 30mm
 	In short, $P$ will terminate if and only if $F(P)$ satisfies $\alpha$. This means that if we can test for $\alpha$, we can also test whether $P$ terminates by testing if $F(P)$ satisfies $\alpha$. We've already proven that we can't prove $P$ terminates, so we must not be able to test for $\alpha$ - meaning $\alpha$ is undecidable\index{undecidable}.
 	
 	\section{Turing Machines}
-	In 1936, Alan Turing\index{alan turing} invented the \textbf{turing machine}\index{turing machine}. Turing machines are very simple computers, and have a very limited set of instructions that they can execute. They have finitely many states, but also have an infinite tape which they can compute upon. Because of this, a Turing machine is an idealized computer and can never exist in the physical world.
+	In 1936, Alan Turing\index{alan turing} invented the \textbf{turing machine}\index{turing machine}. Turing machines are very simple computers, and have a very limited set of instructions that they can execute. They have finitely many states, but also have an infinite tape which they can compute upon. Because of this, a Turing machine is an idealized computer and can never exist in the physical world. Turing machines are very convenient for analysing the running times of algorithms. Firstly, the time taken for an algorithm scales straightforwardly as the size of the input increases. They typically tend to treat inputs of size ten or one million in the same way. Secondly, every step of computation is made explicit in a very conservative way.
+	
+	\par 
+	Turing machines have finitely many \textbf{states} and an infinite tape, with a \textbf{head}\index{head} which sits over one space of the tape. They also have a finite tape alphabet $T$, and each space on the tape contains a letter which is contained in $T$. $T$ also contains the blank character, $\textvisiblespace \in T$, which is particularly important. All but finitely many spaces on the tape are blank - it never happens that infinitely many spaces contain actual, non-blank, characters. The two properties of a Turing machine - unlimited time and unlimited space - are essential.
+	
+	\par 
+	Let $T$, the \textbf{tape alphabet} be a finite set of characters. Let $R$ be a finite set of \textbf{return values}. This is commonly just a singleton set, which would be analagous to \texttt{void} in Java, and simply tells us whether the prorgam returns (halts, terminates) or runs forever. It may also be a larger set, like a two-element set analagous to \texttt{boolean} for example. A Turing machine over $T$ and $R$ consists for the following data:
+	\begin{itemize}
+		\item A finite set $Q$ of states
+		\item An initial state\index{initial state} $q_{0} \in Q$
+		\item A transition function\index{transition function} $\delta$ from $Q$ to the following set of behaviours:
+			\begin{itemize}
+				\item $(T \rightarrow Q)$ (read from current position)
+				\item $(T \times Q)$ (write to current position)
+				\item $Q$ (move left)
+				\item $Q$ (move right)
+				\item $Q$ (do nothing)
+				\item $R$ (stop)
+			\end{itemize}
+	\end{itemize}
 	
 	\section{Church's Thesis}
+	\textit{'What ever can be done by any computational device can be done by a Turing machine'}
+	\linebreak
+	
+	\par Church's thesis cannot be proven - it's entirely possible for someone to invent a new way of computation which extends the capabilities of programs as we know them. On the other hand, nobody has been able to come up with an alternative to Turing machines - the more time that passes to more plausible Church's thesis becomes.
 	
 	\section{Complexity and P}
 	
 	\section{NP}
 	
 	\section{Lambda-calculus}
+	Alonzo Church developed a notation for arbitrary \textbf{functions} called $\lambda$-calculus. It is an extremely economical notation but at first sight somewhat cryptic, which stems from its origins in mathematical logic. Expressions in $\lambda$-calculus are written in strict prefix form. Further, function and argument are simply written next to each other without brackets around the argument.
+	
+	
+	\subsection{Church-Rosser Theorem}
+	
+	\subsection{Typed Lambda-calculus}
 	
 	\newpage
 	\listoffigures

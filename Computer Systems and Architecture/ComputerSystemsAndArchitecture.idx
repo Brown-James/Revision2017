@@ -8,7 +8,7 @@
 \indexentry{digital logic}{1}
 \indexentry{transistor}{1}
 \indexentry{von Neumann architecture}{1}
-\indexentry{main memory}{1}
+\indexentry{main memory}{2}
 \indexentry{volatile}{2}
 \indexentry{load/store unit}{2}
 \indexentry{registers}{2}
@@ -29,3 +29,18 @@
 \indexentry{entry point}{3}
 \indexentry{von Neumann bottleneck}{4}
 \indexentry{harvard architecture}{4}
+\indexentry{instruction set}{5}
+\indexentry{turing complete}{5}
+\indexentry{complex instruction set computer}{5}
+\indexentry{reduced instruction set computer}{5}
+\indexentry{microcoding}{5}
+\indexentry{register operation}{7}
+\indexentry{microarchitecture}{8}
+\indexentry{datapath}{8}
+\indexentry{control logic}{8}
+\indexentry{transistor}{8}
+\indexentry{NMOS}{8}
+\indexentry{PMOS}{8}
+\indexentry{gnd}{8}
+\indexentry{vdd}{8}
+\indexentry{not gate}{8}

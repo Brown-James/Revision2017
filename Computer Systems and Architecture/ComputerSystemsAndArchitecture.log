@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  18 APR 2017 22:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.2)  21 APR 2017 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -386,30 +386,84 @@ Package pdftex.def Info: images/von_neumann.png used on input line 50.
 File: images/mips_architecture.png Graphic file (type png)
 
 <use images/mips_architecture.png>
-Package pdftex.def Info: images/mips_architecture.png used on input line 134.
+Package pdftex.def Info: images/mips_architecture.png used on input line 135.
 (pdftex.def)             Requested size: 426.79135pt x 217.9545pt.
  [4 <./images/mips_architecture.png>]
-[5] (./ComputerSystemsAndArchitecture.lof)
+[5] <images/mips_register_conventions.png, id=36, 607.26875pt x 368.37625pt>
+File: images/mips_register_conventions.png Graphic file (type png)
+
+<use images/mips_register_conventions.png>
+Package pdftex.def Info: images/mips_register_conventions.png used on input lin
+e 210.
+(pdftex.def)             Requested size: 298.75264pt x 181.23103pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] <images/rtype_instruction.png, id=40, 515.9275pt x 64.24pt>
+File: images/rtype_instruction.png Graphic file (type png)
+
+<use images/rtype_instruction.png>
+Package pdftex.def Info: images/rtype_instruction.png used on input line 224.
+(pdftex.def)             Requested size: 298.75264pt x 37.19942pt.
+
+<images/mips_load_store_instructions.png, id=41, 522.95375pt x 62.2325pt>
+File: images/mips_load_store_instructions.png Graphic file (type png)
+
+<use images/mips_load_store_instructions.png>
+Package pdftex.def Info: images/mips_load_store_instructions.png used on input 
+line 236.
+(pdftex.def)             Requested size: 298.75264pt x 35.55266pt.
+ [7 <./images/mips_register_conventions.png> <./images/rtype_instruction.png> <
+./images/mips_load_store_instructions.png>]
+Underfull \hbox (badness 1043) in paragraph at lines 262--262
+[]\OT1/cmr/m/n/10 Figure 6: (Left) Cir-cuit sym-bol for an
+ []
+
+<images/transistors.png, id=45, 318.18875pt x 182.6825pt>
+File: images/transistors.png Graphic file (type png)
+
+<use images/transistors.png>
+Package pdftex.def Info: images/transistors.png used on input line 265.
+(pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
+
+<images/not_gate_transistors.png, id=47, 238.8925pt x 322.20375pt>
+File: images/not_gate_transistors.png Graphic file (type png)
+
+<use images/not_gate_transistors.png>
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 273
+.
+(pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
+ [8 <./images/transistors.png> <./images/not_gate_transistors.png>]
+<images/nand_nor_transistors.png, id=52, 566.115pt x 391.4625pt>
+File: images/nand_nor_transistors.png Graphic file (type png)
+
+<use images/nand_nor_transistors.png>
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 286
+.
+(pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
+ [9 <./images/nand_nor_transistors.png>]
+(./ComputerSystemsAndArchitecture.lof)
 \tf@lof=\write5
 \openout5 = `ComputerSystemsAndArchitecture.lof'.
 
- [6]
+ [10]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
 
-(./ComputerSystemsAndArchitecture.ind) [7
+(./ComputerSystemsAndArchitecture.ind) [11
 
 ]
 (./ComputerSystemsAndArchitecture.aux) ) 
 Here is how much of TeX's memory you used:
- 3685 strings out of 494497
- 53204 string characters out of 6172400
- 130411 words of memory out of 5000000
- 7037 multiletter control sequences out of 15000+600000
+ 3721 strings out of 494497
+ 54368 string characters out of 6172400
+ 130459 words of memory out of 5000000
+ 7067 multiletter control sequences out of 15000+600000
  9537 words of font info for 35 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 38i,6n,64p,1406b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,64p,1406b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
@@ -419,10 +473,10 @@ r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (9 pages, 204000 bytes).
+Output written on ComputerSystemsAndArchitecture.pdf (13 pages, 297092 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

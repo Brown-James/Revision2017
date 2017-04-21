@@ -4,12 +4,25 @@
 \contentsline {subsubsection}{\numberline {2.1.1}von Neumann Architecture}{1}
 \contentsline {subsubsection}{\numberline {2.1.2}The Clock Cycle}{2}
 \contentsline {subsubsection}{\numberline {2.1.3}Executing Programs}{2}
-\contentsline {subsection}{\numberline {2.2}Harvard Architecture}{3}
+\contentsline {subsection}{\numberline {2.2}Harvard Architecture}{4}
 \contentsline {subsection}{\numberline {2.3}Case Studies}{4}
 \contentsline {subsubsection}{\numberline {2.3.1}MIPS}{4}
 \contentsline {subsubsection}{\numberline {2.3.2}Intel x86}{4}
 \contentsline {section}{\numberline {3}Instruction Sets and Assembly Language}{5}
-\contentsline {section}{\numberline {4}CPU Microarchitecture}{5}
-\contentsline {section}{\numberline {5}Digital Logic}{5}
-\contentsline {section}{\numberline {6}I/O and Peripherals}{5}
-\contentsline {section}{\numberline {7}Improving Performance}{5}
+\contentsline {subsection}{\numberline {3.1}Types of Instruction Set}{5}
+\contentsline {subsection}{\numberline {3.2}Types of MIPS Instructions}{6}
+\contentsline {subsection}{\numberline {3.3}MIPS Register Conventions}{6}
+\contentsline {subsection}{\numberline {3.4}Machine Code}{6}
+\contentsline {subsection}{\numberline {3.5}Further MIPS instructions}{8}
+\contentsline {section}{\numberline {4}CPU Microarchitecture}{8}
+\contentsline {subsection}{\numberline {4.1}MIPS Microarchitecture}{8}
+\contentsline {subsection}{\numberline {4.2}Integrating the Datapath}{8}
+\contentsline {subsection}{\numberline {4.3}CPU Control}{8}
+\contentsline {section}{\numberline {5}Digital Logic}{8}
+\contentsline {subsection}{\numberline {5.1}Digital Logic}{9}
+\contentsline {subsection}{\numberline {5.2}Number Representation}{9}
+\contentsline {subsection}{\numberline {5.3}Clocked Logic}{9}
+\contentsline {section}{\numberline {6}I/O and Peripherals}{9}
+\contentsline {section}{\numberline {7}Improving Performance}{9}
+\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{9}
+\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{9}

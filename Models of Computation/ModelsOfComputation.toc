@@ -14,3 +14,5 @@
 \contentsline {section}{\numberline {10}Complexity and P}{5}
 \contentsline {section}{\numberline {11}NP}{5}
 \contentsline {section}{\numberline {12}Lambda-calculus}{5}
+\contentsline {subsection}{\numberline {12.1}Church-Rosser Theorem}{5}
+\contentsline {subsection}{\numberline {12.2}Typed Lambda-calculus}{5}
