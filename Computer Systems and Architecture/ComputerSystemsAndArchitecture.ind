@@ -1,5 +1,6 @@
 \begin{theindex}
 
+  \item adder, 10
   \item ALU, 2
   \item arithmetic and logic unit, 2
   \item assembly language, 1
@@ -26,6 +27,7 @@
   \indexspace
 
   \item entry point, 3
+  \item exclusive OR, 10
 
   \indexspace
 
@@ -37,6 +39,7 @@
 
   \indexspace
 
+  \item half-adder, 10
   \item harvard architecture, 4
   \item high level language, 1
 
@@ -58,15 +61,17 @@
   \item main memory, 2, 3
   \item microarchitecture, 1, 8
   \item microcoding, 5
+  \item multiplexer, 10
 
   \indexspace
 
   \item NMOS, 8
-  \item not gate, 8
+  \item not gate, 9
 
   \indexspace
 
   \item operating system, 1
+  \item overflow, 11
 
   \indexspace
 

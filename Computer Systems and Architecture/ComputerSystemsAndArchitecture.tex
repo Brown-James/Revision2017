@@ -256,6 +256,8 @@ top = 30mm
 	\subsection{CPU Control}
 	
 	\section{Digital Logic}
+	\subsection{Digital Logic}
+	\subsubsection{Transistors}
 	The basic building block of the modern integrated circuit CPU is the \textbf{transistor}\index{transistor}. For the purpose of this course, we only need to know the transistors are essentially switches which are controlled by their gate voltage. Depending on the type of transistor (NMOS\index{NMOS} or PMOS\index{PMOS}), they will either conduct or not conduct when a voltage is applied to the gate. An NMOS transistor will conduct when the gate is at a positive voltage , and a PMOS transistor will conduct when the gate has no voltage - otherwise it doesn't conduct.
 	
 	\begin{figure}[h]
@@ -289,39 +291,103 @@ top = 30mm
 		\label{fig:nand_nor_transistors}
 	\end{figure}
 	
+	\subsubsection{Decoders}
 	\par 
 	\textbf{Combinational logic}\index{combinational logic} is the general term for blocks of digital logic which contain no form of memory - the input must be determined solely by it inputs - and is made from networks of the simple logic gates we have just defined. Example of combinational logic we have seen whilst building the MIPS datapath include multiplexers, simple adders, and even an entire (non-pipelined) ALU.
 	
 	\par 
-	Consider a simple block of combinational logic with two inputs and four outputs - a decoder. This is designed so that each of the four possible input combinations uniquely selects only one of the four outputs. This circuit is common in memories where it is used to select a unique memory location based on the presented address. We start by describing the truth table for this circuit:
-	\begin{figure}[ht]
-		\centering
-		\begin{tabular}{c c | c c c c}
-		i0 & i1 & Q1 & Q2 & Q3 & Q4  \\ \hline
-		0 & 0 & 1 & 0 & 0 & 0 \\
-		0 & 1 & 0 & 1 & 0 & 0 \\
-		1 & 0 & 0 & 0 & 1 & 0 \\
-		1 & 1 & 0 & 0 & 0 & 1
-		\end{tabular}
-		\caption{Truth table for a two input decoder}
-		\label{fig:truth table two input decoder}
+	Consider a simple block of combinational logic with two inputs and four outputs - a decoder. This is designed so that each of the four possible input combinations uniquely selects only one of the four outputs. This circuit is common in memories where it is used to select a unique memory location based on the presented address. We start by describing the truth table for this circuit as shown in the figure below. By inspecting the truth table, we can construct its function as a set of logic equations shown next to the truth table.
+	\begin{figure}[h]
+		\begin{minipage}[t]{.45\textwidth}
+			\centering
+			\begin{tabular}{c c | c c c c}
+				i0 & i1 & Q1 & Q2 & Q3 & Q4  \\ \hline
+				0 & 0 & 1 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 1 & 0 & 0 \\
+				1 & 0 & 0 & 0 & 1 & 0 \\
+				1 & 1 & 0 & 0 & 0 & 1
+			\end{tabular}
+			\caption{Truth table for a two input decoder}
+			\label{fig:truth table two input decoder}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{.45\textwidth}
+			\begin{itemize}
+				\item $Q_{1} = \neg A \wedge \neg B$
+				\item $Q_{2} = \neg A \wedge B$
+				\item $Q_{3} = A \wedge \neg B$
+				\item $Q_{4} = A \wedge B$
+			\end{itemize}
+		\end{minipage}
 	\end{figure}
 	
-	By inspecting the truth table, we can construct its function as a set of logic equations:
-	\begin{itemize}
-		\item $Q_{1} = \neg A \wedge \neg B$
-		\item $Q_{2} = \neg A \wedge B$
-		\item $Q_{3} = A \wedge \neg B$
-		\item $Q_{4} = A \wedge B$
-	\end{itemize}
-	
 	From here it becomes trivial to translate this into a circuit diagram - you simply have to read off the logical operations (here, the mixtures of \textbf{NOT} and \textbf{AND}) and insert the appropriate gates.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{2_4_decoder}
+		\caption{A 2-4 decoder built from logic gates}
+		\label{fig:2 4 decoder}
+	\end{figure}
 	
-	\begin{circuitikz}
+	\subsubsection{Multiplexers}
+	We can also build \textbf{multiplexers}\index{multiplexer} which are a very common component in the CPU. 2-1 Multiplexers are described by the logic equation $Q = (S \wedge I_{1}) \vee (\neg S \wedge I_{0})$, and the truth table is shown below.	Just as we did for a 2-4 decoder, we can easily build a 2-1 multiplexer from a few logic gates as described by its logic equation. In order to build 32-bit multiplexers, all we require are 32 single-bit multiplexers which share the same select signal 'S'.
 	
-	\end{circuitikz}
+	\begin{figure}[ht]
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\begin{tabular}{c c | c | c}
+				i0 & i1 & S & Q \\ \hline
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 1 & 0 \\
+				0 & 1 & 0 & 0 \\
+				0 & 1 & 1 & 1 \\
+				1 & 0 & 0 & 1 \\
+				1 & 0 & 1 & 0 \\
+				1 & 1 & 0 & 1 \\
+				1 & 1 & 1 & 1 \\
+			\end{tabular}
+			\caption{Truth table for a 2-1 multiplexer}
+		\label{fig:2 1 multiplexer}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+			\includegraphics[width=1\textwidth]{2_1_multiplexer}
+			\caption{A 2-1 multiplexer built from logic gates}
+			\label{fig:2 1 multiplexer}
+		\end{minipage}
+	\end{figure}
 	
-	\subsection{Digital Logic}
+	\subsubsection{A Simple Adder}
+	An \textbf{adder}\index{adder} is used both in the ALU and in several other places of the datapath. We will design a circuit which is able to add unsigned integers, two's-complement integers and both unsigned and two's-complement fixed-point numbers. For single digit binary addition, we know that $0 + 0 = 0$, $1 + 0 = 0 + 1 = 1$ and $1 + 1 = 0$ with a carry bit of $1$. The carry bit of $1 + 1$ means we will need to introduce a second output which will function as our carry bit. It follows that we can easily express the carry bit as $C = A \wedge B$. In order to do the sum itself we need to introduce a new logical operation, \textbf{exclusive-OR} (otherwise known as \textbf{XOR})\index{exclusive OR}. \textbf{XOR} is indentical to and \textbf{OR} gate but does not output $1$ if both input are also $1$. Using and \textbf{XOR} we can fully implement single-bit addition. The circuit which achieves this is commonly called a \textbf{half-adder}\index{half-adder}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.3\textwidth]{single_bit_adder}
+		\caption{Logic gates which implemet a half-adder}
+		\label{fig:half adder}
+	\end{figure}
+	
+	This is clearly very limited as it can only add single bits together and we would like to add multiple-bit binary numbers. We can use a half-adder for the least-significant bit, but for higher bits we need to be able to carry in the the carry bit from the preceeding bit. We can easily achieve the sum using a pair of half-adders where the first adds $I_{1}$ to $I_{2}$, and the second adds the result of the previous to $C_{in}$. The carry bit of this addition is then the \textbf{XOR} of the carry bits from the two half-adders.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{full_adder}
+		\caption{A full-adder built from two half adders and an \textbf{XOR} gate}
+		\label{fig:full_adder}
+	\end{figure}
+	
+	We can now join lots of full adders (and one half-adder for the least-significant bit) together to create on single 32-bit adder. The carry bit from the most significant bit in the calculation will be used to indicate \textbf{overflow}\index{overflow} (the result was too large to store in 32-bits).
+	
+	\subsubsection{A Simple ALU}
+	Now we can build an adder, we can put together a simple ALU which can achieve addition of two numbers, bitwise-AND and bitwise-OR. To do this we take our 32-bit adder and modify it by adding one \textbf{AND} gate per bit and one \textbf{OR} bit per bit (with some multiplexers to select the operation we actually want to perform). We can then program the ALU by using the ALUOp signal to select the chosen function. It is not too dificult to see how you could add additional functionality from here.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=1\textwidth]{simple_ALU}
+		\caption{A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}
+		\label{fig:simple ALU}
+	\end{figure}	
+	
 	\subsection{Number Representation}
 	\subsection{Clocked Logic}
 	

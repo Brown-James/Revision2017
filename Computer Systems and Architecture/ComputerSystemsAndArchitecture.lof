@@ -7,3 +7,9 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces The logical operator \textbf {NOT} built from transistors}}{8}
 \contentsline {figure}{\numberline {8}{\ignorespaces (Left) A \textbf {NAND} gate built from four transistors. (Right) A \textbf {NOR} gate built from four transistors}}{9}
 \contentsline {figure}{\numberline {9}{\ignorespaces Truth table for a two input decoder}}{9}
+\contentsline {figure}{\numberline {10}{\ignorespaces A 2-4 decoder built from logic gates}}{10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Truth table for a 2-1 multiplexer}}{10}
+\contentsline {figure}{\numberline {12}{\ignorespaces A 2-1 multiplexer built from logic gates}}{10}
+\contentsline {figure}{\numberline {13}{\ignorespaces Logic gates which implemet a half-adder}}{11}
+\contentsline {figure}{\numberline {14}{\ignorespaces A full-adder built from two half adders and an \textbf {XOR} gate}}{11}
+\contentsline {figure}{\numberline {15}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{12}

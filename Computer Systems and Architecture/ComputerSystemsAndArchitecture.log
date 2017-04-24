@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  23 APR 2017 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  24 APR 2017 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,7 +572,11 @@ Package geometry Warning: Over-specification in `v'-direction.
 \openout4 = `ComputerSystemsAndArchitecture.idx'.
 
 Writing index file ComputerSystemsAndArchitecture.idx
-(./ComputerSystemsAndArchitecture.aux)
+(./ComputerSystemsAndArchitecture.aux
+
+LaTeX Warning: Label `fig:2 1 multiplexer' multiply defined.
+
+)
 \openout1 = `ComputerSystemsAndArchitecture.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -587,8 +591,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count137
 \scratchdimen=\dimen199
@@ -731,7 +734,7 @@ line 237.
 (pdftex.def)             Requested size: 298.75264pt x 35.55266pt.
  [7 <./images/mips_register_conventions.png> <./images/rtype_instruction.png> <
 ./images/mips_load_store_instructions.png>]
-Underfull \hbox (badness 1043) in paragraph at lines 263--263
+Underfull \hbox (badness 1043) in paragraph at lines 265--265
 []\OT1/cmr/m/n/10 Figure 6: (Left) Cir-cuit sym-bol for an
  []
 
@@ -739,14 +742,14 @@ Underfull \hbox (badness 1043) in paragraph at lines 263--263
 File: images/transistors.png Graphic file (type png)
 
 <use images/transistors.png>
-Package pdftex.def Info: images/transistors.png used on input line 266.
+Package pdftex.def Info: images/transistors.png used on input line 268.
 (pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
 
 <images/not_gate_transistors.png, id=50, 238.8925pt x 322.20375pt>
 File: images/not_gate_transistors.png Graphic file (type png)
 
 <use images/not_gate_transistors.png>
-Package pdftex.def Info: images/not_gate_transistors.png used on input line 274
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 276
 .
 (pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
  [8 <./images/transistors.png> <./images/not_gate_transistors.png>]
@@ -754,45 +757,84 @@ Package pdftex.def Info: images/not_gate_transistors.png used on input line 274
 File: images/nand_nor_transistors.png Graphic file (type png)
 
 <use images/nand_nor_transistors.png>
-Package pdftex.def Info: images/nand_nor_transistors.png used on input line 287
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 289
 .
 (pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
+
+<images/2_4_decoder.png, id=56, 302.12875pt x 210.7875pt>
+File: images/2_4_decoder.png Graphic file (type png)
+
+<use images/2_4_decoder.png>
+Package pdftex.def Info: images/2_4_decoder.png used on input line 327.
+(pdftex.def)             Requested size: 213.39568pt x 148.8818pt.
  [9 <./images/nand_nor_transistors.png>]
-[10] (./ComputerSystemsAndArchitecture.lof)
+<images/2_1_multiplexer.png, id=61, 380.36842pt x 201.59526pt>
+File: images/2_1_multiplexer.png Graphic file (type png)
+
+<use images/2_1_multiplexer.png>
+Package pdftex.def Info: images/2_1_multiplexer.png used on input line 354.
+(pdftex.def)             Requested size: 192.0548pt x 101.79095pt.
+
+<images/single_bit_adder.png, id=62, 243.91125pt x 162.6075pt>
+File: images/single_bit_adder.png Graphic file (type png)
+
+<use images/single_bit_adder.png>
+Package pdftex.def Info: images/single_bit_adder.png used on input line 365.
+(pdftex.def)             Requested size: 128.0387pt x 85.36029pt.
+ [10 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
+<images/full_adder.png, id=66, 647.41875pt x 199.74625pt>
+File: images/full_adder.png Graphic file (type png)
+
+<use images/full_adder.png>
+Package pdftex.def Info: images/full_adder.png used on input line 374.
+(pdftex.def)             Requested size: 341.43437pt x 105.34076pt.
+
+<images/simple_ALU.png, id=67, 933.4875pt x 530.98375pt>
+File: images/simple_ALU.png Graphic file (type png)
+
+<use images/simple_ALU.png>
+Package pdftex.def Info: images/simple_ALU.png used on input line 386.
+(pdftex.def)             Requested size: 426.79135pt x 242.76468pt.
+ [11 <./images/single_bit_adder.png> <./images/full_adder.png>] (./ComputerSyst
+emsAndArchitecture.lof)
 \tf@lof=\write6
 \openout6 = `ComputerSystemsAndArchitecture.lof'.
 
- [11]
+ [12 <./images/simple_ALU.png>]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
-
-(./ComputerSystemsAndArchitecture.ind) [12
+ (./ComputerSystemsAndArchitecture.ind) [13
 
 ]
-(./ComputerSystemsAndArchitecture.aux) ) 
+(./ComputerSystemsAndArchitecture.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 19256 strings out of 494910
- 436495 string characters out of 6179836
- 565582 words of memory out of 5000000
- 22215 multiletter control sequences out of 15000+600000
+ 19270 strings out of 494910
+ 436689 string characters out of 6179836
+ 566671 words of memory out of 5000000
+ 22224 multiletter control sequences out of 15000+600000
  9537 words of font info for 35 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 62i,9n,64p,1406b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (14 pages, 307871 bytes).
+ 62i,11n,64p,1406b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb>
+Output written on ComputerSystemsAndArchitecture.pdf (15 pages, 401540 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

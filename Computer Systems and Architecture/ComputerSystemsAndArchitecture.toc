@@ -19,10 +19,15 @@
 \contentsline {subsection}{\numberline {4.2}Integrating the Datapath}{8}
 \contentsline {subsection}{\numberline {4.3}CPU Control}{8}
 \contentsline {section}{\numberline {5}Digital Logic}{8}
-\contentsline {subsection}{\numberline {5.1}Digital Logic}{10}
-\contentsline {subsection}{\numberline {5.2}Number Representation}{10}
-\contentsline {subsection}{\numberline {5.3}Clocked Logic}{10}
-\contentsline {section}{\numberline {6}I/O and Peripherals}{10}
-\contentsline {section}{\numberline {7}Improving Performance}{10}
-\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{10}
-\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{10}
+\contentsline {subsection}{\numberline {5.1}Digital Logic}{8}
+\contentsline {subsubsection}{\numberline {5.1.1}Transistors}{8}
+\contentsline {subsubsection}{\numberline {5.1.2}Decoders}{9}
+\contentsline {subsubsection}{\numberline {5.1.3}Multiplexers}{10}
+\contentsline {subsubsection}{\numberline {5.1.4}A Simple Adder}{10}
+\contentsline {subsubsection}{\numberline {5.1.5}A Simple ALU}{11}
+\contentsline {subsection}{\numberline {5.2}Number Representation}{11}
+\contentsline {subsection}{\numberline {5.3}Clocked Logic}{11}
+\contentsline {section}{\numberline {6}I/O and Peripherals}{11}
+\contentsline {section}{\numberline {7}Improving Performance}{11}
+\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{11}
+\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{11}

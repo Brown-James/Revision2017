@@ -43,5 +43,10 @@
 \indexentry{PMOS}{8}
 \indexentry{gnd}{8}
 \indexentry{vdd}{8}
-\indexentry{not gate}{8}
+\indexentry{not gate}{9}
 \indexentry{combinational logic}{9}
+\indexentry{multiplexer}{10}
+\indexentry{adder}{10}
+\indexentry{exclusive OR}{10}
+\indexentry{half-adder}{10}
+\indexentry{overflow}{11}
