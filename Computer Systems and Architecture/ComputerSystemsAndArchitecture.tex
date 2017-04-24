@@ -5,6 +5,7 @@
 \usepackage{mathtools}
 \graphicspath{{images/}}
 \usepackage{geometry}
+\usepackage{circuitikz}
 \geometry{a4paper,
 total={170mm, 257mm},
 left = 30mm,
@@ -287,6 +288,38 @@ top = 30mm
 		\caption{(Left) A \textbf{NAND} gate built from four transistors.  (Right) A \textbf{NOR} gate built from four transistors}
 		\label{fig:nand_nor_transistors}
 	\end{figure}
+	
+	\par 
+	\textbf{Combinational logic}\index{combinational logic} is the general term for blocks of digital logic which contain no form of memory - the input must be determined solely by it inputs - and is made from networks of the simple logic gates we have just defined. Example of combinational logic we have seen whilst building the MIPS datapath include multiplexers, simple adders, and even an entire (non-pipelined) ALU.
+	
+	\par 
+	Consider a simple block of combinational logic with two inputs and four outputs - a decoder. This is designed so that each of the four possible input combinations uniquely selects only one of the four outputs. This circuit is common in memories where it is used to select a unique memory location based on the presented address. We start by describing the truth table for this circuit:
+	\begin{figure}[ht]
+		\centering
+		\begin{tabular}{c c | c c c c}
+		i0 & i1 & Q1 & Q2 & Q3 & Q4  \\ \hline
+		0 & 0 & 1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 1 & 0 & 0 \\
+		1 & 0 & 0 & 0 & 1 & 0 \\
+		1 & 1 & 0 & 0 & 0 & 1
+		\end{tabular}
+		\caption{Truth table for a two input decoder}
+		\label{fig:truth table two input decoder}
+	\end{figure}
+	
+	By inspecting the truth table, we can construct its function as a set of logic equations:
+	\begin{itemize}
+		\item $Q_{1} = \neg A \wedge \neg B$
+		\item $Q_{2} = \neg A \wedge B$
+		\item $Q_{3} = A \wedge \neg B$
+		\item $Q_{4} = A \wedge B$
+	\end{itemize}
+	
+	From here it becomes trivial to translate this into a circuit diagram - you simply have to read off the logical operations (here, the mixtures of \textbf{NOT} and \textbf{AND}) and insert the appropriate gates.
+	
+	\begin{circuitikz}
+	
+	\end{circuitikz}
 	
 	\subsection{Digital Logic}
 	\subsection{Number Representation}

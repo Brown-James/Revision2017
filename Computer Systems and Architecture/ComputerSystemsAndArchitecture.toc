@@ -19,10 +19,10 @@
 \contentsline {subsection}{\numberline {4.2}Integrating the Datapath}{8}
 \contentsline {subsection}{\numberline {4.3}CPU Control}{8}
 \contentsline {section}{\numberline {5}Digital Logic}{8}
-\contentsline {subsection}{\numberline {5.1}Digital Logic}{9}
-\contentsline {subsection}{\numberline {5.2}Number Representation}{9}
-\contentsline {subsection}{\numberline {5.3}Clocked Logic}{9}
-\contentsline {section}{\numberline {6}I/O and Peripherals}{9}
-\contentsline {section}{\numberline {7}Improving Performance}{9}
-\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{9}
-\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{9}
+\contentsline {subsection}{\numberline {5.1}Digital Logic}{10}
+\contentsline {subsection}{\numberline {5.2}Number Representation}{10}
+\contentsline {subsection}{\numberline {5.3}Clocked Logic}{10}
+\contentsline {section}{\numberline {6}I/O and Peripherals}{10}
+\contentsline {section}{\numberline {7}Improving Performance}{10}
+\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{10}
+\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{10}
