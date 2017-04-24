@@ -1,69 +1,69 @@
 \begin{theindex}
 
-  \item 4-neighbours, 8
-  \item 8-neighbours, 8
+  \item 4-neighbours, 9
+  \item 8-neighbours, 9
 
   \indexspace
 
-  \item axes of symmetry, 10
+  \item axes of symmetry, 11
 
   \indexspace
 
   \item chiasm, 2
-  \item colour map, 2
+  \item colour map, 3
   \item cones, 1
   \item connectedness, 8
-  \item consistency, 8
+  \item consistency, 9
   \item covariance, 7
 
   \indexspace
 
   \item difference of gaussian, 6
-  \item discreteness, 8
+  \item discreteness, 9
   \item DOG method, 6
 
   \indexspace
 
-  \item eigenface, 6
+  \item eigenface, 7
   \item eigenvalue, 7
   \item eigenvector, 7
 
   \indexspace
 
-  \item feature detector, 9
+  \item feature detector, 10
 
   \indexspace
 
   \item ganglion cell, 1
-  \item gaussian filter, 3
-  \item generalised cones, 10
+  \item gaussian filter, 4
+  \item generalised cones, 11
 
   \indexspace
 
   \item hough space, 5
-  \item hough transform, 4, 5
-  \item hypothesis verifier, 9
-  \item hypothesizer, 9
-  \item hysteresis thresholding, 4
+  \item hough transform, 5, 6
+  \item hypothesis verifier, 10
+  \item hypothesizer, 10
+  \item hysteresis thresholding, 5
 
   \indexspace
 
-  \item illumination invariance, 5
-  \item intensity gradient, 2
-  \item intensity image, 2
+  \item illumination invariance, 6
+  \item intensity gradient, 3
+  \item intensity image, 3
 
   \indexspace
 
   \item lateral geniculate nucleus, 2
   \item lens, 1
-  \item localization, 4
+  \item localization, 5
 
   \indexspace
 
-  \item mean filter, 3
-  \item moravec operator, 8
+  \item mean filter, 4
+  \item moravec operator, 9
   \item motion, 8
-  \item motion correspondence, 8
+  \item motion correspondence, 9
 
   \indexspace
 
@@ -71,7 +71,7 @@
 
   \indexspace
 
-  \item object recognition, 5, 9
+  \item object recognition, 6, 10
   \item optic nerve, 2
 
   \indexspace
@@ -80,7 +80,7 @@
   \item photopigment, 1
   \item photoreceptors, 1
   \item pinhole camera, 1
-  \item pixel, 2
+  \item pixel, 3
   \item principle components analysis, 7
   \item pyramid method, 6
   \item pyramids, 6
@@ -96,13 +96,13 @@
 
   \item scale invariant, 6
   \item scale space, 6
-  \item signal-to-noise ratio, 4
-  \item similarity, 8
-  \item single response, 4
+  \item signal-to-noise ratio, 5
+  \item similarity, 9
+  \item single response, 5
 
   \indexspace
 
-  \item tracking, 5
+  \item tracking, 6
   \item trichromatic theory, 2
 
   \indexspace
@@ -112,7 +112,7 @@
 
   \indexspace
 
-  \item wide baseline matching, 5
+  \item wide baseline matching, 6
 
   \indexspace
 
