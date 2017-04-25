@@ -213,7 +213,7 @@ top = 30mm
 		\label{fig:mips register conventions}
 	\end{figure}
 	
-	While all registers apart from \texttt{\$0} is freely accessible by the programmer there is still a convention for their use. Their conventions are shown in Figure 3. Important registers are \texttt{\$8} through \texttt{\$15} which are for 'temporaries' and we can use them to store intermediate values. The assembler also supports the use of the register names rather than numbers, so those will be used from now on making to code a little more readable.
+	While all registers apart from \texttt{\$0} is freely accessible by the programmer there is still a convention for their use. Their conventions are shown in Figure \ref{fig:mips register conventions}. Important registers are \texttt{\$8} through \texttt{\$15} which are for 'temporaries' and we can use them to store intermediate values. The assembler also supports the use of the register names rather than numbers, so those will be used from now on making to code a little more readable.
 	
 	
 	
@@ -251,7 +251,50 @@ top = 30mm
 		
 		\item \textbf{The Control Logic}\index{control logic} serves to configure the datapath in the right way so that it implements the desired instruction. It ensures that the correct data is going to the correct functional units, that the results are put in the right place and that the ALU is configured to perform the correct operation on the data. Control is the most complex part of the processor. It's somewhat simple in RISC machines due to the few operations they implement but much harder in CISC machines.
 	\end{itemize}
+	
 	\subsection{MIPS Microarchitecture}
+	\subsubsection{Instruction Fetch}
+	The first step of the instruction cycle is to get the address of the next instruction and then to fetch that instruction. In order to do this, we need to send the contents of the program counter to memory and bring the contents of that address back to the CPU. We will need to use the \textbf{program counter}, the \textbf{main memory} and the \textbf{instruction register}. The main memory is usually not physically part of the datapath but is integral to its operation, so we will include it in our diagrams.
+	
+	\par We can put these components together that implements the first stage quite simply. We send the contents of the program counter to the memory via the \textbf{address bus}\index{address bus}. The returned instruction is then loaded into the instruction register via the \textbf{data bus}\index{data bus}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{datapath_instruction_fetch}
+		\caption{Datapath elements for instruction fetch}
+		\label{fig:datapath instruction fetch}
+	\end{figure}
+	
+	Next, we need to increment the program counter. Commonly this is just adding 4 to the PC to move to the next instruction. In the case of a branch or a jump we may need to make a further adjustment to the PC value, but the constant value of 4 is \textit{always} added. As this is done every cycle we add a simple adder\index{adder} component into the datapath as shown in figure \ref{fig:datapath_pc_adder}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{datapath_pc_adder}
+		\caption{We have integrated an adder to increment the PC}
+		\label{fig:datapath_pc_adder}
+	\end{figure}
+	
+	\subsubsection{Instruction Execution}
+	Whilst we should look at decoding the instruction after fetching it, it's more instructive to look at the datapath components required to actually execute the instruction set after the decoding has been done. Some components required are obvious (such as the ALU and registers), but others are less so.
+	
+	Registers are required to provide a fast and local amount of memory for a small amount of data items. Any data that is used by an instruction in the MIPS instruction set must be present in the registers as they cannot access external sources (unless they are special load/store instructions). Because of this, we need to provide mechanisms for writing data into the registers and also for reading data from the registers. For some instructions we may need access up to three registers simultaneously. As MIPS has 32 registers, we can use a 5-bit number to uniquely address a single register and these are encoded into the machine code for the instruction. The registers must therefore feature three 5-bit address ports - two of these are for reading and one is for writing - and two 32-bit outputs for retrieving data from the registers. We will also need one final 32-bit input to write data to registers. As not all instructions write to registers we also include an input which signals whether the register specified by the \texttt{write\_addr} is to be written or not. All of these are shown in Figure \ref{fig:registers input output}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{register_architecture}
+		\caption{Registers and their input/output ports}
+		\label{fig:registers input output}
+	\end{figure}
+	
+	Next, we would like to build the ALU. The ALU performs all of the processors arithmetic and logic operations and it's internal circuitry must be able to be configured so that it can perform any of the "ALU instructions". In MIPS, the ALU must also be able to compute address, for example, whena address offsets are used - e.g. \texttt{lw \$0, 8(\$sp)}. The ALU handles the addition of the offset. The ALU also handles comparissons required by by branch and set instructions. The ALU must be able to accept up to two 32-bit words from the registers as input, perform the ALU instruction specified in the instruction register as determined by the ALU control unit and to output another 32-bit word (in the case of comparissons, just true/false using the zero output). The ALU is shown in Figure \ref{fig:alu}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.2\textwidth]{alu}
+		\caption{The ALU and it's input/output ports}
+		\label{fig:alu}
+	\end{figure}
+	
 	\subsection{Integrating the Datapath}
 	\subsection{CPU Control}
 	
@@ -278,7 +321,7 @@ top = 30mm
 	\end{minipage}
 	\end{figure}
 	
-	So far data and instructions have been represented by binary digits that have two possible states - zero or one. These states correspond to zero and positive voltages in physical circuits. The zero voltage is usually called \textbf{gnd}\index{gnd}(ground) and the positive voltage \textbf{vdd}\index{vdd}. A signal that has a connection to gnd is in logic state 'zero', and a signal that has a connection to vdd is in logic state 'one'. Using transistors we can transform signals between 'zero' and 'one' states. To begin with, lets implement an inverter circuit which is identical to the logical operation \textbf{not}\index{not gate} as shown in \textbf{Figure 7}.	
+	So far data and instructions have been represented by binary digits that have two possible states - zero or one. These states correspond to zero and positive voltages in physical circuits. The zero voltage is usually called \textbf{gnd}\index{gnd}(ground) and the positive voltage \textbf{vdd}\index{vdd}. A signal that has a connection to gnd is in logic state 'zero', and a signal that has a connection to vdd is in logic state 'one'. Using transistors we can transform signals between 'zero' and 'one' states. To begin with, lets implement an inverter circuit which is identical to the logical operation \textbf{not}\index{not gate} as shown in Figure \ref{fig:not_transistors}.	
 	
 	When the input is at low voltage (zero), the lower NMOS transistor is non-conductive but the top PMOS transistor is conductive. The output therefore becomes connected through the PMOS transistor and is therefore logical 'one'. When the input is at high voltage (one), the PMOS transistor is non-conducting while the NMOS transistor is conducting. Q is therefore connected to gnd via the NMOS transistor and is logical 'zero'. We can see dependent on the input, the output of the circuit will be its inverse and it implements the logical \textbf{NOT} operator.
 	

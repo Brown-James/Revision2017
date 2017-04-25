@@ -194,8 +194,31 @@ top = 30mm
 	
 	
 	\subsection{Church-Rosser Theorem}
+	\textit{'If a term M can be reduced (in several steps) to terms N and P, there there exists a term Q to which both N and P can be reduced (in several steps)}
+	\linebreak
+	\par This is sometimes known as confluence. Regardless of the order in which we decide to reduce our lambda calculus expression, we will always be able to arrive at the same term. This makes perfect sense - when evaluating an expression with arithmetic terms, we cannot get two different answers dependent on the order of evaluation. It follows that we get this corollary:
+	\linebreak	
+	
+	\textit{'Every $\lambda$-term has at most one normal form'.}
+	
+	\par
+	We can prove this. Assume there are two normal forms (for the case of contradiction) N and P to which are certain term M reduces. By the theorem of Church and Rosser there is a term Q to which both N and P can be reduced to. However, as we have assumed N and P are in their normal forms they don't allow any further reductions. The only possible interpretation for this is that N = P = Q.
 	
 	\subsection{Typed Lambda-calculus}
+	Currently there is nothing in the grammar of lambda calculus that restricts us from forming awful terms. It would be completely possible to form $\sin \log$ at the moment - the sine function applied to the logarithm function. This is obviously impossible and any programming language would reject this as incorrectly formed. We are currently missing the notion of types, which represent what kind of arguements the function will accept and what it expects to return.
+	
+	\par 
+	We can form the language for expressing these types very easily. We begin with base types such as \texttt{int} and \texttt{real}. On top of this we then form function types. This gives us the following grammar which is called the \textbf{system of simple types}\index{system of simple types}:
+	
+	\[ \tau ::= c \; | \; \tau \rightarrow \tau \]
+	
+	\par In this grammar, the value c is used as a placeholder for all of our base types we wish to include. Now we can form function types, we would give the type of the sine function as $\texttt{real} \rightarrow \texttt{real}$, which makes it obvious that it cannot accept the logarithm function as an argument. Using the type system that we have defined, we can create restrictions on what kind of terms are valid (or \textbf{well-typed}). We do this by an inductive definition:
+	\begin{itemize}
+		\item \textbf{Base Case}: For every type $\sigma$ and every variable $x$, the term $x:\sigma$ is well typed and has type $\sigma$.
+		\item \textbf{Function formation}: For every term $M$ of type $\tau$, every variable $x$, and every type $\sigma$, the term $\lambda x:\sigma .M$ is well-typed and has type $\sigma \rightarrow \tau$
+		\item \textbf{Application}: If $M$ is well-typed of type $\sigma \rightarrow \tau$ and $N$ is well-typed of type $\sigma$ then $M N$ is well-typed and has type $\tau$
+	\end{itemize}	
+	
 	
 	\newpage
 	\listoffigures

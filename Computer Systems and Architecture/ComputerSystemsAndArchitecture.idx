@@ -38,15 +38,18 @@
 \indexentry{microarchitecture}{8}
 \indexentry{datapath}{8}
 \indexentry{control logic}{8}
-\indexentry{transistor}{8}
-\indexentry{NMOS}{8}
-\indexentry{PMOS}{8}
-\indexentry{gnd}{8}
-\indexentry{vdd}{8}
-\indexentry{not gate}{9}
-\indexentry{combinational logic}{9}
-\indexentry{multiplexer}{10}
-\indexentry{adder}{10}
-\indexentry{exclusive OR}{10}
-\indexentry{half-adder}{10}
-\indexentry{overflow}{11}
+\indexentry{address bus}{8}
+\indexentry{data bus}{8}
+\indexentry{adder}{8}
+\indexentry{transistor}{10}
+\indexentry{NMOS}{10}
+\indexentry{PMOS}{10}
+\indexentry{gnd}{10}
+\indexentry{vdd}{10}
+\indexentry{not gate}{10}
+\indexentry{combinational logic}{11}
+\indexentry{multiplexer}{11}
+\indexentry{adder}{12}
+\indexentry{exclusive OR}{12}
+\indexentry{half-adder}{12}
+\indexentry{overflow}{12}

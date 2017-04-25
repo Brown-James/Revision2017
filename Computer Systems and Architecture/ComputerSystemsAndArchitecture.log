@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  24 APR 2017 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  24 APR 2017 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -734,77 +734,107 @@ line 237.
 (pdftex.def)             Requested size: 298.75264pt x 35.55266pt.
  [7 <./images/mips_register_conventions.png> <./images/rtype_instruction.png> <
 ./images/mips_load_store_instructions.png>]
-Underfull \hbox (badness 1043) in paragraph at lines 265--265
-[]\OT1/cmr/m/n/10 Figure 6: (Left) Cir-cuit sym-bol for an
- []
+<images/datapath_instruction_fetch.png, id=48, 339.2675pt x 137.51375pt>
+File: images/datapath_instruction_fetch.png Graphic file (type png)
 
-<images/transistors.png, id=48, 318.18875pt x 182.6825pt>
+<use images/datapath_instruction_fetch.png>
+Package pdftex.def Info: images/datapath_instruction_fetch.png used on input li
+ne 263.
+(pdftex.def)             Requested size: 170.71393pt x 69.19315pt.
+
+<images/datapath_pc_adder.png, id=49, 366.36874pt x 246.9225pt>
+File: images/datapath_pc_adder.png Graphic file (type png)
+
+<use images/datapath_pc_adder.png>
+Package pdftex.def Info: images/datapath_pc_adder.png used on input line 272.
+(pdftex.def)             Requested size: 213.39568pt x 143.8255pt.
+ [8 <./images/datapath_instruction_fetch.png>] <images/register_architecture.pn
+g, id=53, 334.24875pt x 173.64874pt>
+File: images/register_architecture.png Graphic file (type png)
+
+<use images/register_architecture.png>
+Package pdftex.def Info: images/register_architecture.png used on input line 28
+4.
+(pdftex.def)             Requested size: 256.07741pt x 133.04752pt.
+
+<images/alu.png, id=54, 139.52126pt x 196.735pt>
+File: images/alu.png Graphic file (type png)
+ <use images/alu.png>
+Package pdftex.def Info: images/alu.png used on input line 293.
+(pdftex.def)             Requested size: 85.35696pt x 120.36238pt.
+ [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>]
+<images/transistors.png, id=58, 318.18875pt x 182.6825pt>
 File: images/transistors.png Graphic file (type png)
 
 <use images/transistors.png>
-Package pdftex.def Info: images/transistors.png used on input line 268.
+Package pdftex.def Info: images/transistors.png used on input line 311.
 (pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
 
-<images/not_gate_transistors.png, id=50, 238.8925pt x 322.20375pt>
+<images/not_gate_transistors.png, id=60, 238.8925pt x 322.20375pt>
 File: images/not_gate_transistors.png Graphic file (type png)
 
 <use images/not_gate_transistors.png>
-Package pdftex.def Info: images/not_gate_transistors.png used on input line 276
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 319
 .
 (pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
- [8 <./images/transistors.png> <./images/not_gate_transistors.png>]
-<images/nand_nor_transistors.png, id=55, 566.115pt x 391.4625pt>
+ [10 <./images/alu.png> <./images/transistors.png> <./images/not_gate_transisto
+rs.png>]
+<images/nand_nor_transistors.png, id=65, 566.115pt x 391.4625pt>
 File: images/nand_nor_transistors.png Graphic file (type png)
 
 <use images/nand_nor_transistors.png>
-Package pdftex.def Info: images/nand_nor_transistors.png used on input line 289
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 332
 .
 (pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
 
-<images/2_4_decoder.png, id=56, 302.12875pt x 210.7875pt>
+<images/2_4_decoder.png, id=66, 302.12875pt x 210.7875pt>
 File: images/2_4_decoder.png Graphic file (type png)
 
 <use images/2_4_decoder.png>
-Package pdftex.def Info: images/2_4_decoder.png used on input line 327.
+Package pdftex.def Info: images/2_4_decoder.png used on input line 370.
 (pdftex.def)             Requested size: 213.39568pt x 148.8818pt.
- [9 <./images/nand_nor_transistors.png>]
-<images/2_1_multiplexer.png, id=61, 380.36842pt x 201.59526pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./images/nand_nor_transistors.png>]
+<images/2_1_multiplexer.png, id=72, 380.36842pt x 201.59526pt>
 File: images/2_1_multiplexer.png Graphic file (type png)
 
 <use images/2_1_multiplexer.png>
-Package pdftex.def Info: images/2_1_multiplexer.png used on input line 354.
+Package pdftex.def Info: images/2_1_multiplexer.png used on input line 397.
 (pdftex.def)             Requested size: 192.0548pt x 101.79095pt.
 
-<images/single_bit_adder.png, id=62, 243.91125pt x 162.6075pt>
+<images/single_bit_adder.png, id=73, 243.91125pt x 162.6075pt>
 File: images/single_bit_adder.png Graphic file (type png)
 
 <use images/single_bit_adder.png>
-Package pdftex.def Info: images/single_bit_adder.png used on input line 365.
+Package pdftex.def Info: images/single_bit_adder.png used on input line 408.
 (pdftex.def)             Requested size: 128.0387pt x 85.36029pt.
- [10 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
-<images/full_adder.png, id=66, 647.41875pt x 199.74625pt>
+
+<images/full_adder.png, id=74, 647.41875pt x 199.74625pt>
 File: images/full_adder.png Graphic file (type png)
 
 <use images/full_adder.png>
-Package pdftex.def Info: images/full_adder.png used on input line 374.
+Package pdftex.def Info: images/full_adder.png used on input line 417.
 (pdftex.def)             Requested size: 341.43437pt x 105.34076pt.
-
-<images/simple_ALU.png, id=67, 933.4875pt x 530.98375pt>
+ [12 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
+<images/simple_ALU.png, id=79, 933.4875pt x 530.98375pt>
 File: images/simple_ALU.png Graphic file (type png)
 
 <use images/simple_ALU.png>
-Package pdftex.def Info: images/simple_ALU.png used on input line 386.
+Package pdftex.def Info: images/simple_ALU.png used on input line 429.
 (pdftex.def)             Requested size: 426.79135pt x 242.76468pt.
- [11 <./images/single_bit_adder.png> <./images/full_adder.png>] (./ComputerSyst
+ [13 <./images/single_bit_adder.png> <./images/full_adder.png>] (./ComputerSyst
 emsAndArchitecture.lof)
 \tf@lof=\write6
 \openout6 = `ComputerSystemsAndArchitecture.lof'.
 
- [12 <./images/simple_ALU.png>]
+ [14 <./images/simple_ALU.png>]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
- (./ComputerSystemsAndArchitecture.ind) [13
+ (./ComputerSystemsAndArchitecture.ind) [15
 
 ]
 (./ComputerSystemsAndArchitecture.aux)
@@ -813,10 +843,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19270 strings out of 494910
- 436689 string characters out of 6179836
- 566671 words of memory out of 5000000
- 22224 multiletter control sequences out of 15000+600000
+ 19295 strings out of 494910
+ 437402 string characters out of 6179836
+ 566712 words of memory out of 5000000
+ 22245 multiletter control sequences out of 15000+600000
  9537 words of font info for 35 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  62i,11n,64p,1406b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -831,10 +861,10 @@ ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt10.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (15 pages, 401540 bytes).
+Output written on ComputerSystemsAndArchitecture.pdf (17 pages, 441554 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 
