@@ -1,7 +1,11 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces How on-center and off-center ganglion cells respond to light}}{2}
 \contentsline {figure}{\numberline {2}{\ignorespaces The visual pathway in the human brain}}{3}
-\contentsline {figure}{\numberline {3}{\ignorespaces An example mean filter}}{4}
-\contentsline {figure}{\numberline {4}{\ignorespaces An example Gaussian filter}}{4}
-\contentsline {figure}{\numberline {5}{\ignorespaces A Gaussian filter deconstructed to two 1D filters which can be applied in sequence}}{4}
-\contentsline {figure}{\numberline {6}{\ignorespaces A figure showing how to build any face from a set of basis faces}}{7}
-\contentsline {figure}{\numberline {7}{\ignorespaces A sample ROC space}}{10}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sobel X mask}}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Sobel Y mask}}{4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Roberts X mask}}{4}
+\contentsline {figure}{\numberline {6}{\ignorespaces Roberts Y mask}}{4}
+\contentsline {figure}{\numberline {7}{\ignorespaces An example mean filter}}{4}
+\contentsline {figure}{\numberline {8}{\ignorespaces An example Gaussian filter}}{4}
+\contentsline {figure}{\numberline {9}{\ignorespaces A Gaussian filter deconstructed to two 1D filters which can be applied in sequence}}{4}
+\contentsline {figure}{\numberline {10}{\ignorespaces A figure showing how to build any face from a set of basis faces}}{7}
+\contentsline {figure}{\numberline {11}{\ignorespaces A sample ROC space}}{10}

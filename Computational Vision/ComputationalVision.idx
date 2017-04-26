@@ -22,7 +22,7 @@
 \indexentry{intensity gradient}{3}
 \indexentry{gaussian filter}{4}
 \indexentry{mean filter}{4}
-\indexentry{zero crossing}{4}
+\indexentry{zero crossing}{5}
 \indexentry{localization}{5}
 \indexentry{single response}{5}
 \indexentry{signal-to-noise ratio}{5}
@@ -41,16 +41,16 @@
 \indexentry{DOG method}{6}
 \indexentry{pyramid method}{6}
 \indexentry{difference of gaussian}{6}
-\indexentry{rotational invariance}{6}
+\indexentry{rotational invariance}{7}
 \indexentry{eigenface}{7}
 \indexentry{principle components analysis}{7}
 \indexentry{eigenvector}{7}
 \indexentry{covariance}{7}
-\indexentry{eigenvector}{7}
-\indexentry{eigenvalue}{7}
-\indexentry{noise}{8}
-\indexentry{motion}{8}
-\indexentry{connectedness}{8}
+\indexentry{eigenvector}{8}
+\indexentry{eigenvalue}{8}
+\indexentry{noise}{9}
+\indexentry{motion}{9}
+\indexentry{connectedness}{9}
 \indexentry{4-neighbours}{9}
 \indexentry{8-neighbours}{9}
 \indexentry{moravec operator}{9}

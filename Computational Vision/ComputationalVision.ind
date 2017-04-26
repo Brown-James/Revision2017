@@ -12,7 +12,7 @@
   \item chiasm, 2
   \item colour map, 3
   \item cones, 1
-  \item connectedness, 8
+  \item connectedness, 9
   \item consistency, 9
   \item covariance, 7
 
@@ -25,8 +25,8 @@
   \indexspace
 
   \item eigenface, 7
-  \item eigenvalue, 7
-  \item eigenvector, 7
+  \item eigenvalue, 8
+  \item eigenvector, 7, 8
 
   \indexspace
 
@@ -62,12 +62,12 @@
 
   \item mean filter, 4
   \item moravec operator, 9
-  \item motion, 8
+  \item motion, 9
   \item motion correspondence, 9
 
   \indexspace
 
-  \item noise, 8
+  \item noise, 9
 
   \indexspace
 
@@ -90,7 +90,7 @@
   \item receptive field, 1
   \item retina, 1
   \item rods, 1
-  \item rotational invariance, 6
+  \item rotational invariance, 7
 
   \indexspace
 
@@ -116,6 +116,6 @@
 
   \indexspace
 
-  \item zero crossing, 4
+  \item zero crossing, 5
 
 \end{theindex}

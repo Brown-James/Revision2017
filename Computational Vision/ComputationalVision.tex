@@ -69,7 +69,7 @@ top = 30mm
 	
 	\section{Edge Detection}
 	\subsection{Intensity Images}
-	An intensity image\index{intensity image} is a data matrix whose values represent intensities within some range. Each element of the matrix corresponds to one image pixel\index{pixel}. An indexed image consists of a data matrix, $X$, and a colour map\index{colour map} matrix, $map$. $map$ is a $m$-by-3 array of double containing floating point values in the range $[0, 1]$. Each row in the map specifies the red, green an blue components of a single color. Each cell in the indexed image then specifies the corresponding colour from the colour map. In an intensity image can be thought of as a function $f(x, y)$ mapping coordinates to intensity. From this we can calculate an intensity gradient\index{intensity gradient}.
+	An intensity image\index{intensity image} is a data matrix whose values represent intensities within some range. Each element of the matrix corresponds to one image pixel\index{pixel}. An indexed image consists of a data matrix, $X$, and a colour map\index{colour map} matrix, $map$. $map$ is a $m$-by-3 array of double containing floating point values in the range $[0, 1]$. Each row in the map specifies the red, green an blue components of a single color. Each cell in the indexed image then specifies the corresponding colour from the colour map. An intensity image can be thought of as a function $f(x, y)$ mapping coordinates to intensity. From this we can calculate an intensity gradient\index{intensity gradient}.
 	\begingroup
 	\renewcommand*{\arraystretch}{1.5}
 	\[ \overrightarrow{G}[f(x,y)] = \begin{bmatrix}G_{x} \\ G_{y} \end{bmatrix} = \begin{bmatrix} \frac{df}{dx} \\ \frac{df}{dy} \end{bmatrix} \]	
@@ -86,10 +86,65 @@ top = 30mm
 	When calculating the magnitude, figuring out a square root can be very computationally expensive. It's possible to replace this with an approximation: $M(\overrightarrow{G}) = |G_{x}| + |G_{y}|$
 	
 	\subsection{Approximating the Intensity Gradient}
-	In order to approximate the gradient we may use a variety of different masks over the image, such as the Roberts and Sobel detectors. These masks use the idea of convolution in order to calculate the rate of change of intensity at each pixel. Convolution is the computation of weighted sums of image pixels. For each pixel in the image, the new value is calculated by translating the mask to the pixel and taking the weighted sum of all the pixels in the neighbourhood. Once we have a value for the rate of change of the intensity gradient we can threshold our image to produce the locations of edges.
+	In order to approximate the gradient we may use a variety of different masks over the image, such as the Roberts and Sobel detectors. These masks use the idea of convolution in order to calculate the rate of change of intensity at each pixel. 
+	
+	\begin{figure}[ht]
+		\begin{minipage}[b]{.23\textwidth}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} -1 & 0 & 1 \\
+								-2 & 0 & 2 \\
+								-1 & 0 & 1
+			\end{bmatrix} \]
+			\endgroup
+			\caption{Sobel X mask}
+			\label{fig:sobel x mask}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{.23\textwidth}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} 1 & 2 & 1 \\
+								0 & 0 & 0 \\
+								-1 & -2 & -1
+			\end{bmatrix} \]
+			\endgroup
+			\caption{Sobel Y mask}
+			\label{fig:sobel y mask}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{.23\textwidth}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} 1 & 0 \\
+								0 & -1
+			\end{bmatrix} \]
+			\endgroup
+			\caption{Roberts X mask}
+			\label{fig:roberts x mask}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{.23\textwidth}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} 0 & -1 \\
+								1 & 0
+			\end{bmatrix} \]
+			\endgroup
+			\caption{Roberts Y mask}
+			\label{fig:roberts y mask}
+		\end{minipage}
+		
+	\end{figure}
+	
+	Convolution is the computation of weighted sums of image pixels. For each pixel in the image, the new value is calculated by translating the mask to the pixel and taking the weighted sum of all the pixels in the neighbourhood. Once we have a value for the rate of change of the intensity gradient we can threshold our image to produce the locations of edges.
 	
 	\section{Noise Filtering}
-	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{gaussian filter}, although there are other simpler filters such as the mean filter\index{mean filter}.
+	When taking images we also gather a lot of noise which results in fake edges once we apply our edge detectors. We would like to remove this noise and we have many filters which can be implemented by the idea of convolution. The most widely used of these filters is the Gaussian filter\index{gaussian filter}, although there are other simpler filters such as the mean filter\index{mean filter}.
 	\begin{figure}[ht]
 	\begin{minipage}{.5\textwidth}
 			\begingroup
@@ -117,7 +172,7 @@ top = 30mm
 	\end{minipage}
 	\end{figure}
 	
-	The mean filter averages a pixels value with all of the surrounding intensities for a new value. A Gaussian filter follows the same principle as this but uses a weighting, valuing pixels closer to the original more than pixels farther away.	The Gaussian filter has an extra bonus of being able to be applied as two individual 1D Gaussian filters in sequence rather than one large 2D filter as shown below.
+	The mean filter averages a pixels value with all of the surrounding intensities for a new value. A Gaussian filter follows the same principle as this but uses a weighting, valuing pixels closer to the original more than pixels farther away.	The Gaussian filter has an extra bonus of being able to be applied as two individual 1D Gaussian filters in sequence rather than one large 2D filter as shown below. Applying two smaller 1D filters in sequence is much more efficient than a single, large 2D filter.
 	\begin{figure}[ht]
 	\begin{multicols}{2}
 		\[\begin{bmatrix} 0.0545 & 0.2442 & 0.4026 & 0.2442 & 0.0545 \end{bmatrix} \] \\
@@ -189,7 +244,7 @@ top = 30mm
 	When using the straight line transform we need to suppress non-local maxima. We also need to make sure to apply edge thinning to our image before we apply the Hough transform.
 	
 	\section{Scale Invariant Feature Transform}
-	We can now detect features in images. The most basic feature is edges, but through the use of Hough transform\index{hough transform} we can also detect lines and even geometric shapes such as circles. We want to detect features for various reasons, such as object recognition\index{object recognition}, wide baseline matching\index{wide baseline matching} and tracking\index{tracking}. In order to do this we need to make sure our features are scale invariant. Good features should be robust to all sorts of nastiness that can occur between two different images. There are many different causes of invariance:
+	We can now detect features in images. The most basic feature is edges, but through the use of Hough transform\index{hough transform} we can also detect lines and even geometric shapes such as circles. We want to detect features for various reasons, such as object recognition\index{object recognition}, wide baseline matching\index{wide baseline matching} and tracking\index{tracking}. In order to do this we need to make sure our features are invariant. Good features should be robust to all sorts of nastiness that can occur between two different images. There are many different causes of invariance:
 	\begin{itemize}
 		\item Illumination
 		\item Scale
@@ -226,13 +281,13 @@ top = 30mm
 	Obviously we must pick the set of basis faces, and to do this we need a set of real training faces. From these we can then learn a set of basis faces which best represent the differences between each of the training faces. We'll use a statistical criterion for measuring the notion of 'best representation of the differences between training faces'. Then we can store each face as a set of weights from those basis faces.
 	
 	\subsection{Finding Eigenfaces}
-	There are two possible ways we can use eigenfaces - firstly we can store and then reconstruct a face from a set of weights and secondly we can recognise a new picture of a familiar face.
+	There are two possible ways we can use eigenfaces - firstly we can store and then reconstruct a face from a set of weights. Secondly we can recognise a new picture of a familiar face.
 	
-	Initially, we have to figure out how to learn eigenfaces. A method called principle components analysis (PCA)\index{principle components analysis}. In order to use this we have to understand what an eigenvector\index{eigenvector} is and also what covariance\index{covariance} is.
+	Initially, we have to figure out how to learn eigenfaces. A method called principle components analysis (PCA) is used\index{principle components analysis}. In order to use this we have to understand what an eigenvector\index{eigenvector} is and also what covariance\index{covariance} is.
 	
-	To begin, we imagine that our face is simply a (high dimensional) vector of pixels. For humans it's easier to think about 2 dimensions, so we'll do just that and have our data in just two dimensions. But when we have data in two dimensions, we only really need one dimension to represent it. To do this we can take a line through space, and then take the projection of each point onto that line - doing this means we have represented our data in 'one' dimension. The choice of line is important, some lines represent the data in this way well, and some badly. The projection onto some lines separates the data well, and the projection onto some lines separates it badly. However, rather than using a line we can perform roughly the same trick using a vector $v$. When using a vector, we instead have to scale the vector to obtain any point on the line and this vector is called an \textbf{eigenvector}\index{eigenvector}. The value $\mu$, which we use to project any point on the vector, is our \textbf{eigenvalue}\index{eigenvalue}.
+	To begin, we imagine that our face is simply a (high dimensional) vector of pixels. For humans it's easier to think about 2 dimensions, so we'll do just that and have our data in just two dimensions. When we have data in two dimensions, we only really need one dimension to represent it. To do this we can take a line through space, and then take the projection of each point onto that line - doing this means we have represented our data in 'one' dimension. The choice of line is important, some lines represent the data in this way well, and some badly. The projection onto some lines separates the data well, and the projection onto some lines separates it badly. However, rather than using a line we can perform roughly the same trick using a vector $v$. When using a vector, we instead have to scale the vector to obtain any point on the line and this vector is called an \textbf{eigenvector}\index{eigenvector}. The value $\mu$, which we use to project any point on the vector, is our \textbf{eigenvalue}\index{eigenvalue}.
 	
-		$\text{An eigenvector is a vector v that obeys the rule } \mathbf{A}v = \mu v$ where $\mathbf{A}$ is a matrix, $\mu$ is a eigenvalue. A few rules about eigenvectors:
+		$\text{An eigenvector is a vector } v \text{ that obeys the rule } \mathbf{A}v = \mu v$ where $\mathbf{A}$ is a matrix, $\mu$ is a eigenvalue. A few rules about eigenvectors:
 		\begin{itemize}
 			\item We think of matrices as performing transformations on vectors
 			\item We think of eigenvectors of a matrix as being special vectors that are scaled by that matrix
@@ -248,7 +303,7 @@ top = 30mm
 	This covariance matrix has eigenvectors and eigenvalues. The largest eigenvalue shows you the most dominant vector (corresponding to the direction in which the data varies more). This is principle components analysis.
 	
 	\subsection{Using Eigenfaces}
-	All we are going to do is treat the face as a point in a high dimensional space, and then treat the training set of face pictures as out set of points. In order to train, we calculate the covariance matrix of the faces and then find the eigenvectors of that covariance matrix. The found eigenvectors are the eigenfaces or basis faces. Eigenfaces with bigger values will explain more of the variation in the set of faces (they are more distinguishing).
+	All we are going to do is treat the face as a point in a high dimensional space, and then treat the training set of face pictures as our set of points. In order to train, we calculate the covariance matrix of the faces and then find the eigenvectors of that covariance matrix. The found eigenvectors are the eigenfaces or basis faces. Eigenfaces with bigger values will explain more of the variation in the set of faces (they are more distinguishing).
 	
 	\par
 	When we see an image of a face we can transform it to the face space with $\mathbf{W}_{k} = \mathbf{X}^{\mathbf{i}} . \mathit{v}_{k}$. There are $k=1...n$ eigenfaces $v_{k}$, and the $i^{\text{th}}$ face in the image space is a vector $x^{i}$ with corresponding weight $w_{k}$. We calculate the corresponding weight for every eigenface. Recognition is now simple, we can find the euclidean distance $d$ between our face and all the other stored faces in the face space with \[ d(w^{1}, w^{2}) = \sqrt{\sum_{i=1}^{n}(w_{i}^{1} - w_{i}^{2})^{2}} \]
@@ -263,7 +318,7 @@ top = 30mm
 		\item Moving camera, moving objects
 	\end{itemize}
 	
-	But how do we detect changes? Firstly, detect features in two different frames. Then simply look at the difference between features at time $t$ and time $t + 1$. Any differences in the two features, indicate motion. More formally, we can say $F(x, y, i)$ is the intensity of the image at time $i$, at point $x, y$. It follows that the difference picture, $DP$, is defined as 
+	But how do we detect changes? Firstly, we detect features in two different frames. Then simply look at the difference between features at time $t$ and time $t + 1$. Any differences in the two features, indicates that motion has occurred. More formally, we can say $F(x, y, i)$ is the intensity of the image at time $i$, at point $x, y$. It follows that the difference picture, $DP$, is defined as:
 	\[ DP_{12}(x, y) = \begin{cases}
 		1 \text{ if } |F(x, y, 1) - F(x, y, 2)| > \tau \\
 		0 \text{ otherwise}
@@ -272,7 +327,7 @@ top = 30mm
 	This approach is not without issues. If we have random noise in the image, the difference image will include all the noise\index{noise} points in both images even if no motion\index{motion} has occurred at all. To solve this, we may want to filter out all pixels that are not part of some larger structure. We use the idea of connectedness\index{connectedness} to achieve this, in particular 4 or 8 connectedness. Two pixels can be said to be 4-neighbours\index{4-neighbours} is they share a common boundary. Two pixels are said to be 8-neighbours\index{8-neighbours} if they share at least one common corner. Two pixels are also 8-neighbours if we can create a path of 8-neighbours from one to the other. To remove noise, pixels that are not in a connected cluster of a certain size are removed from the difference image.
 	
 	\par 
-	When determining motion, there is not enough information in the local intensity changes to give us the information that we want. This can be demonstrated via the aperture problem. When we only have a small area in which to observe, we cannot tell exactly what direction the object is moving (for example, something appearing to move down and right may only be moving to the right). To get around this we have to pick the particularly interesting areas of the image. This explains why edges are very bad for determining motion. Corners are a good example of particularly interesting areas. Once we have found these particularly interesting areas, we would like to match them between different images over time.
+	When determining motion, there is not enough information in the local intensity changes to give us the information that we want. This can be demonstrated via the aperture problem. When we only have a small area in which to observe, we cannot tell exactly what direction the object is moving (for example, something appearing to move down and right may only be moving to the right). This explains why edges are very bad for determining motion. To get around this we have to pick the particularly interesting areas of the image. Corners are a good example of particularly interesting areas. Once we have found these particularly interesting areas, we would like to match them between different images over time.
 	
 	\par 
 	The Moravec operator\index{moravec operator} is a corner detector. It defines interest points as points where there is a large intensity variation in every direction, which is the case at corners. One side-effect is that it is very sensitive to detecting isolated pixels as corners.

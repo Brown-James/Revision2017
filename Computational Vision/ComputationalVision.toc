@@ -15,8 +15,8 @@
 \contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{6}
 \contentsline {subsection}{\numberline {7.1}Dealing with Illumination Invariance}{6}
 \contentsline {subsection}{\numberline {7.2}Dealing with Scale Invariance}{6}
-\contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{6}
-\contentsline {section}{\numberline {8}Face Recognition}{6}
+\contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{7}
+\contentsline {section}{\numberline {8}Face Recognition}{7}
 \contentsline {subsection}{\numberline {8.1}Eigenfaces}{7}
 \contentsline {subsection}{\numberline {8.2}Finding Eigenfaces}{7}
 \contentsline {subsection}{\numberline {8.3}Using Eigenfaces}{8}
