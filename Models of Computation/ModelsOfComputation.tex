@@ -16,6 +16,8 @@ top = 30mm
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+
 \begin{document}
 	\pagenumbering{gobble}
 	\maketitle
@@ -298,7 +300,36 @@ top = 30mm
 	There is a whole range of very common problems which are not sure if they are feasible or not. These are called \textbf{$\mathcal{NP}$-complete problems}. In a nutshell, for $\mathcal{NP}$-complete problems we do not know whether the problems are really hard, but we have very good grounds to believe it.
 	
 	\par 
-	The easiest way to explain the class $\mathcal{NP}$ is via the distinction between solving a problem and checking a solution. From experience, we know that checking a solution is much easier than solving a problem. $\mathcal{NP}$ consists of all the problems for which there exists a polynomial solution checking algorithm.
+	The easiest way to explain the class $\mathcal{NP}$ is via the distinction between solving a problem and checking a solution. From experience, we know that checking a solution is much easier than solving a problem. $\mathcal{NP}$ consists of all the problems for which there exists a polynomial solution checking algorithm. For example, it is very easy to check that a number is divided by another, no matter how large the numbers are. On the other hand, finding a factor of a given number - even if you know if the number is prime or not - is very hard to do. RSA encryption is built upon this fact, and solving the problem would have profound effects. 
+	
+	\par 
+	The formal definition of what it means to check a solution is a little involved. This is because each instance may require additional data to do the checking efficiently, having the answer alone may not be enough. We will look at decision problems where the answer is either 'yes' or 'no'. Such an answer does not make it any easier to check whether it is correct or not. We need something additional, which we call a \textbf{proof}\index{proof} or a \textbf{witness}\index{witness}. In the division example this would be the factors of the number (which gives us more information that just that the number is composite). The checker can then verify the answer by multiplying the factors together. We formalise this idea of a witness:
+	\begin{definition}
+		A subset $L$ of $\Sigma^{*}$ belongs to $\mathcal{NP}$ if there exists a determinisitc Turing machine $M$ which takes pairs $(s, w)$ of strings as input and replies 'yes' or 'no' in polynomial time. The replies are to be interpretted as saying 'yes, $w$ proves that $s$ belongs to $L$' or 'no, this $w$ is not a proof for the membership of $s$ in $L$. Furthermore, it must be true that for every $s \in L$ there exists at least one witness $w \in \Sigma^{*}$ such that $M$ will reply 'yes' when presented with $(s, w)$ and for every $s \in L$ no witness exists for which $M$ replies 'yes'.
+	\end{definition}
+	
+	\subsection{Nondeterministic Turing Machines}
+	We can define the class $\mathcal{NP}$ is a completely different way using \textbf{nondeterministic Turing machines}. NTMs are defined just like determinisitic Turing machines expect we use a transition \textit{relation} rather than a transition \textit{function}. In essence, we get a transition table where every entry consists of finitely many choices for how the machine may proceed and the machine is allowed to choose freely at every stage one of the transistions from the available collection.
+	
+	\par 
+	We will concentrate our efforts on decision problems once again. When we design an NTM for a decision problem it makes sense to allow for a third possible outcome: 'undecided' or 'can't make a judgement either way'. The machine is \textbf{correct} if it never replies 'yes' when it should have said 'no' and if it never replies 'no' when it should have said 'yes'. In all cases it is allowed to respond with 'undecided'. An NTM is said to \textbf{solve} a decision problem if it is correct and for every positive instance there is at least one computation path along which the machine will reply 'yes'.
+	
+	\par 
+	We can use an NTM to construct a deterministic machine which truly decides the decision problem (although it takes a long time to do so). The determinisitic machine systematically explores all execution paths the nondeterministic machine is capable of. As the NTM is bound to stop after a fixed amount of time, there is only finitely many paths to consider. If one branch ends with 'yes' then the determinisitic machine answers 'yes' as well. If all branches end in 'undecided' or one branch answers 'no', the deterministic machine answers 'no'.
+	
+	\par 
+	The worst case complexity of a NTM is defined almost as in the determinisitic case: we take the maximum run time (or memory usage) on all input of a certain length, and for all possible choices the machine can make. Their runtime is bounded by some polynomial independently of the choices they can make during a computation.
+	
+	\begin{definition}
+		A decision problem belongs to the complexity class $\mathcal{NP}$ if there exists a nondeterminisitic Turing machine running in polynomial time solving the problem.
+	\end{definition}
+	
+	The second definition makes it easier to see that $\mathcal{P}$ is contained in $\mathcal{NP}$ because deterministic Turing machines are also NTMs. The question of whether the two classes are different or not is a famous open question in the theory of computation, commonly referred to as the $\mathcal{P} = \mathcal{NP}$ problem.
+	
+	\subsection{Complete Problems}
+	Some problems in NP have been studied for hundreds of years and yet no efficient solution has been found. This suggests that $\mathcal{NP}$ is a larger class of problems than $\mathcal{P}$.
+	
+	
 	
 	\section{Lambda-calculus}
 	Alonzo Church developed a notation for arbitrary \textbf{functions} called $\lambda$-calculus. It is an extremely economical notation but at first sight somewhat cryptic, which stems from its origins in mathematical logic. Expressions in $\lambda$-calculus are written in strict prefix form. Further, function and argument are simply written next to each other without brackets around the argument.
