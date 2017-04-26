@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  25 APR 2017 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  26 APR 2017 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -118,6 +118,71 @@ Package ifvtex Info: VTeX not detected.
 \Gm@layoutvoffset=\dimen119
 \Gm@dimlist=\toks16
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen120
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen121
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count100
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count101
+\leftroot@=\count102
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count103
+\DOTSCASE@=\count104
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen122
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count105
+\c@MaxMatrixCols=\count106
+\dotsspace@=\muskip10
+\c@parentequation=\count107
+\dspbrk@lvl=\count108
+\tag@help=\toks18
+\row@=\count109
+\column@=\count110
+\maxfields@=\count111
+\andhelp@=\toks19
+\eqnshift@=\dimen123
+\alignsep@=\dimen124
+\tagshift@=\dimen125
+\tagwidth@=\dimen126
+\totwidth@=\dimen127
+\lineht@=\dimen128
+\@envbody=\toks20
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (483.69684pt) is ignored.
@@ -130,21 +195,23 @@ Package geometry Warning: Over-specification in `v'-direction.
 \openout3 = `ModelsOfComputation.idx'.
 
 Writing index file ModelsOfComputation.idx
+\c@theorem=\count112
+\c@corollary=\count113
 (./ModelsOfComputation.aux)
 \openout1 = `ModelsOfComputation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -180,101 +247,74 @@ LaTeX Font Info:    ... okay on input line 14.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 16.
-[1
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./ModelsOfComputation.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 3.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ModelsOfComputation.toc
 )
 \tf@toc=\write4
 \openout4 = `ModelsOfComputation.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
 
-Overfull \hbox (1.70831pt too wide) in paragraph at lines 36--36
+Overfull \hbox (1.70831pt too wide) in paragraph at lines 41--41
 []\OT1/cmr/bx/n/14.4 Language Mem-ber-ship Prob-lems and Reg-u-lar Ex-pres-sion
 s 
  []
 
-[1] [2] [3]
+[1] [2] [3] [4] [5]
 
-LaTeX Warning: Command \textvisiblespace invalid in math mode on input line 164
+LaTeX Warning: Command \textvisiblespace invalid in math mode on input line 232
 .
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
-\OT1/cmr/m/it/10.95 to which both N and P can be re-duced (in sev-eral steps)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
-\OT1/cmr/m/n/10.95 corol-lary:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
-
- []
-
-[5] [6] (./ModelsOfComputation.lof)
-\tf@lof=\write5
-\openout5 = `ModelsOfComputation.lof'.
-
- [7]
+[6] [7] [8] [9] [10] [11]
 runsystem(makeindex ModelsOfComputation.idx)...executed safely (allowed).
 
- (./ModelsOfComputation.ind) [8
+ (./ModelsOfComputation.ind) [12
 
 ]
 (./ModelsOfComputation.aux) ) 
 Here is how much of TeX's memory you used:
- 1262 strings out of 494910
- 18047 string characters out of 6179836
- 80414 words of memory out of 5000000
- 4576 multiletter control sequences out of 15000+600000
- 9684 words of font info for 34 fonts, out of 8000000 for 9000
+ 1959 strings out of 494910
+ 26154 string characters out of 6179836
+ 93511 words of memory out of 5000000
+ 5242 multiletter control sequences out of 15000+600000
+ 12561 words of font info for 48 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,6n,64p,890b,216s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,10n,64p,920b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ModelsOfComputation.pdf (10 pages, 169588 bytes).
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb>
+Output written on ModelsOfComputation.pdf (14 pages, 208463 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

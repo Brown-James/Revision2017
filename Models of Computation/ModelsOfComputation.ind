@@ -1,30 +1,39 @@
 \begin{theindex}
 
-  \item alan turing, 4
+  \item alan turing, 6
   \item alphabet, 1
 
   \indexspace
 
+  \item bisimilarity, 3
+
+  \indexspace
+
+  \item complexity, 7
   \item concatenate, 1
 
   \indexspace
 
-  \item decidable, 3
-  \item decision problem, 2
+  \item decidable, 5
+  \item decision problem, 4
+  \item distinctive, 3
 
   \indexspace
 
-  \item function, 2
+  \item feasible, 9
+  \item function, 4
 
   \indexspace
 
-  \item halting problem, 3
-  \item head, 4
+  \item halting problem, 5
+  \item head, 6
 
   \indexspace
 
-  \item initial state, 5
-  \item instance, 2
+  \item infeasible, 9
+  \item initial state, 7
+  \item instance, 4
+  \item intractable, 9
 
   \indexspace
 
@@ -32,28 +41,29 @@
 
   \indexspace
 
-  \item problem, 2
+  \item problem, 4
 
   \indexspace
 
-  \item reduce, 3
-  \item Regular Expressions, 2
-  \item rice's theorem, 4
+  \item reduce, 5
+  \item regular expressions, 2
+  \item rice's theorem, 6
 
   \indexspace
 
-  \item system of simple types, 6
+  \item simplex method, 8
+  \item system of simple types, 10
 
   \indexspace
 
-  \item transition function, 5
-  \item trivial property, 4
-  \item turing machine, 4
+  \item transition function, 7
+  \item trivial property, 6
+  \item turing machine, 6
 
   \indexspace
 
-  \item undecidable, 4
-  \item undecideable, 3
+  \item undecidable, 6
+  \item undecideable, 5
 
   \indexspace
 

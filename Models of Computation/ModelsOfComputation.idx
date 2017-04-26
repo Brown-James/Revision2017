@@ -2,21 +2,30 @@
 \indexentry{word}{1}
 \indexentry{concatenate}{1}
 \indexentry{language}{1}
-\indexentry{Regular Expressions}{2}
-\indexentry{decision problem}{2}
-\indexentry{problem}{2}
-\indexentry{instance}{2}
-\indexentry{function}{2}
-\indexentry{reduce}{3}
-\indexentry{decidable}{3}
-\indexentry{undecideable}{3}
-\indexentry{halting problem}{3}
-\indexentry{rice's theorem}{4}
-\indexentry{trivial property}{4}
-\indexentry{undecidable}{4}
-\indexentry{alan turing}{4}
-\indexentry{turing machine}{4}
-\indexentry{head}{4}
-\indexentry{initial state}{5}
-\indexentry{transition function}{5}
-\indexentry{system of simple types}{6}
+\indexentry{regular expressions}{2}
+\indexentry{distinctive}{3}
+\indexentry{bisimilarity}{3}
+\indexentry{decision problem}{4}
+\indexentry{problem}{4}
+\indexentry{instance}{4}
+\indexentry{function}{4}
+\indexentry{reduce}{5}
+\indexentry{decidable}{5}
+\indexentry{undecideable}{5}
+\indexentry{halting problem}{5}
+\indexentry{rice's theorem}{6}
+\indexentry{trivial property}{6}
+\indexentry{undecidable}{6}
+\indexentry{alan turing}{6}
+\indexentry{turing machine}{6}
+\indexentry{head}{6}
+\indexentry{initial state}{7}
+\indexentry{transition function}{7}
+\indexentry{complexity}{7}
+\indexentry{simplex method}{8}
+\indexentry{feasible}{9}
+\indexentry{infeasible}{9}
+\indexentry{intractable}{9}
+\indexentry{feasible}{9}
+\indexentry{intractable}{9}
+\indexentry{system of simple types}{10}

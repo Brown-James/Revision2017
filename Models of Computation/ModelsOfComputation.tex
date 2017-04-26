@@ -1,6 +1,8 @@
 \documentclass[11pt]{article}
 \usepackage{imakeidx}
 \usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 \geometry{a4paper,
 total={170mm, 257mm},
 left = 30mm,
@@ -11,6 +13,9 @@ top = 30mm
 \title{Models of Computation \linebreak Revision Notes}
 \author{James Brown}
 \makeindex
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 \begin{document}
 	\pagenumbering{gobble}
 	\maketitle
@@ -21,7 +26,7 @@ top = 30mm
 	
 	\section{Introduction}
 	These are notes I have written in preparation for the upcoming 2017 Models of Computation exam. This year the module was run by Paul Levy (P.B.Levy@cs.bham.ac.uk).
-	\linebreak
+	\linebreak	
 	This module is about problems and \textit{computers}. We ask ourselves:
 	\begin{itemize}
 		\item What problems can be solved on a computer?
@@ -56,7 +61,7 @@ top = 30mm
 	In each one of these examples, we are provided with a word and we want to know whether it is an acceptable word. We want to make a computer tell us the answer.
 	
 	\subsection{Regex}
-	\textbf{Regular Expressions}\index{Regular Expressions} are a useful notation for describing languages. We write Empty for the language consisting of no words (the empty set). We write \textit{a} for the language consisting of just the single-character a, and $\epsilon$ for the language consisting of just the empty word. If we have a language \textit{\textbf{L}} and \textit{\textbf{L'}}, we write \textit{\textbf{LL'}} for the set of words that are a concatenation of a word in \textit{\textbf{L}} and a word in \textit{\textbf{L'}}. We can also write \textit{\textbf{L|L'}} for the set of words that are in \textit{\textbf{L}} or \textit{\textbf{L'}} - the union of the two languages. We write \textit{\textbf{L*}} for the set of words that are a concatenation of some number of words in \textit{\textbf{L}} (some number may be 0).
+	\textbf{Regular Expressions}\index{regular expressions} are a useful notation for describing languages. We write Empty for the language consisting of no words (the empty set). We write \textit{a} for the language consisting of just the single-character a, and $\epsilon$ for the language consisting of just the empty word. If we have a language \textit{\textbf{L}} and \textit{\textbf{L'}}, we write \textit{\textbf{LL'}} for the set of words that are a concatenation of a word in \textit{\textbf{L}} and a word in \textit{\textbf{L'}}. We can also write \textit{\textbf{L|L'}} for the set of words that are in \textit{\textbf{L}} or \textit{\textbf{L'}} - the union of the two languages. We write \textit{\textbf{L*}} for the set of words that are a concatenation of some number of words in \textit{\textbf{L}} (some number may be 0).
 	Just like arithmetic, regular expressions have precedence rules. $*$ has the highest precedence, then juxtaposition and then $|$.
 	
 	\par 
@@ -64,10 +69,73 @@ top = 30mm
 	
 	
 	\section{Finite State Automata}
-
+	\subsection{Removing $\epsilon$ moves}
+	Let $(Q, \delta, \text{Acc}, q_{0})$ be a NDFA with $\epsilon$-transitions. There is a slow a-transition from state $q$ to state $r$ when starting from state $q$ we can follow some number of $\epsilon$-transistions, then an a-transition and end in state $r$. A state $q$ is slowly accepting when starting from a state $q$ we can follow some number of $\epsilon$-transitions and reach and accepting state.
+	
+	\par To create a NDFA without $\epsilon$-transitions, we take the same states and the same initial state and make all slow transitions into normal transitions, and all slowly accepting states become accepting.
+	
+	\subsection{Determinisation}
+	Given a NDFA $(Q, \delta, Acc, q_{0})$ we can form a DFA. The states in the DFA will be subsets of $Q$. From a state $U \subseteq Q$, when we input a, we take the set of states that we can reach by an a-transition from a state in $U$. Our accepting states are states which contain a state which is contained in Acc. The initial state stays the same as before.
+	\subsection{Coverting a regular expression to a deterministic finite state automaton}
+	Simply create a NDFA from the regular expression, remove $\epsilon$-moves and then determinise the automaton.
+	\subsection{Converting a finite state automaton to a regular expression}
+	
 	\section{Regular Languages}
+	\begin{theorem}[Kleene's Theorem]
+	A language is regular if and only if it is accepted by a finite state automaton.
+	\end{theorem}
+	 
+	\subsection{Operations on regular languages}
+	We use Kleene's theorem to prove that some languages are regular. Firstly, the complement of a regular language $L$ is also regular. To do this, we take the DFA $(Q, \delta, \text{Acc}, q_{0})$ which accepts $L$. We then take the automaton $(Q, \delta, Q\ \text{Acc}, q_{0})$. This automation recognises the complement of $L$, so the complement of $L$ must also be a regular language.
+	
+	\par 
+	Secondly, the intersection of regular languages $L$ and $L'$ is regular, as it is the complement of the union of the complements of $L$ and $L'$.
+	
+	\subsection{Proving a language is not regular}
+	\begin{theorem}[Myhill-Nerode Theorem]
+	A language $L$ is not regular if and only if it has an infinite distinctive sequence.
+	\end{theorem}
+	
+	Let $w$ and $w'$ be words, and $L$ a language. An $L$-distinguishing suffix for $w$ and $w'$ is a word $x$ such that either $wx \in L$ and $w'x \notin L$, or $wx \notin L$ and $w'x \in L$. For example, take the words \texttt{Wed} and \texttt{Tues}. An English-distinguishing suffix for these two words is \texttt{day} because \texttt{Wedday} is not and English word but \texttt{Tuesday} is.
+	
+	\par Suppose we have a DFA which recognises the language $L$. If words $w$ and $w'$ have an $L$-distinguishing suffix, then $w$ and $w'$ must take us to different states from the inital state. Now suppose we have four words, $w_{0}, w_{1}, w_{2}, w_{3}$ that are \textbf{distinctive}\index{distinctive} (meaning they all have distinguishing suffixes in relation to each other. The DFA to represent this language must have at least four states. Now suppose there is an infinite sequence of words $w_{0}, w_{1}...$ that is \textbf{distinctive}. There cannot be a DFA to represent this language, so by Kleene's theorem the language is not regular.
+	
+	\par 
+	\textbf{Example}: Take the language $\{a^{n}b^{n} \;|\; n \in \mathbb{N}\}$. If we take all $a^{n}$ for each $n \in \mathbb{N}$, then for $m < n$, $b^{m}$ is a distinguishing suffix for $a^{m}$ and $a^{n}$. This is a distinctive infinite sequence, and the language is not regular.
+	
+	\subsection{Context Free Languages}
 	
 	\section{Bisimulation and Minimisation}
+	\subsection{Bisimilarity}
+	Two states are \textbf{bisimilar}\index{bisimilarity} if and only if they accept the same language. Suppose $(Q, \delta, Acc)$ and $(Q', \delta ', Acc')$ are unpointed automata for the same alphabet $L$. A state $q_{0} \in Q$ is bisimilar to a state $q'_{0} \in Q'$ if and only if they accept the same language. In order to prove this, let $\mathcal{R}$ be a bisimulation. We will prove that for any word $w$, if $q \mathcal{R} q'$ then $q$ accepts $w$ if and only if $q'$ accepts $w$. This is by induction on $w$:
+	
+	\par 
+	For the base case $w = \epsilon$:
+	\begin{align*}
+		&\;q \text{ accepts } \epsilon \\
+			\leftrightarrow & \;q \text{ is accepting } \\ 
+			\leftrightarrow & \;q' \text{ is accepting} \\
+			\leftrightarrow & \;q' \text{ accepts } \epsilon
+	\end{align*}
+	
+	For the inductive step where $w$ has a head (first character) $a$ and a tail $t$:
+	\begin{align*}
+		 &\;q \text{ accepts } a::t \\
+			\leftrightarrow &\;\delta (q,a) \text{ accepts }  t \\ 
+			\leftrightarrow &\;\delta'(q', a) \text{ accepts } t & \text{(by the inductive hypothesis)}\\
+			\leftrightarrow &\;q' \text{ accepts } a :: t
+	\end{align*}
+	
+	The easiest way to  construct a check for bisimilarity is to build a bisimulation (essentially a tree). From your pair of states, follow all outputs to new pairs of states. If any of the new pairs disagree on acceptance (one accepts and the other doesn't), then the original pair is not bisimilar as they both accept different languages. We stop building the tree down a branch if we see a pair of states that we have visited before, and conclude that the pair of states is bisimilar if we can't make any more moves that we haven't already seen before.
+	\subsection{Minimisation}
+	In order to minimise an automaton, there are two steps:
+	\begin{enumerate}
+		\item Throw away unreachable states
+		\item Identify bisimilar states and merge the ones that are bisimilar
+	\end{enumerate}
+	
+	The found minimal automaton will be unique (up to isomorphism).
+		
 		
 	\section{The Halting Problem}
 	In Computer Science there are many problems that we encounter. These all have an input (some string, a number, three strings etc.) and an output. Often this output is yes or no, but it may be a number or string or some other value. If a problem returns a yes or no result, then it is a decision problem\index{decision problem}. We have to draw a distinction between problems\index{problem} and instances\index{instance}. 'Is the word $abbab$ accepted by the regexp $ab*(ab*|b)$?' is an instance of a more general problem 'Is a word $w$ accepted by the regexp $ab*(ab*|b)$?'. Even more generally we could describe this problem as 'Given a word $w$ and a regexp $E$, is $w$ accepted by $E$?'.
@@ -180,26 +248,72 @@ top = 30mm
 	\end{itemize}
 	
 	\section{Church's Thesis}
-	\textit{'What ever can be done by any computational device can be done by a Turing machine'}
-	\linebreak
+	\begin{theorem} 
+		What ever can be done by any computational device can be done by a Turing machine
+	\end{theorem}
 	
-	\par Church's thesis cannot be proven - it's entirely possible for someone to invent a new way of computation which extends the capabilities of programs as we know them. On the other hand, nobody has been able to come up with an alternative to Turing machines - the more time that passes to more plausible Church's thesis becomes.
+	\par Church's thesis cannot be proven - it's entirely possible for someone to invent a new way of computation which extends the capabilities of programs as we know them. On the other hand, nobody has been able to come up with an alternative to Turing machines as of yet and the more time that passes the more plausible Church's thesis becomes.
 	
 	\section{Complexity and P}
+	Until now we have been concerned with figuring out what a computer can and can't do. According to Church's thesis, this distinction of what we can and can't do does not depend at all on the architecture of the machine or the programming language - it's a fundamental divide. We have also seen that there are problems of practical intrest which exceed the capabilities of computers. These problems we can only solve approximately or partially. This section is concerned with classifying problems according to the computational effort they need for their solution. There are many different ways to accomplish this. In the simplest case we will look at decision problems which require a yes/no answer.
+	
+	\par 
+	In computer science we use the term \textbf{complexity}\index{complexity} differently than we do in English where it normally means 'multi-faceted' or 'confusing'. In the study of programs we use the word strictly to refer to the amount of resources needed during computation - primarily \textbf{time} and \textbf{space}. In select other cases we may be interested in other resources such as number of file accesses. We also must make the distinction between the complexity of an algorithm (which we have studied before and refers to the runtime behaviour of a program) and the complexity of a problem which refers to an inherent difficulty in solving a problem. 
+	
+	\par 
+	We study the runtime of Turing machines rather than any real computer. This is for a number of reasons. Firstly, the time and Turing machine takes is unambiguously characterised by the number of transitions it makes allowing us to not have to bring in actual time measurements. Secondly, the space usage of a Turing machine can be defined unambiguously as well. We take this to be the number of cells it ever visits during computation. As tape cells have finite capacity only, this measure is fair and realistic. Thirdly, Turing machines operate uniformly on input of arbitrary size. A Turing machine will behave the same regardless of if a string is two characters long or two billion characters long which is not true of real hardware. Turing machines can scale up in size, real computer programs typically don't.
+	
+	\par 
+	Once we have designed a Turing machine to solve a particular problem, how do we find the time complexity of the program? It is not sufficient to test the program on a few strings and just tabulate the outcomes. We would really like to give the number of steps executed by the machine for all possible inputs it can take - this is the function from the input domain (for example $\Sigma^{*}$, strings over $\Sigma$) to the set of natural numbers. Such a formula is probably very difficult to find for even the most simple Turing machines. It is also not clear whether we can read off a lot from the formula should we find it.
+	
+	\par If we abstract away from the actual input to the length of the input, the situation becomes much more manageable both in terms of finding the formula and in terms of interpreting the given formula. Mathematically, we will get a function from the natural numbers (the input length) to the natural numbers (number of steps taken). It's important to be precise about how the abstraction is achieved. We may associate the input length $n$ with $n^{2}$ if the Turing machine takes at most $n^{2}$ steps. This is very different to interpretting $n^{2}$ as the number of steps on average. We can distinguish three cases when analysing the runtime complexity of an algorithm:
+	\begin{itemize}
+		\item \textbf{Best-case runtime} or \textbf{Minimum time}: The time needed when the algorithm is applied to the 'easiest' possible input. An example is applying a sorting algorithm to the already sorted list.
+		\item \textbf{Worst-case runetime} or \textbf{Maximum time}: The time needed when the algorithm is applied to the 'worst' possible input. An example is applying a sorting algorithm to a list sorted in reverse order.
+		\item \textbf{Average-case runtime} or \textbf{Average time}: The average time needed (where the average is taken over all possible inputs).
+	\end{itemize}
+	
+	\par 
+	We known how to determine the time-complexity of algorithms from first-year. We now take one further abstraction and ask whether problems themselves have an inherent complexity? In general the answer to this question is sometimes 'yes', sometimes 'yes but currently unknown' and sometimes 'no'. We are trying to make a statement about all algorithms which would solve the problem by assigning a complexity to a problem. This idea can fail in practice in a number of ways.
+	\begin{enumerate}
+		\item We can have a situation where we suspect that the problem is solvable but nobody has been able to give an algorithm for it yet.
+		\item We may have one or a number of algorithms but we are unable to determine their complexity functions. This was the case for the Simplex Method\index{simplex method}.
+		\item We may have a few algorithms and we may know their complexity but we do not know whether there exist better algorithms or not.
+		\item We may have the situation that there are probably better and better algorithms for a given problem, we can then never determine the largest lower bound of the complexity.
+	\end{enumerate}
+	Cases 1 and 2 are rare but have some spectacular examples. Case 4 seems to only occur in problems that have been designed specifically for that purpose. Case 3 is the most common situation. The most common example of case 3 is that we know we can solve the Travelling Salesman problem in exponential time but we don't know if there exists a more efficient algorithm. In general, for every specific algorithm, whose runtime behaviour is known, gives us an \textit{upper bound} for the complexity of a problem (like saying I know I can do this in f(n) many steps, but maybe we can do better). A \textit{lower bound} cannot be established by programming at all, instead you need a clever way of analysing the problem which shows that every algorithm must take atleast so many steps. For many problems, we don't have lower bounds yet and they are very challeging to come across.
+	
+	\subsection{The complexity class $\mathcal{P}$}
+	For the problem of copying a string on a one-tape Turing machine, we can show that every implementation will have a time complexity which is at least quadratic. However, when we change to a two tape scenario we can achieve a much faster implementation which runs in linear time. Because of this, should we religiously stick to one tape machines, or should we be more liberal in our choice of machine? What this example shows us is that we need to say which machine model we are referring to - by convention this is the multitape Turing machine.
+	
+	\par Are there complexity classes which are independent of the machine model? Absolutely. Problems which have a polynomial complexity on Turing machines (problems whose complexity class is $O(n^{k})$ have polynomial complexity on almost all machine models. A machine model is 'reasonable' only if it defines the same class of polynomial problems as Turing machines. The class of polynomial problems with polynomial implementations is denoted by $\mathcal{P}$ and it is customary to call the problems in $\mathcal{P}$ \textbf{feasible}\index{feasible} and those outside \textbf{infeasible}\index{infeasible} or \textbf{intractable}\index{intractable}.
 	
 	\section{NP}
+	We have introduced the distinction between problems which have a solution which runs in polynomial time and problems for which a solution does not exist. The former problems are \textbf{feasible}\index{feasible} and the latter are \textbf{intractable}\index{intractable}. We use $\mathcal{P}$ to notate all problems which are feasible.
+	
+	\par 
+	The distinction between $\mathcal{P}$ and not-$\mathcal{P}$ is not easy to establish in practice.
+	
+	\par 
+	There is a whole range of very common problems which are not sure if they are feasible or not. These are called \textbf{$\mathcal{NP}$-complete problems}. In a nutshell, for $\mathcal{NP}$-complete problems we do not know whether the problems are really hard, but we have very good grounds to believe it.
+	
+	\par 
+	The easiest way to explain the class $\mathcal{NP}$ is via the distinction between solving a problem and checking a solution. From experience, we know that checking a solution is much easier than solving a problem. $\mathcal{NP}$ consists of all the problems for which there exists a polynomial solution checking algorithm.
 	
 	\section{Lambda-calculus}
 	Alonzo Church developed a notation for arbitrary \textbf{functions} called $\lambda$-calculus. It is an extremely economical notation but at first sight somewhat cryptic, which stems from its origins in mathematical logic. Expressions in $\lambda$-calculus are written in strict prefix form. Further, function and argument are simply written next to each other without brackets around the argument.
 	
 	
 	\subsection{Church-Rosser Theorem}
-	\textit{'If a term M can be reduced (in several steps) to terms N and P, there there exists a term Q to which both N and P can be reduced (in several steps)}
-	\linebreak
-	\par This is sometimes known as confluence. Regardless of the order in which we decide to reduce our lambda calculus expression, we will always be able to arrive at the same term. This makes perfect sense - when evaluating an expression with arithmetic terms, we cannot get two different answers dependent on the order of evaluation. It follows that we get this corollary:
-	\linebreak	
+	\begin{theorem}[Church-Rosser Theorem]
+	If a term M can be reduced (in several steps) to terms N and P, there there exists a term Q to which both N and P can be reduced (in several steps)
+	\end{theorem}
+
+	\par This is sometimes known as confluence. Regardless of the order in which we decide to reduce our lambda calculus expression, we will always be able to arrive at the same term. This makes perfect sense - when evaluating an expression with arithmetic terms, we cannot get two different answers dependent on the order of evaluation. It follows that we get this corollary:	
 	
-	\textit{'Every $\lambda$-term has at most one normal form'.}
+	\begin{corollary}
+	Every $\lambda$-term has at most one normal form.
+	\end{corollary}
 	
 	\par
 	We can prove this. Assume there are two normal forms (for the case of contradiction) N and P to which are certain term M reduces. By the theorem of Church and Rosser there is a term Q to which both N and P can be reduced to. However, as we have assumed N and P are in their normal forms they don't allow any further reductions. The only possible interpretation for this is that N = P = Q.
@@ -221,6 +335,5 @@ top = 30mm
 	
 	
 	\newpage
-	\listoffigures
 	\printindex
 \end{document}
