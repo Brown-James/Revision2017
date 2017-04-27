@@ -2,7 +2,11 @@
 \usepackage{imakeidx}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
 \usepackage{amsfonts}
+\usepackage{mathtools}
 \geometry{a4paper,
 total={170mm, 257mm},
 left = 30mm,
@@ -17,6 +21,8 @@ top = 30mm
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
 \newtheorem{definition}{Definition}
+
+\newcommand\leqp{\stackrel{\mathclap{\normalfont\mbox{P}}}{\leq}}
 
 \begin{document}
 	\pagenumbering{gobble}
@@ -249,7 +255,30 @@ top = 30mm
 			\end{itemize}
 	\end{itemize}
 	
-	\section{Church's Thesis}
+	We may also want to use macros within our Turing machines. Conceptually, these are like functions with return values in any normal programming language. For example, we make a macro which tells us if the length of a block of characters is even or odd. Beneath the macro, this is a Turing machine, but we may wish to abstract out detail where possible when building large Turing machines and macros are ideal for this purpose.
+	
+	\subsection{Other kinds of Turing Machine}
+	\subsubsection{Two Tape Turing Machines}
+	The most simple addition we could think to make to a Turing machine is to add it another tape, which we will call the \textbf{auxillary tape}\index{auxillary tape}. This extra tape would be very useful in situations where we have to copy a string for example, and will allow us to solve this kind of problem in linear time rather than quadratic. It does not however allow us to solve any new problems that a Turing machine could not before - the number of problems each machine can compute is exactly the same.
+	
+	\par 
+	This is because we can simulate a multitape Turing machine on a single tape Turing machine. If anything was newly solvable by a multitape Turing machine, we could simply simulate solving that problem with a multitape Turing machine on our single tape Turing machine - leading to them being able to solve exactly the same set of problems. In order to simulate the multitape Turing machine, we have to interleave the contents of the two tapes into blocks of four - Flag for tape 1 head, tape 1 contents, flag for tape 2 head, tape 2 contents. The simulation of a multitape Turing machine on a single tape machine takes many, many more steps than running it natively on a multitape Turing machine. This is ok as we are concerned with computing \textit{power} and not computing \textit{speed}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.9\textwidth]{two_tape_turing_machine}
+		\caption{How to simulate a two tape Turing machine on a single tape machine}
+		\label{fig:two tape turing machine}
+	\end{figure}
+	
+	\subsubsection{Multidimensional Tapes}
+	Now we consider a tape where the Turing machine can move not just left and right, but also up and down for a two dimensional machine. This offers more than a multitape machine as each row can be considered as its own individual tape and the machine now has an unbounded amount of tapes available at its disposal. Once again this does not add any computing power, just convenience to the machine, as we can simulate this using two one-dimensional tapes which we can then simulate on a single tape.
+	
+	
+	\subsubsection{The Universal Turing Machine}
+	We can build a Turing machine which takes as input an arbitrary transition table and some data which it can then simulate the behaviour of. Turing realised the practical importance of this idea: instead of building new machines each time a new task is being tackled, we can instead program the universal Turing machine\index{universal turing machine} to do the job at hand. In other words, this embodies the idea of the \textit{stored program}, now associated with von Neumann. 
+	
+	\subsection{Church's Thesis}
 	\begin{theorem} 
 		What ever can be done by any computational device can be done by a Turing machine
 	\end{theorem}
@@ -327,7 +356,14 @@ top = 30mm
 	The second definition makes it easier to see that $\mathcal{P}$ is contained in $\mathcal{NP}$ because deterministic Turing machines are also NTMs. The question of whether the two classes are different or not is a famous open question in the theory of computation, commonly referred to as the $\mathcal{P} = \mathcal{NP}$ problem.
 	
 	\subsection{Complete Problems}
-	Some problems in NP have been studied for hundreds of years and yet no efficient solution has been found. This suggests that $\mathcal{NP}$ is a larger class of problems than $\mathcal{P}$.
+	Some problems in NP have been studied for hundreds of years and yet no efficient solution has been found. This suggests that $\mathcal{NP}$ is a larger class of problems than $\mathcal{P}$. It's reasonable to prove this idea by selecting some hard problem in $\mathcal{NP}$ and showing a lower bound for it which grows faster than any polynomial. To do this, we need an alternative notion of comparing problems in a single complexity class. For $\mathcal{NP}$ this idea of comparisson is given by \textbf{polytime reducability}\index{polytime reducability}. We say a problem $\mathcal{X}$ reduces in polynomial time to a problem $\mathcal{Y}$ if there is an algorithm (determinisitic Turing machine) which translates instances of $\mathcal{X}$ to instances of $\mathcal{Y}$ whose runtime is polynomial bounded. We write $\mathcal{X} \leqp \mathcal{Y}$ for this relationship. If $\mathcal{X}$ and $\mathcal{Y}$ are in $\mathcal{NP}$ and if $\mathcal{X}$ can be reduced to $\mathcal{Y}$ in polynomial time then it is reasonable to say that $\mathcal{X}$ is 'eaiser' than $\mathcal{Y}$ because any polynomial Turing machine solving $\mathcal{Y}$ also gives a solution to $\mathcal{X}$.
+	
+	\par 
+	It is the case that there are some nontrivial reductions between problems within $\mathcal{NP}$ and it could be the case that $\mathcal{NP}$ as a whole consists of infinitely many layers of problems, each more difficult than the one that precedes it. Becuase of this, it is remarkable that $\mathcal{NP}$ contains problems that are maximally difficult, in the sense that every other $\mathcal{NP}$ problem can be reduced to them. These problems are called \textbf{complete for $\mathcal{NP}$ with respect to polytime reductions}, or for short \textbf{$\mathcal{NP}$-complete}\index{NP-complete}.
+	
+	
+	\subsection{Examples of NP-complete problems}
+	
 	
 	
 	

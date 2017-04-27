@@ -21,13 +21,17 @@
 \indexentry{head}{6}
 \indexentry{initial state}{7}
 \indexentry{transition function}{7}
-\indexentry{complexity}{7}
-\indexentry{simplex method}{8}
-\indexentry{feasible}{9}
-\indexentry{infeasible}{9}
-\indexentry{intractable}{9}
-\indexentry{feasible}{9}
-\indexentry{intractable}{9}
-\indexentry{proof}{10}
-\indexentry{witness}{10}
-\indexentry{system of simple types}{11}
+\indexentry{auxillary tape}{7}
+\indexentry{universal turing machine}{8}
+\indexentry{complexity}{9}
+\indexentry{simplex method}{10}
+\indexentry{feasible}{10}
+\indexentry{infeasible}{10}
+\indexentry{intractable}{10}
+\indexentry{feasible}{10}
+\indexentry{intractable}{10}
+\indexentry{proof}{11}
+\indexentry{witness}{11}
+\indexentry{polytime reducability}{12}
+\indexentry{NP-complete}{12}
+\indexentry{system of simple types}{13}

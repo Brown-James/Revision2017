@@ -2,6 +2,7 @@
 
   \item alan turing, 6
   \item alphabet, 1
+  \item auxillary tape, 7
 
   \indexspace
 
@@ -9,7 +10,7 @@
 
   \indexspace
 
-  \item complexity, 7
+  \item complexity, 9
   \item concatenate, 1
 
   \indexspace
@@ -20,7 +21,7 @@
 
   \indexspace
 
-  \item feasible, 9
+  \item feasible, 10
   \item function, 4
 
   \indexspace
@@ -30,10 +31,10 @@
 
   \indexspace
 
-  \item infeasible, 9
+  \item infeasible, 10
   \item initial state, 7
   \item instance, 4
-  \item intractable, 9
+  \item intractable, 10
 
   \indexspace
 
@@ -41,8 +42,13 @@
 
   \indexspace
 
+  \item NP-complete, 12
+
+  \indexspace
+
+  \item polytime reducability, 12
   \item problem, 4
-  \item proof, 10
+  \item proof, 11
 
   \indexspace
 
@@ -52,8 +58,8 @@
 
   \indexspace
 
-  \item simplex method, 8
-  \item system of simple types, 11
+  \item simplex method, 10
+  \item system of simple types, 13
 
   \indexspace
 
@@ -65,10 +71,11 @@
 
   \item undecidable, 6
   \item undecideable, 5
+  \item universal turing machine, 8
 
   \indexspace
 
-  \item witness, 10
+  \item witness, 11
   \item word, 1
 
 \end{theindex}
