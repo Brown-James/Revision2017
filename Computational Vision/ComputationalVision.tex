@@ -188,7 +188,7 @@ top = 30mm
 	\subsection{Main steps in Edge Detection}
 	Regardless of methods, there a few major steps to edge detection:
 		\begin{enumerate}
-			\item \textbf{Smoothing}: suppress as much noise as possible, without destroying any of the true edges.
+			\item \textbf{Smoothing}: suppress as much noise as possible, without destroying any of the true edges. We may achieve this through a Gaussian filter.
 			\item \textbf{Enhancement}: apply differentiation to enhance the quality of edges (i.e. sharpening).
 			\item \textbf{Thresholding}: determine which edge pixels should be discarded as  noise and which should be retained (i.e. threshold edge magnitude).
 			
@@ -214,8 +214,34 @@ top = 30mm
 	Canny showed that the first derivative of Gaussian closely approximates the operator that optimizes the product of signal-to-noise ratio\index{signal-to-noise ratio} and localization\index{localization}.
 
 	\subsection{Hysteresis}
-	Hysteresis thresholding\index{hysteresis thresholding} uses two thresholds - a low threshold $t_{l}$ and a high threshold $t_{h}$ (usually this is $2t_{l}$). This makes the assumption that important edges should be along continuous curves in the image. It allows us to follow a faint section of a given line and to discard a few noisy pixels that do not constitute a line but have produced large gradients. We begin by applying the high threshold - this marks edges that we can be fairly sure that are genuine. Starting from these points, and using the directional information derived earlier, edges can be traced throughout the whole image. While tracing an edge, we apply the lower threshold, allowing us to trace faint sections of edges as long as we find a starting point. 
+	Hysteresis thresholding\index{hysteresis thresholding} uses two thresholds - a low threshold $t_{l}$ and a high threshold $t_{h}$ (usually this is $2t_{l}$). This makes the assumption that important edges should be along continuous curves in the image. It allows us to follow a faint section of a given line and to discard a few noisy pixels that do not constitute a line but have produced large gradients. We begin by applying the high threshold - this marks edges that we can be fairly sure that are genuine. Starting from these points, and using the directional information derived earlier, edges can be traced throughout the whole image. While tracing an edge, we apply the lower threshold, allowing us to trace faint sections of edges as long as we find a starting point.
+	
+	\subsection{The Canny Edge Detector}
+	The Canny edge detector has four main steps:
+	\begin{enumerate}
+		\item Smooth image and calculate gradients (this is the first derivative of Gaussian).
+		\item Compute the gradient magnitude and direction, and threshold.
+		\item Apply non-maxima suppression (edge thinning).
+		\item Apply hysteresis thresholding.
+	\end{enumerate}
 
+	\subsection{Laplacian of Gaussian Edge Detector}
+	The Laplacian filter\index{laplacian filter} is an approximation of the second derivative of the image, shown in Figure  \ref{fig:laplacian filter}.
+	\begin{figure}
+			\begingroup
+			\renewcommand*{\arraystretch}{1.7}	
+			\centering
+			\[ \begin{bmatrix} 0 & 1 & 0 \\
+								1 & -4 & 1 \\
+								0 & 1 & 0
+			\end{bmatrix} \]
+			\endgroup
+			\caption{An example Laplacian filter}
+			\label{fig:laplacian filter}
+	\end{figure}
+	
+	As an approximation to the second derivative of the image, they are very sensitive to any noise in the image. To counter this, the image should be smoothed, for example with the Gaussian filter. Since convolution is associative, you can convolve the Gaussian smoothing filter with the Laplacian filter first, and then convolve the hybrid filter over the image. Doing this requires far fewer arithmetic operations, and the Laplacian of Gaussian\index{laplacian of gaussian} can be precalculated in advance. In order to find edges in our filtered image, we need to find zero-crossings in our image.
+	
 	\section{Hough Transform}
 	So far we haven't actually found edge segments, just lots and lots of edge points. The Hough Transform\index{hough transform} is a common approach to finding parametrised line segments. Every straight line in an image can be described by an equation. Each edge point in an image, if considered in isolation, could lie on an infinite number of straight lines. In Hough Transform each edge point votes for every line it could be on, and the lines with the most votes win.
 	

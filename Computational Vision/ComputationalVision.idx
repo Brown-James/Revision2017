@@ -28,24 +28,26 @@
 \indexentry{signal-to-noise ratio}{5}
 \indexentry{localization}{5}
 \indexentry{hysteresis thresholding}{5}
-\indexentry{hough transform}{5}
-\indexentry{hough space}{5}
+\indexentry{laplacian filter}{5}
+\indexentry{laplacian of gaussian}{5}
+\indexentry{hough transform}{6}
+\indexentry{hough space}{6}
 \indexentry{hough transform}{6}
 \indexentry{object recognition}{6}
 \indexentry{wide baseline matching}{6}
 \indexentry{tracking}{6}
-\indexentry{illumination invariance}{6}
-\indexentry{scale invariant}{6}
-\indexentry{pyramids}{6}
-\indexentry{scale space}{6}
-\indexentry{DOG method}{6}
-\indexentry{pyramid method}{6}
-\indexentry{difference of gaussian}{6}
+\indexentry{illumination invariance}{7}
+\indexentry{scale invariant}{7}
+\indexentry{pyramids}{7}
+\indexentry{scale space}{7}
+\indexentry{DOG method}{7}
+\indexentry{pyramid method}{7}
+\indexentry{difference of gaussian}{7}
 \indexentry{rotational invariance}{7}
 \indexentry{eigenface}{7}
-\indexentry{principle components analysis}{7}
-\indexentry{eigenvector}{7}
-\indexentry{covariance}{7}
+\indexentry{principle components analysis}{8}
+\indexentry{eigenvector}{8}
+\indexentry{covariance}{8}
 \indexentry{eigenvector}{8}
 \indexentry{eigenvalue}{8}
 \indexentry{noise}{9}
@@ -54,13 +56,13 @@
 \indexentry{4-neighbours}{9}
 \indexentry{8-neighbours}{9}
 \indexentry{moravec operator}{9}
-\indexentry{motion correspondence}{9}
-\indexentry{discreteness}{9}
-\indexentry{similarity}{9}
-\indexentry{consistency}{9}
+\indexentry{motion correspondence}{10}
+\indexentry{discreteness}{10}
+\indexentry{similarity}{10}
+\indexentry{consistency}{10}
 \indexentry{object recognition}{10}
-\indexentry{feature detector}{10}
-\indexentry{hypothesizer}{10}
-\indexentry{hypothesis verifier}{10}
+\indexentry{feature detector}{11}
+\indexentry{hypothesizer}{11}
+\indexentry{hypothesis verifier}{11}
 \indexentry{axes of symmetry}{11}
 \indexentry{generalised cones}{11}

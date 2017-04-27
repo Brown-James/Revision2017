@@ -13,24 +13,24 @@
   \item colour map, 3
   \item cones, 1
   \item connectedness, 9
-  \item consistency, 9
-  \item covariance, 7
+  \item consistency, 10
+  \item covariance, 8
 
   \indexspace
 
-  \item difference of gaussian, 6
-  \item discreteness, 9
-  \item DOG method, 6
+  \item difference of gaussian, 7
+  \item discreteness, 10
+  \item DOG method, 7
 
   \indexspace
 
   \item eigenface, 7
   \item eigenvalue, 8
-  \item eigenvector, 7, 8
+  \item eigenvector, 8
 
   \indexspace
 
-  \item feature detector, 10
+  \item feature detector, 11
 
   \indexspace
 
@@ -40,20 +40,22 @@
 
   \indexspace
 
-  \item hough space, 5
-  \item hough transform, 5, 6
-  \item hypothesis verifier, 10
-  \item hypothesizer, 10
+  \item hough space, 6
+  \item hough transform, 6
+  \item hypothesis verifier, 11
+  \item hypothesizer, 11
   \item hysteresis thresholding, 5
 
   \indexspace
 
-  \item illumination invariance, 6
+  \item illumination invariance, 7
   \item intensity gradient, 3
   \item intensity image, 3
 
   \indexspace
 
+  \item laplacian filter, 5
+  \item laplacian of gaussian, 5
   \item lateral geniculate nucleus, 2
   \item lens, 1
   \item localization, 5
@@ -63,7 +65,7 @@
   \item mean filter, 4
   \item moravec operator, 9
   \item motion, 9
-  \item motion correspondence, 9
+  \item motion correspondence, 10
 
   \indexspace
 
@@ -81,9 +83,9 @@
   \item photoreceptors, 1
   \item pinhole camera, 1
   \item pixel, 3
-  \item principle components analysis, 7
-  \item pyramid method, 6
-  \item pyramids, 6
+  \item principle components analysis, 8
+  \item pyramid method, 7
+  \item pyramids, 7
 
   \indexspace
 
@@ -94,10 +96,10 @@
 
   \indexspace
 
-  \item scale invariant, 6
-  \item scale space, 6
+  \item scale invariant, 7
+  \item scale space, 7
   \item signal-to-noise ratio, 5
-  \item similarity, 9
+  \item similarity, 10
   \item single response, 5
 
   \indexspace
