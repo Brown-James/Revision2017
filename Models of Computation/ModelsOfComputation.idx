@@ -16,20 +16,20 @@
 \indexentry{rice's theorem}{6}
 \indexentry{trivial property}{6}
 \indexentry{undecidable}{6}
-\indexentry{alan turing}{6}
-\indexentry{turing machine}{6}
-\indexentry{head}{6}
+\indexentry{alan turing}{7}
+\indexentry{turing machine}{7}
+\indexentry{head}{7}
 \indexentry{initial state}{7}
 \indexentry{transition function}{7}
 \indexentry{auxillary tape}{7}
 \indexentry{universal turing machine}{8}
 \indexentry{complexity}{9}
 \indexentry{simplex method}{10}
-\indexentry{feasible}{10}
-\indexentry{infeasible}{10}
-\indexentry{intractable}{10}
-\indexentry{feasible}{10}
-\indexentry{intractable}{10}
+\indexentry{feasible}{11}
+\indexentry{infeasible}{11}
+\indexentry{intractable}{11}
+\indexentry{feasible}{11}
+\indexentry{intractable}{11}
 \indexentry{proof}{11}
 \indexentry{witness}{11}
 \indexentry{polytime reducability}{12}

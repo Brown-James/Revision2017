@@ -7,22 +7,22 @@
 \contentsline {section}{\numberline {3}Edge Detection}{3}
 \contentsline {subsection}{\numberline {3.1}Intensity Images}{3}
 \contentsline {subsection}{\numberline {3.2}Approximating the Intensity Gradient}{3}
-\contentsline {section}{\numberline {4}Noise Filtering}{3}
+\contentsline {section}{\numberline {4}Noise Filtering}{4}
 \contentsline {section}{\numberline {5}Advanced Edge Detection}{4}
-\contentsline {subsection}{\numberline {5.1}Main steps in Edge Detection}{4}
+\contentsline {subsection}{\numberline {5.1}Main steps in Edge Detection}{5}
 \contentsline {subsection}{\numberline {5.2}Hysteresis}{5}
 \contentsline {subsection}{\numberline {5.3}The Canny Edge Detector}{5}
-\contentsline {subsection}{\numberline {5.4}Laplacian of Gaussian Edge Detector}{5}
+\contentsline {subsection}{\numberline {5.4}Laplacian of Gaussian Edge Detector}{6}
 \contentsline {section}{\numberline {6}Hough Transform}{6}
-\contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{6}
+\contentsline {section}{\numberline {7}Scale Invariant Feature Transform}{7}
 \contentsline {subsection}{\numberline {7.1}Dealing with Illumination Invariance}{7}
 \contentsline {subsection}{\numberline {7.2}Dealing with Scale Invariance}{7}
 \contentsline {subsection}{\numberline {7.3}Dealing with Rotational Invariance}{7}
 \contentsline {section}{\numberline {8}Face Recognition}{7}
-\contentsline {subsection}{\numberline {8.1}Eigenfaces}{7}
+\contentsline {subsection}{\numberline {8.1}Eigenfaces}{8}
 \contentsline {subsection}{\numberline {8.2}Finding Eigenfaces}{8}
 \contentsline {subsection}{\numberline {8.3}Using Eigenfaces}{9}
 \contentsline {section}{\numberline {9}Motion}{9}
 \contentsline {section}{\numberline {10}ROC Analysis}{10}
-\contentsline {section}{\numberline {11}Object Recognition}{10}
+\contentsline {section}{\numberline {11}Object Recognition}{11}
 \contentsline {section}{\numberline {12}Model Based Object Recognition}{11}

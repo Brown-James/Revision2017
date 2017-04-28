@@ -171,7 +171,7 @@ top = 30mm
 	Suppose we have two problems - $P$ and $Q$. If we can show how to solve $Q$ using a black box which solves $P$ then we can say that we have reduced\index{reduce} the problem $Q$ to the problem $P$. If we can reduce $Q$ to $P$ then if $P$ is decidable\index{decidable}, $Q$ is decidable and if $Q$ is undecidable\index{undecideable}, $P$ is undecidable.
 	
 	\par
-	Given a nullary Java method such as the one below, can we tell if it will terminate or not? We keep things simple by assuming integers are unbounded, no exceptions are thrown and any such method when called either terminates or hangs forever).
+	Given a nullary Java method such as the one below, can we tell if it will terminate or not? We keep things simple by assuming integers are unbounded, no exceptions are thrown and any such method when called either terminates or hangs forever.
 	\begin{verbatim}
 		void f (){
 		    ...
@@ -187,7 +187,7 @@ top = 30mm
 			    ...
 			}
 		\end{verbatim}			
-		and a string $y$, does \texttt{f} terminate when called with $y$? We reduce the unary halting problem to the nullary one. Given the unary method \texttt{f} and a string $x$, obtain a nullary method \texttt{g} by taking the code of \texttt{f} and replacing \texttt{x} with $y$ - that is substitute in the argument values. Then, \texttt{g} terminates when called if \texttt{t} terminates when called with argument $y$. Since we assume the nullary halting problem is solvable, the unary one is too. This gives us a program
+		and a string $y$, does \texttt{f} terminate when called with $y$? We reduce the unary halting problem to the nullary one. Given the unary method \texttt{f} and a string $x$, obtain a nullary method \texttt{g} by taking the code of \texttt{f} and replacing \texttt{x} with $y$ - that is substitute in the argument values. Then, \texttt{g} terminates when called if \texttt{f} terminates when called with argument $y$. Since we assume the nullary halting problem is solvable, the unary one is too. This gives us a program
 		\begin{verbatim}
 			boolean haltcheck (String somemethod, String y)
 		\end{verbatim}
@@ -219,7 +219,20 @@ top = 30mm
 	\item Finally, let $z$ be the body of \texttt{doublehang}. We see that \texttt{doublehang}, when applied to $z$, terminates if and only if it hangs. This is a contradiction, so there cannot be any program which solves the halting problem.	
 	
 	\end{enumerate}
+	
+	I find this method of solving the Halting problem very confusing, but here is an elegant solution: 
+	\begin{verbatim}
+	function halts(func) {
+  // Insert code here that returns "true" if "func" halts and "false" otherwise.
+}
+
+function deceiver() {
+  if(halts(deceiver))
+    while(true) { }
+}
+	\end{verbatim}
 		
+	Assume deceiver halts, so it therefore enters an infinite loop and doesn't halt. Contradiction. Asssume deceiver doesn't halt. Deceiver never enters the loop and therefore does halt. Contradiction. The method halts can therefore never exist.
 	\section{Properties of Code}
 	
 	\subsection{Rice's Theorem}
@@ -258,6 +271,7 @@ top = 30mm
 	We may also want to use macros within our Turing machines. Conceptually, these are like functions with return values in any normal programming language. For example, we make a macro which tells us if the length of a block of characters is even or odd. Beneath the macro, this is a Turing machine, but we may wish to abstract out detail where possible when building large Turing machines and macros are ideal for this purpose.
 	
 	\subsection{Other kinds of Turing Machine}
+	\subsubsection{Extending the Tape Alphabet}
 	\subsubsection{Two Tape Turing Machines}
 	The most simple addition we could think to make to a Turing machine is to add it another tape, which we will call the \textbf{auxillary tape}\index{auxillary tape}. This extra tape would be very useful in situations where we have to copy a string for example, and will allow us to solve this kind of problem in linear time rather than quadratic. It does not however allow us to solve any new problems that a Turing machine could not before - the number of problems each machine can compute is exactly the same.
 	

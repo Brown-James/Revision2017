@@ -29,11 +29,71 @@ top = 30mm
 	These are notes I have written in preparation of the 2017 Mathematical Techniques for Computer Science exam. This year the module was run by Achim Jung (A.Jung@cs.bham.ac.uk).
 	
 	\section{Systems of Linear Equations}
+	A linear equation which contains more than one variable will usually have many solutions. In order to pin this down to exactly one solution, so that all equations are satisfied simultaneously, we need as many equations are there are unknowns. Two unknowns, two equations required and so on.
+	
+	In these systems of equations, we don't really care about the variable names. We introduce a new notation which is much more consise by removing variable names:
+	
+	\begin{figure}[ht]
+	\[\left(
+	\begin{array}{ccc|c}
+			1 & 5 & -2 & -11 \\
+			3 & -2 & 7 & 5 \\
+			-2 & -1 & -1 & 0
+		\end{array}
+		\right) \]
+		\caption{Consise notation for systems of linear equations}
+		\label{fig:notation linear equations}
+	\end{figure}
+	
 	\subsection{Gaussian Elimination}
+	In Computer Science terms, this is best described as a recursive algorithm with a \textbf{base case} and a \textbf{general case}.
+	
+	\begin{itemize}
+		\item \textbf{Base case:} There is only one equation and one unknown in the form $ax = b$. We can directly solve this: $x = b/a$.
+		\item \textbf{General case:} There are $n$ equations and each equation contains $n$ unknowns. We use the first equation to \textit{eliminate} the first unknown in the remaining $n-1$ equations. We then recursively apply Gaussian elimination to the remaining $n-1$ equations which each have $n-1$ unknowns.
+	\end{itemize}
+	
+	This method builds a staircase of zeroes beneath our variables, which is often called \textbf{echelon form}\index{echelon form}.
+	
+	\[ \left(
+	\begin{array}{ccc|c}
+			x_{1} & * & * & * \\
+			0 & x_{2} & * & * \\
+			0 & 0 & x_{3} & *
+		\end{array}
+		\right) \]
+	
+	\subsection{Special Cases for Gaussian Elimination}
+	\subsubsection{Contradictory Equations}
+	In the base case $ax = b$, it can happen that $a = 0$, so the equation is really $0 = b$. Furthermore, if it is the case that $b \neq 0$ then the equation is contradictory and cannot be solved. In this case, the algorithm should exit and indicate that a solution can not be found. This may be by raising an exception for example. An example of equations that may lead to this is as follows:
+	\begin{align*}
+		x_{1} - 2x_{2} &= 3 \\
+		2x_{1} - 4x_{2} &= 7
+	\end{align*}
+	
+	\subsubsection{Irrelevant Equations}
+	This is like the previous special case, but both sides of the equation are zero (in $ax = b$, both $a$ and $b$ are zero). This means the equation does not constrain the value of $x$ in any way. Due to this, the value of the unknown can be chosen freely. Take the following equations:
+	\begin{align*}
+		x_{1} - 2x_{2} &= 3 \\
+		2x_{1} - 4x_{2} &= 6
+	\end{align*}
+	
+	Here the second equation is redundant so we are only left with one equation for two unknowns. This gives the following assignments:
+	
+	\begin{align*}
+		x_{1} \; &= 3 + x_{2} \\
+		x_{2} \; &: \text{ chosen freely}
+	\end{align*}
+	
+	\subsubsection{First Equation Unusable for Eliminating the First Unknown}
+	If the coefficient of the first unknown in the first equation is zero, not matter how much we add it to another equation the first variable of the other will not be affected. In order to get around this, we simply exchange the first equation with another one for which the first equation is not zero and run the algorithm on this rearranged setup.
+	
+	\section{Fields}
 	
 	\section{Analytic Geometry}
 	\subsection{In the Plane}
 	\subsection{In Three Dimensions}
+	\subsection{Other Ways of Describing Lines and Planes}
 	
 	\section{Matrices}
 	

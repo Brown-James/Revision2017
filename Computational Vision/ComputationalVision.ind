@@ -1,11 +1,11 @@
 \begin{theindex}
 
-  \item 4-neighbours, 9
-  \item 8-neighbours, 9
+  \item 4-neighbours, 10
+  \item 8-neighbours, 10
 
   \indexspace
 
-  \item axes of symmetry, 11
+  \item axes of symmetry, 12
 
   \indexspace
 
@@ -14,6 +14,7 @@
   \item cones, 1
   \item connectedness, 9
   \item consistency, 10
+  \item coulour blind, 2
   \item covariance, 8
 
   \indexspace
@@ -24,7 +25,7 @@
 
   \indexspace
 
-  \item eigenface, 7
+  \item eigenface, 8
   \item eigenvalue, 8
   \item eigenvector, 8
 
@@ -36,12 +37,12 @@
 
   \item ganglion cell, 1
   \item gaussian filter, 4
-  \item generalised cones, 11
+  \item generalised cones, 12
 
   \indexspace
 
   \item hough space, 6
-  \item hough transform, 6
+  \item hough transform, 6, 7
   \item hypothesis verifier, 11
   \item hypothesizer, 11
   \item hysteresis thresholding, 5
@@ -54,8 +55,8 @@
 
   \indexspace
 
-  \item laplacian filter, 5
-  \item laplacian of gaussian, 5
+  \item laplacian filter, 6
+  \item laplacian of gaussian, 6
   \item lateral geniculate nucleus, 2
   \item lens, 1
   \item localization, 5
@@ -63,7 +64,7 @@
   \indexspace
 
   \item mean filter, 4
-  \item moravec operator, 9
+  \item moravec operator, 10
   \item motion, 9
   \item motion correspondence, 10
 
@@ -73,7 +74,7 @@
 
   \indexspace
 
-  \item object recognition, 6, 10
+  \item object recognition, 7, 11
   \item optic nerve, 2
 
   \indexspace
@@ -104,7 +105,7 @@
 
   \indexspace
 
-  \item tracking, 6
+  \item tracking, 7
   \item trichromatic theory, 2
 
   \indexspace
@@ -114,7 +115,7 @@
 
   \indexspace
 
-  \item wide baseline matching, 6
+  \item wide baseline matching, 7
 
   \indexspace
 

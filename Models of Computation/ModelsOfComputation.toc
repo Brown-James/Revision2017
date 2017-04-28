@@ -18,18 +18,19 @@
 \contentsline {subsection}{\numberline {6.1}Reducing a problem to another problem to solve the Halting problem}{5}
 \contentsline {section}{\numberline {7}Properties of Code}{6}
 \contentsline {subsection}{\numberline {7.1}Rice's Theorem}{6}
-\contentsline {section}{\numberline {8}Turing Machines}{6}
+\contentsline {section}{\numberline {8}Turing Machines}{7}
 \contentsline {subsection}{\numberline {8.1}Other kinds of Turing Machine}{7}
-\contentsline {subsubsection}{\numberline {8.1.1}Two Tape Turing Machines}{7}
-\contentsline {subsubsection}{\numberline {8.1.2}Multidimensional Tapes}{8}
-\contentsline {subsubsection}{\numberline {8.1.3}The Universal Turing Machine}{8}
+\contentsline {subsubsection}{\numberline {8.1.1}Extending the Tape Alphabet}{7}
+\contentsline {subsubsection}{\numberline {8.1.2}Two Tape Turing Machines}{7}
+\contentsline {subsubsection}{\numberline {8.1.3}Multidimensional Tapes}{8}
+\contentsline {subsubsection}{\numberline {8.1.4}The Universal Turing Machine}{8}
 \contentsline {subsection}{\numberline {8.2}Church's Thesis}{8}
-\contentsline {section}{\numberline {9}Complexity and P}{8}
+\contentsline {section}{\numberline {9}Complexity and P}{9}
 \contentsline {subsection}{\numberline {9.1}The complexity class $\mathcal {P}$}{10}
-\contentsline {section}{\numberline {10}NP}{10}
+\contentsline {section}{\numberline {10}NP}{11}
 \contentsline {subsection}{\numberline {10.1}Nondeterministic Turing Machines}{11}
 \contentsline {subsection}{\numberline {10.2}Complete Problems}{12}
 \contentsline {subsection}{\numberline {10.3}Examples of NP-complete problems}{12}
 \contentsline {section}{\numberline {11}Lambda-calculus}{12}
-\contentsline {subsection}{\numberline {11.1}Church-Rosser Theorem}{12}
+\contentsline {subsection}{\numberline {11.1}Church-Rosser Theorem}{13}
 \contentsline {subsection}{\numberline {11.2}Typed Lambda-calculus}{13}

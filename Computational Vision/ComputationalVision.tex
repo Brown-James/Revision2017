@@ -40,7 +40,7 @@ top = 30mm
 	\subsection{Retina Processing}
 	The human \index{retina}retina contains two kinds of \index{photoreceptors}photoreceptors which respond to incident light - \index{rods}\textbf{rods}  (around 120 million) and \index{cones}\textbf{cones} (around 6 million). Rods are extremely sensitive photosensors and respond to a single photon of light. Multiple rod cells converge to the same \index{ganglion cell}ganglion cell and therefore neuron within the \index{retina} which results in poor spatial resolution. Rods are responsible simply for detecting the presence of light, and as a result make up the entirety of our night-vision. On the other hand, cones are active at much higher light levels and responsible for the detection of different colours of light. Cones have a much higher resolution as they are processed by several different neurons. Within the eye we have a \index{receptive field}receptive field, which is the area on which light must fall for a neuron to be stimulated. It should be noted that receptive field in the center of the eye is much smaller than it is for the periphery of the eye.
 	
-	\par There are two kinds of \textbf{ganglion cell}\index{ganglion cell} - on-center and off-center. On-center ganglion cells are stimulated when the center of its receptive field is exposed to light and is inhibited when the surround is exposed to light. Off-center ganglion cells have the exact opposite response to on-center ganglion cells. The difference between on-center and off-center ganglion cells allows them to transmit information not just about whether the photorecptor cells are firing but also about the firing rates of the center and surround of the receptive field - they can transmit information about contrast.
+	\par There are two kinds of \textbf{ganglion cell}\index{ganglion cell} - on-center and off-center. On-center ganglion cells are stimulated when the center of its receptive field is exposed to light and is inhibited when the surround is exposed to light. Off-center ganglion cells have the exact opposite response to on-center ganglion cells. Both kinds of ganglion cell send electrical signals regardless of the light incident, but the intensity of the signals sent is modified by the level of light incident. The difference between on-center and off-center ganglion cells allows them to transmit information not just about whether the photorecptor cells are firing but also about the firing rates of the center and surround of the receptive field - they can transmit information about contrast.
 	
 	\begin{figure}[ht]
 		\centering
@@ -61,11 +61,11 @@ top = 30mm
 	\subsection{Colour Processing}
 	Objects in the world selectively absorb some wavelengths (a colour) and reflect other wavelengths. Human retinas contain three different types of cones to respond to different colours. This gives us the ability to distinguish different forms of the same object - for example: unripe, ripe and off fruit. Many theories of colour vision have been proposed and some have been hard to disprove until recently. 
 	\par	
-	In 1802 Young proposed that the eye has three different types of receptors, each of which are sensitive to a single hue. From this he proposed that any colour can be produced by appropriate mixing of the three primary colours. This is known as the trichromatic theory\index{trichromatic theory}.
+	In 1802 Young proposed that the eye has three different types of receptors, each of which are sensitive to a single hue. From this he proposed that any colour can be produced by appropriate mixing of the three primary colours. This is known as the trichromatic theory\index{trichromatic theory}. This theory easily explains different types of colour blindness\index{coulour blind} that humans experience by a deficiency of certain types of cones. Trichromatic theory also explains how we can distinguish two wavelengths just 2nm is difference from each other. It does not however explain how we cannot imagine a greenish-red, but can imagine a blueish-green.
 	
 	\par 
-	Hering suggested that colour may be represented in a visual system as 'opponent colours' in the 1930's.
-	
+	Hering suggested that colour may be represented in a visual system as 'opponent colours' in the 1930's. This system introduces yellow as an extra primary colour, opposite to blue. Red is opposite to green. Trichromatic theory alone cannot explain why yellow is used as a primary colour and also why some colours blend and other do not. In Hering's proposal, neurons respond to pairs of primary colours with responses in center-surround fashion.
+
 	
 	\section{Edge Detection}
 	\subsection{Intensity Images}
@@ -226,8 +226,7 @@ top = 30mm
 	\end{enumerate}
 
 	\subsection{Laplacian of Gaussian Edge Detector}
-	The Laplacian filter\index{laplacian filter} is an approximation of the second derivative of the image, shown in Figure  \ref{fig:laplacian filter}.
-	\begin{figure}
+	\begin{figure}[ht]
 			\begingroup
 			\renewcommand*{\arraystretch}{1.7}	
 			\centering
@@ -239,8 +238,7 @@ top = 30mm
 			\caption{An example Laplacian filter}
 			\label{fig:laplacian filter}
 	\end{figure}
-	
-	As an approximation to the second derivative of the image, they are very sensitive to any noise in the image. To counter this, the image should be smoothed, for example with the Gaussian filter. Since convolution is associative, you can convolve the Gaussian smoothing filter with the Laplacian filter first, and then convolve the hybrid filter over the image. Doing this requires far fewer arithmetic operations, and the Laplacian of Gaussian\index{laplacian of gaussian} can be precalculated in advance. In order to find edges in our filtered image, we need to find zero-crossings in our image.
+	The Laplacian filter\index{laplacian filter} is an approximation of the second derivative of the image, shown in Figure  \ref{fig:laplacian filter}. As an approximation to the second derivative of the image, they are very sensitive to any noise in the image. To counter this, the image should be smoothed, for example with the Gaussian filter. Since convolution is associative, you can convolve the Gaussian smoothing filter with the Laplacian filter first, and then convolve the hybrid filter over the image. Doing this requires far fewer arithmetic operations, and the Laplacian of Gaussian\index{laplacian of gaussian} can be precalculated in advance. In order to find edges in our filtered image, we need to find zero-crossings in our image. We may want to threshold our zero-crossing so we only take those where the difference of each side of the zero-cross is greater than some threshold. The Laplacian operator provides thinner edges than other possible edge detector.
 	
 	\section{Hough Transform}
 	So far we haven't actually found edge segments, just lots and lots of edge points. The Hough Transform\index{hough transform} is a common approach to finding parametrised line segments. Every straight line in an image can be described by an equation. Each edge point in an image, if considered in isolation, could lie on an infinite number of straight lines. In Hough Transform each edge point votes for every line it could be on, and the lines with the most votes win.
