@@ -87,6 +87,20 @@ top = 30mm
 	\subsection{Coverting a regular expression to a deterministic finite state automaton}
 	Simply create a NDFA from the regular expression, remove $\epsilon$-moves and then determinise the automaton.
 	\subsection{Converting a finite state automaton to a regular expression}
+	Say we have states $\{0, 1, ..., n - 1\}$. For any state $i$ and $j$, and any $k \leq n$, we want a regex $E^{<k}_{i \rightarrow j}$ that accepts those words that take us from $i$ to $j$ with intermediate states all $<k$. We'll give two formulas: one for $E^{<0}_{i \rightarrow j}$ and one for $E^{k+1}_{i \rightarrow j}$.
+	
+	\begin{itemize}
+		\item If $i \neq j$ and there are $a, b, c$-transitions from $i$ to $j$, then we define $E^{<0}_{i \rightarrow j}$ to be $a|b|c$. If there are no transitions, it's Empty.
+		\item If there are $a, b, c$-transitions from $i$ to $i$, we define $E^{<0}_{i \rightarrow j}$ to be $\epsilon|a|b|c$. If there are no transitions, it's $\epsilon$.
+		
+		\item If $i \neq k$ and $j \neq k$ then define $E^{<k+1}_{i \rightarrow j}$ to be $E^{<k}_{i \rightarrow j}$ | $E^{<k}_{i \rightarrow k} {E^{<k}_{k \rightarrow k}}^{*} E^{<k}_{k \rightarrow j}$
+		
+		\item If $i \neq k$ then define $E^{<k+1}_{i \rightarrow k}$ to be $E^{<k}_{i \rightarrow k} {E^{<k}_{k \rightarrow k}}^{*}$
+		
+		\item If $j \neq k$ then define $E^{<k+1}_{k \rightarrow j}$ to be ${E^{<k}_{k \rightarrow k}}^{*} E^{<k}_{k \rightarrow j}$
+		
+		\item Define $E^{<k+1}_{k \rightarrow k}$ to be ${E^{<k}_{k \rightarrow k}}^{*}$
+	\end{itemize}
 	
 	\section{Regular Languages}
 	\begin{theorem}[Kleene's Theorem]
@@ -110,6 +124,8 @@ top = 30mm
 	
 	\par 
 	\textbf{Example}: Take the language $\{a^{n}b^{n} \;|\; n \in \mathbb{N}\}$. If we take all $a^{n}$ for each $n \in \mathbb{N}$, then for $m < n$, $b^{m}$ is a distinguishing suffix for $a^{m}$ and $a^{n}$. This is a distinctive infinite sequence, and the language is not regular.
+	
+	\subsubsection{The Pumping Lemma}
 	
 	\subsection{Context Free Languages}
 	
@@ -216,8 +232,7 @@ top = 30mm
 		
 		This method when applied to $y$ (the body of the unary method), will hang if $y$ applied to $y$ terminates, otherwise it returns.
 	
-	\item Finally, let $z$ be the body of \texttt{doublehang}. We see that \texttt{doublehang}, when applied to $z$, terminates if and only if it hangs. This is a contradiction, so there cannot be any program which solves the halting problem.	
-	
+	\item Finally, let $z$ be the body of \texttt{doublehang}. We see that \texttt{doublehang}, when applied to $z$, terminates if and only if it hangs. This is a contradiction, so there cannot be any program which solves the halting problem.
 	\end{enumerate}
 	
 	I find this method of solving the Halting problem very confusing, but here is an elegant solution: 
@@ -233,10 +248,29 @@ function deceiver() {
 	\end{verbatim}
 		
 	Assume deceiver halts, so it therefore enters an infinite loop and doesn't halt. Contradiction. Asssume deceiver doesn't halt. Deceiver never enters the loop and therefore does halt. Contradiction. The method halts can therefore never exist.
+	
+	\par 
+	\textbf{Example:} Given a string s, is s the code of a Java program that either halts or contains \texttt{ccc}? 
+	\par 
+	Given the string $s$, we remove all occurances of \texttt{ccc} by replacing it with some other string to form \texttt{noccc\{s\}}. Now we know the $s$ is the code of a Java program that will halt if and only if \texttt{noccc\{s\}} is the code of a Java program that either halts or contains \texttt{ccc}. We have therefore reduced the Halting problem to our problem - if we could solve our problem we could solve the halting problem.
 	\section{Properties of Code}
+	Some property of a piece of code may be \textbf{trivial}\index{trivial} - it either holds for everything or it holds for nothing. Take the following code:
+	
+	\begin{verbatim}
+	int f (int x) {
+	    ...
+	}
+	\end{verbatim}
+	
+	We are interested if when applied to an integer $n$, it either hangs or returns an integer $y$ that is a factor of $3y$. This is a trivial property. Every trivial property is decidable.
+	
+	A property of a piece of code may be \textbf{semantic}\index{semantic}. Semantic properties concern the behaviour of a certain piece of code, but not how the behaviour is achieved. In this sense, if we view the piece of code as a black box then the semantic property depends purely on the inputs and outputs.
 	
 	\subsection{Rice's Theorem}
-	Rice's theorem\index{rice's theorem} states that every non-trivial semantic property of code is undecidable. We define a trivial property\index{trivial property} is one which either holds for everything or holds for nothing.
+	\begin{theorem}[Rice's Theorem]
+		Every non-trivial, semantic property of code is undecidable. We define a trivial property\index{trivial property} is one which either holds for everything or holds for nothing.
+	\end{theorem}
+
 	\par 
 	To prove Rice's theorem, we let $\alpha$ be a non-trivial semantic property of code and let \texttt{alwayshang} be a piece of code that always hangs regardless of argument. We say that \texttt{alwayshang} doesn't satisfy $\alpha$, and since $\alpha$ is non-trivial we can say that there is another piece of code $C$ that does. For any nullary program $P$, we form $F(P)$ by inserting $P$ at the start of the code $C$.
 	\begin{itemize}
@@ -245,6 +279,11 @@ function deceiver() {
 	\end{itemize}
 	
 	In short, $P$ will terminate if and only if $F(P)$ satisfies $\alpha$. This means that if we can test for $\alpha$, we can also test whether $P$ terminates by testing if $F(P)$ satisfies $\alpha$. We've already proven that we can't prove $P$ terminates, so we must not be able to test for $\alpha$ - meaning $\alpha$ is undecidable\index{undecidable}.
+	
+	\par 
+	We can use Rice's theorem to easily prove problems undecidable. If we want to check a piece of code for a property, we check if the property is trival (easy to do) and whether the property is semantic. If the property is non-trivial and semantic, the property is undecidable. 
+	
+	\par \textbf{Example:} Write a piece of code which takes a Java method. Return 'yes' if this code may be run with an argument which will cause an exception to be thrown. This is a semantic property as it directly refers to the behaviour of the method in the property. It is non-trivial as it does not hold for all possible methods, some have this property and others do not.
 	
 	\section{Turing Machines}
 	In 1936, Alan Turing\index{alan turing} invented the \textbf{turing machine}\index{turing machine}. Turing machines are very simple computers, and have a very limited set of instructions that they can execute. They have finitely many states, but also have an infinite tape which they can compute upon. Because of this, a Turing machine is an idealized computer and can never exist in the physical world. Turing machines are very convenient for analysing the running times of algorithms. Firstly, the time taken for an algorithm scales straightforwardly as the size of the input increases. They typically tend to treat inputs of size ten or one million in the same way. Secondly, every step of computation is made explicit in a very conservative way.
@@ -272,6 +311,11 @@ function deceiver() {
 	
 	\subsection{Other kinds of Turing Machine}
 	\subsubsection{Extending the Tape Alphabet}
+	Consider a Turing machine with more auxilary symbols than just blank. For example, for each $x$ the alphabet may also contain $x'$. By overwriting a symbol with the corresponding primed version, we are able to mark fields on the tape without destroying its contents.
+	
+	\par 
+	Extended tape alphabets do not add any computational power to Turing machines. We can simulate a larger alphabet by grouping tape cells together and coding symbols from the larger alphabet as strings from the smaller one. Grouping three cells together gives us 27 possibilities for coding symbols, for example. Whenever the larger alphabet machine makes 1 move, the smaller machine will make at least 3 moves. The smaller machine will be slower than the large one by some constant factor, but there is nothing new the larger machine can compute.
+	
 	\subsubsection{Two Tape Turing Machines}
 	The most simple addition we could think to make to a Turing machine is to add it another tape, which we will call the \textbf{auxillary tape}\index{auxillary tape}. This extra tape would be very useful in situations where we have to copy a string for example, and will allow us to solve this kind of problem in linear time rather than quadratic. It does not however allow us to solve any new problems that a Turing machine could not before - the number of problems each machine can compute is exactly the same.
 	
@@ -297,7 +341,7 @@ function deceiver() {
 		What ever can be done by any computational device can be done by a Turing machine
 	\end{theorem}
 	
-	\par Church's thesis cannot be proven - it's entirely possible for someone to invent a new way of computation which extends the capabilities of programs as we know them. On the other hand, nobody has been able to come up with an alternative to Turing machines as of yet and the more time that passes the more plausible Church's thesis becomes.
+	\par Church's thesis cannot be proven - it's entirely possible for someone to invent a new way of computation which extends the capabilities of programs as we know them. All variations of Turing machines that we have seen have no more computational power than the base Turing machine. On the other hand, nobody has been able to come up with an alternative to Turing machines as of yet and the more time that passes the more plausible Church's thesis becomes.
 	
 	\section{Complexity and P}
 	Until now we have been concerned with figuring out what a computer can and can't do. According to Church's thesis, this distinction of what we can and can't do does not depend at all on the architecture of the machine or the programming language - it's a fundamental divide. We have also seen that there are problems of practical intrest which exceed the capabilities of computers. These problems we can only solve approximately or partially. This section is concerned with classifying problems according to the computational effort they need for their solution. There are many different ways to accomplish this. In the simplest case we will look at decision problems which require a yes/no answer.
@@ -377,13 +421,66 @@ function deceiver() {
 	
 	
 	\subsection{Examples of NP-complete problems}
+	\subsubsection{SAT}
+	The satisifiability of propositional expressions (SAT) is a $\mathcal{NP}$-complete problem. Propositional formulae are generated by the following grammar:
+	\begin{align*}
+	\phi &::= A \;| \; \bot \;|\; \top \;|\; \phi \wedge \phi \;|\; \phi \vee \phi \;|\; \neg \phi \;|\; \phi \rightarrow \phi \\
+	A &::= p \;|\;q \;| \; r ...
+	\end{align*}
 	
+	Here $p, q, r$ are the propositional variables - placeholders for either true or false. The satisfiability problem consists of deciding for a given propositional formula whether there exists an assignment of truth values to atomic formulas such that the given formula becomes true as a whole. $\neg(q \rightarrow p) \wedge $ becomes true when $p$ is false and $q, r$ are true. 
 	
+	\par 
+	We have to say how a Turing machine would deal with propositional formulae. We have an input alphabet $\Sigma = \{p, \top, \bot, \neg, \vee, \wedge, \rightarrow, \leftrightarrow, \left(, \right), 0, 1\}$. We have one letter for propositional variables - we use 0 and 1 to generate infinitely many expressions consisting of $p$ followed by a binary digit. Using this alphabet, we can encode formulae as strings with an unambiguous definition of the length of the formula. SAT certainly belongs in $\mathcal{NP}$ as the NTM will simply guess some assignment of truth values to propositional variables and then evaluate the expression.
 	
+	\par 
+	In 1971, Stephen Cook proved that SAT is an $\mathcal{NP}$-complete problem. To prove this, we have to show an arbitrary problem in $\mathcal{NP}$ can be reduced to a satisfiability problem. The only definite information we have about $\mathcal{NP}$-problems is that they are decided by polynomial time NTMs - the proof relies upon this fact.
+	
+	\subsubsection{Others}
+	In Graph Theory, deciding whether a given graph contains a closed path (a cycle) which visits every node exactly once. This is the \textbf{Hamiltonian Path Problem}\index{hamiltonian path problem}. In discrete optimisation, deciding whether a given graph contains a cycle which visits every node at least once, and along which the weights add up to less than a given constant $K$ (otherwise known as the \textbf{Travelling Salesman Problem}\index{travelling salesman problem}). Deciding whether a set of tasks can be scheduled on two processors in such a way that all tasks are completed by a given deadline is also an $\mathcal{NP}$-complete problem. 
+	\par 
+	Interestingly, finding the factors of a natural number, while clearly in $\mathcal{NP}$ does not appear to be an $\mathcal{NP}$-complete problem. Currently there is no proof for this.
 	
 	\section{Lambda-calculus}
 	Alonzo Church developed a notation for arbitrary \textbf{functions} called $\lambda$-calculus. It is an extremely economical notation but at first sight somewhat cryptic, which stems from its origins in mathematical logic. Expressions in $\lambda$-calculus are written in strict prefix form. Further, function and argument are simply written next to each other without brackets around the argument.
 	
+	\subsection{$\delta$-reduction}
+	$\delta$-reductions are equivalent to ordinary arithmetic expressions. 
+	\[ \underline{m} + \underline{n} \leadsto_{\delta} \underline{m + n}\]
+	
+	For example:
+	\[ \underline{5} + \underline{7} \leadsto_{\delta} \underline{12} \]
+	\subsection{$\beta$-reduction}
+	$\beta$-reductions can be thought of substituting arguments into a function.
+	
+	\[(\lambda x . \; M) \; N \leadsto_{\beta} M[N/x] \]
+	
+	Here, $M$ is the body of the $\lambda$-abstraction, $N$ is the argument and $M[N/x]$ means $M$ where we have replaced $x$ by $N$.
+	
+	\[(\lambda x . \; x + \underline{3}) \; \underline{7} \leadsto_{\beta} \underline{7} + \underline{3} \leadsto_{\delta} \underline{10} \]
+	\subsection{$\alpha$-reduction}	
+	$\alpha$-reduction allows bound variable names to be changed. Example:
+	\begin{align*}
+	\lambda x . \; (\lambda x . \; x) &\leadsto_{\alpha} \lambda y . \; (\lambda x . \; x) \\
+	 &\leadsto_{\alpha} \lambda y . \; (\lambda x . \; y) \qquad \text{WRONG}
+	\end{align*}
+	
+	When substituting values, we need to be careful. 
+	\begin{align*}
+	(\lambda x . \; ((\lambda x . \; x) \; \underline{17}) \; + x) \; &\underline{8} \\
+	\leadsto \; ((\lambda x . \; \underline{8}) \; \underline{17}) \; + &\underline{8} \qquad \text{WRONG} \\
+	\leadsto \; ((\lambda \underline{8} . \; \underline{8}) \; \underline{17} ) \; + &\underline{8} \qquad \text{WRONG}
+	\end{align*}
+	
+	When we form $M[N/x]$, we replace only the free occurances of $x$ by $N$.
+	
+	Take the following terms:
+	\begin{align*}
+		\lambda x .\quad \lambda x.\quad \lambda y .\quad &x + \underline{3} \\
+		\lambda u . \quad \lambda v. \quad \lambda u . \quad &v + \underline{3}
+	\end{align*}
+
+	These two terms are $\alpha$-equivalent\index{alpha equivalent}. We say two terms are $\alpha$-equivalent when they are the same except for the binders and the bound occurances of variables, and the variables are bound to the same place. $\alpha$-equivalent terms are regarded as exactly the same.
 	
 	\subsection{Church-Rosser Theorem}
 	\begin{theorem}[Church-Rosser Theorem]

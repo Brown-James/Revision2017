@@ -1,8 +1,9 @@
 \begin{theindex}
 
   \item alan turing, 7
+  \item alpha equivalent, 15
   \item alphabet, 1
-  \item auxillary tape, 7
+  \item auxillary tape, 9
 
   \indexspace
 
@@ -10,7 +11,7 @@
 
   \indexspace
 
-  \item complexity, 9
+  \item complexity, 10
   \item concatenate, 1
 
   \indexspace
@@ -21,20 +22,21 @@
 
   \indexspace
 
-  \item feasible, 11
+  \item feasible, 12
   \item function, 4
 
   \indexspace
 
   \item halting problem, 5
-  \item head, 7
+  \item hamiltonian path problem, 14
+  \item head, 8
 
   \indexspace
 
-  \item infeasible, 11
-  \item initial state, 7
+  \item infeasible, 12
+  \item initial state, 8
   \item instance, 4
-  \item intractable, 11
+  \item intractable, 12
 
   \indexspace
 
@@ -42,40 +44,42 @@
 
   \indexspace
 
-  \item NP-complete, 12
+  \item NP-complete, 13
 
   \indexspace
 
-  \item polytime reducability, 12
+  \item polytime reducability, 13
   \item problem, 4
-  \item proof, 11
+  \item proof, 12
 
   \indexspace
 
   \item reduce, 5
   \item regular expressions, 2
-  \item rice's theorem, 6
 
   \indexspace
 
-  \item simplex method, 10
-  \item system of simple types, 13
+  \item semantic, 7
+  \item simplex method, 11
+  \item system of simple types, 16
 
   \indexspace
 
-  \item transition function, 7
-  \item trivial property, 6
+  \item transition function, 8
+  \item travelling salesman problem, 14
+  \item trivial, 7
+  \item trivial property, 7
   \item turing machine, 7
 
   \indexspace
 
-  \item undecidable, 6
+  \item undecidable, 7
   \item undecideable, 5
-  \item universal turing machine, 8
+  \item universal turing machine, 9
 
   \indexspace
 
-  \item witness, 11
+  \item witness, 12
   \item word, 1
 
 \end{theindex}

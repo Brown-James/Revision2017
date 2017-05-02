@@ -5,18 +5,23 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Contradictory Equations}{1}
 \contentsline {subsubsection}{\numberline {2.2.2}Irrelevant Equations}{1}
 \contentsline {subsubsection}{\numberline {2.2.3}First Equation Unusable for Eliminating the First Unknown}{2}
+\contentsline {subsubsection}{\numberline {2.2.4}Can't Use Any of the Given Equations to Eliminate the First Unknown}{2}
+\contentsline {subsection}{\numberline {2.3}General Gaussian Elimination}{2}
+\contentsline {subsubsection}{\numberline {2.3.1}Extended Gaussian Elimination}{2}
 \contentsline {section}{\numberline {3}Fields}{2}
-\contentsline {section}{\numberline {4}Analytic Geometry}{2}
-\contentsline {subsection}{\numberline {4.1}In the Plane}{2}
-\contentsline {subsection}{\numberline {4.2}In Three Dimensions}{2}
-\contentsline {subsection}{\numberline {4.3}Other Ways of Describing Lines and Planes}{2}
-\contentsline {section}{\numberline {5}Matrices}{2}
-\contentsline {section}{\numberline {6}Sets}{2}
-\contentsline {subsection}{\numberline {6.1}Cardinality}{2}
-\contentsline {section}{\numberline {7}Functions and Relations}{2}
-\contentsline {subsection}{\numberline {7.1}Relations}{2}
-\contentsline {subsection}{\numberline {7.2}Functions}{2}
-\contentsline {section}{\numberline {8}Inductive Definitions}{2}
-\contentsline {section}{\numberline {9}Probability}{2}
-\contentsline {subsection}{\numberline {9.1}Discrete Random Variables}{2}
-\contentsline {subsection}{\numberline {9.2}Continuous Random Variables}{2}
+\contentsline {subsection}{\numberline {3.1}Galois Field}{3}
+\contentsline {section}{\numberline {4}Analytic Geometry}{3}
+\contentsline {subsection}{\numberline {4.1}In the Plane}{3}
+\contentsline {subsubsection}{\numberline {4.1.1}Vectors}{3}
+\contentsline {subsection}{\numberline {4.2}In Three Dimensions}{4}
+\contentsline {subsection}{\numberline {4.3}Other Ways of Describing Lines and Planes}{4}
+\contentsline {section}{\numberline {5}Matrices}{4}
+\contentsline {section}{\numberline {6}Sets}{4}
+\contentsline {subsection}{\numberline {6.1}Cardinality}{4}
+\contentsline {section}{\numberline {7}Functions and Relations}{4}
+\contentsline {subsection}{\numberline {7.1}Relations}{4}
+\contentsline {subsection}{\numberline {7.2}Functions}{4}
+\contentsline {section}{\numberline {8}Inductive Definitions}{4}
+\contentsline {section}{\numberline {9}Probability}{4}
+\contentsline {subsection}{\numberline {9.1}Discrete Random Variables}{4}
+\contentsline {subsection}{\numberline {9.2}Continuous Random Variables}{4}

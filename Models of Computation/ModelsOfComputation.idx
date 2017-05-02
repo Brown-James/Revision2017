@@ -13,25 +13,29 @@
 \indexentry{decidable}{5}
 \indexentry{undecideable}{5}
 \indexentry{halting problem}{5}
-\indexentry{rice's theorem}{6}
-\indexentry{trivial property}{6}
-\indexentry{undecidable}{6}
+\indexentry{trivial}{7}
+\indexentry{semantic}{7}
+\indexentry{trivial property}{7}
+\indexentry{undecidable}{7}
 \indexentry{alan turing}{7}
 \indexentry{turing machine}{7}
-\indexentry{head}{7}
-\indexentry{initial state}{7}
-\indexentry{transition function}{7}
-\indexentry{auxillary tape}{7}
-\indexentry{universal turing machine}{8}
-\indexentry{complexity}{9}
-\indexentry{simplex method}{10}
-\indexentry{feasible}{11}
-\indexentry{infeasible}{11}
-\indexentry{intractable}{11}
-\indexentry{feasible}{11}
-\indexentry{intractable}{11}
-\indexentry{proof}{11}
-\indexentry{witness}{11}
-\indexentry{polytime reducability}{12}
-\indexentry{NP-complete}{12}
-\indexentry{system of simple types}{13}
+\indexentry{head}{8}
+\indexentry{initial state}{8}
+\indexentry{transition function}{8}
+\indexentry{auxillary tape}{9}
+\indexentry{universal turing machine}{9}
+\indexentry{complexity}{10}
+\indexentry{simplex method}{11}
+\indexentry{feasible}{12}
+\indexentry{infeasible}{12}
+\indexentry{intractable}{12}
+\indexentry{feasible}{12}
+\indexentry{intractable}{12}
+\indexentry{proof}{12}
+\indexentry{witness}{12}
+\indexentry{polytime reducability}{13}
+\indexentry{NP-complete}{13}
+\indexentry{hamiltonian path problem}{14}
+\indexentry{travelling salesman problem}{14}
+\indexentry{alpha equivalent}{15}
+\indexentry{system of simple types}{16}
