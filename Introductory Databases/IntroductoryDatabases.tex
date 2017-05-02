@@ -100,10 +100,177 @@ top = 30mm
 	\par 
 	What happens if we modify a table so that a referenced key is removed? We have a few options. Typically we will either forbid the operation with \texttt{RESTRICT} or \texttt{NO ACTION} but we may also want to delete rows that reference the deleted key with \texttt{CASCADE}. \texttt{NO ACTION} is the default option. It is possible to also \texttt{SET DEFAULT} or \texttt{NULL} but these are rarely ever advised! 
 	
-	\section{Manipulating Data}	
+	\section{Manipulating Data}
+	\subsection{INSERT}
+	The \texttt{INSERT} command inserts data into a table. In general, we specify columns, rows and values to insert. 
+	
+\begin{figure}[h]
+		\begin{minipage}[t]{0.45\textwidth}
+			\begin{verbatim}
+	INSERT INTO Student VALUES
+	    (28, '28/01/09', 'reh', 'CS')
+	\end{verbatim}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+			\begin{verbatim}
+	INSERT INTO 
+	    Student(sid, dob, login, course)
+	    VALUES(28, '28/01/09', 'reh', 'CS')
+	\end{verbatim}
+		\end{minipage}
+	\end{figure}	
+
+	\subsection{UPDATE}
+	We use the \texttt{UPDATE} command to modify values in rows. We specify the table and rows and attributes and their new values. All rows that meet the condition will be updated. 
+	
+	\begin{verbatim}
+	UPDATE Student
+	    SET course='CS'
+	    WHERE sid=23
+	\end{verbatim}
+	
+	\subsection{DELETE}
+	The \texttt{DELETE} command deletes rows from the table. We specify conditions for the rows, and all that meet the criteria are deleted.
+	
+	\begin{verbatim}
+	DELETE FROM Students
+	WHERE sid=23
+	\end{verbatim}
+	
+	\subsection{SELECT}
+	The \texttt{SELECT} command is used to retrieve data from one table or combining data from several (more common). The result of a \texttt{SELECT} command is another table that meets the specification of the \texttt{SELECT} statement. \texttt{SELECT} allows the specification of columns in the result, conditions on rows (which can be arbitrarily compelex), ordering of rows, aggregate functions and more. 
+	
+	\begin{verbatim}
+	SELECT Student.sid, Student.login
+	FROM Student
+	WHERE Student.course='cs'
+	\end{verbatim}
+	
+	There are a few other things we can do to a \texttt{SELECT} statement. The \texttt{DISTINCT} keyword will remove duplicate rows. Also we can attach a label to a returned column using \texttt{AS}.
+	
+	\begin{verbatim}
+	SELECT COUNT (DISTINCT course) AS NoC
+	FROM Student
+	\end{verbatim}		
+	
+	By using \texttt{ORDER BY} we can specify the order of the rows to be returned. \texttt{ORDER BY} uses the natural order of the column, and we can specify whether this should be ascending or descending. We can specify multiple columns to order by which will sort by the first column, and then by the next if there are any matches. In the example below, it will order all courses. After doing this, it will order all the students on a particular course by their login number.
+	
+	\begin{verbatim}
+	SELECT *
+	FROM Student
+	ORDER BY course, login
+	\end{verbatim}
+	
+	The selection criteria in the \texttt{WHERE} clause may contain arbitrarily complex expressions. We can use logical operators such as AND/OR, comparrison operators (less than, greater than), \texttt{IN/NOT IN} and more. \texttt{LIKE} provides pattern matching for strings. \texttt{\_} matches any character and \% matches 0 or more characters. Most implementations of databases will also allow the use of regexps.
+	
+	\subsection{Joins}
+	Selecting data from a single table is limiting. In almost all cases, we need to join data from several tables. An example can be seen below:
+	
+	\begin{verbatim}
+	SELECT Student.sid, Marks.mid, Marks.mark
+	FROM Student, Marks
+	WHERE Student.sid = Marks.sid
+	\end{verbatim}
+	
+	There are several types of join - the most common of which is the inner join. Other joins all follow roughly the same pattern. The example join from above could also be written as such:
+	
+	\begin{verbatim}
+	SELECT Student.sid, Marks.cid, Marks.mark
+	FROM Student
+	INNER JOIN Marks
+	ON Student.sid = Marks.sid
+	\end{verbatim}
+	
+	The fist example is more compact that the inner join and known as 'implicit notation'. House styles may preference one over the other, but conceptually they perform the exact same operation. They form the cross product of the set of tables, select columns, select rows that meet the \texttt{WHERE}
+	 condition and if \texttt{DISTINCT} remove duplicates. An important detail is that if there is ambiguity in a field name they must be fully qualified. It may be worth fully qualifying regardless.A
+	
+	\par We may use a \texttt{LEFT JOIN} or \texttt{RIGHT JOIN}. These are like \texttt{INNER JOIN}s, but include rows in the left/right table that are not matched. \texttt{NULL}s are added accordingly. 
+	
+	\begin{figure}[h]
+		\begin{minipage}[t]{0.45\textwidth}
+			\begin{verbatim}
+		SELECT sid, marks
+		FROM Students
+		LEFT JOIN Marks
+		ON Student.sid=Marks.sid
+	\end{verbatim}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+			\begin{verbatim}
+	SELECT sid, marks
+		FROM Students
+		RIGHT JOIN Marks
+		ON Student.sid=Marks.sid
+	\end{verbatim}
+		\end{minipage}
+	\end{figure}
+	
+	\par 
+	Another alternative is a \texttt{FULL JOIN}. This is just like an \texttt{INNER JOIN} but rows in the left and right tables that are not matched are also included. \texttt{NULL} values are added accordingly. 
+	
+	\par 
+	Another possibilty is to use set operations, such as \texttt{UNION}, \texttt{INTERSECT}, \texttt{EXCEPT}. We can formulate a query as a set operation on two results, which may be easier and clearer than a complex expression. It may also be more efficient.
+	
+	\par 
+	It is possbile to have subqueries whose reslts are then used in the outer query. This can make queries easier to formulate, clearer and more efficient. 
+	
+	\begin{verbatim}
+	SELECT S1.sid
+	FROM Student S1
+	WHERE S1.dob > ALL (SELECT S2.dob
+	                    FROM Student S2
+	                    WHERE S2.course='cs')
+	\end{verbatim}
+	Nesting of queries can go arbitrarily deep. We can also reference the outer row within the nested query (in this case, reference S1 within the nested query). We don't need to use different names for Student in the two queries, but if the inner query references the outer, then we must.
+	
+	\par 
+	We can group data returned from a query with the \texttt{GROUP BY} command. This allows for operations over groups of rows. We can use a \texttt{HAVING} command to specify selection criteria for groups. In order to group, the tables are joined, rows are filtered using the \texttt{WHERE} clause, the table is grouped using the attributes specified in the \texttt{GROUP BY} clause and then rows are removed where the \texttt{HAVING} clause does not return true.
+	
+	\begin{verbatim}
+	SELECT customerName, SUM(orderQuantity)
+	FROM Sales
+	GROUP BY customerName
+	HAVING SUM(orderQuantity)>5
+	\end{verbatim}
+	
+	\section{JDBC}
+	For the exam we are not required explicitly code a solution, but may be asked questions about why we would take a certain approach with our code or to fix a problem in a piece of code given to us.
+	
+	\subsection{Prepared Statements}
+	Prepared statements allow a SQL statement to be parameterised. This is more efficient if it's run many times, more secure and may also be more convenient in a generic command with parameters supplied by the user. One large benefit is that they protect from SQL injection. Anywhere the user has the opportunity to input data to a query, they may also place an arbitrary piece of SQL. In a normal statement, the database will read this SQL and execute it with no problem, as if it had come from the programmer. A prepared statement will sanitize inputs so that an SQL injection cannot happen. For this reason alone, they should always be used. 
+	
+	\subsection{Transactions}
+	There are some compund operations that must be performed in their entirety (as if they were atomic). For example, moving money from one account to another. If partially completed then the database will be inconsistent, and there may be real-world consequences. Partial completions could be caused by a number of things: application crashes, DB server crashes, other user interference etc.
+	
+	\par 
+	The DBMS will provide support for these situations through \textbf{transactions}, which guarantee correct behavious and ACID properties. They implement mechanisms that ensure correct behaviour and robustness, possibly achieved through locks and logs. Usually we do not need to worry about the implementation of transactions in the DBMS.
+	
+	\par In JDBC, by default each operation is an independant transaction. \texttt{Conn.setAutoCommit(false)} causes the program to explicitly handle transactions. To commit a transaction, we use \texttt{Conn.commit()} and the operations become permenant. Transactions can be aborted by \texttt{Conn.rollback()}, which undoes all operations since the last commit. 
+	
+	\par 
+	Transactions allow for concurrent access to the database across multiple applications, all whilst maintaining correct behaviour. It allows robustness against failure, whether it be hardware or software.
+	
+	\par In order to achieve this, transactions typically maintain it's own copy of the database. If the transaction is successful, it will write the changes through to the permanent database. If unsuccessful, these changes are rolled back. Failure may come from several reasons: explicit or implicit failure, conflicts with other transactions or the detection of deadlock.
 	
 	\section{Database Design}
+	A database is usually part of a much larger system, required to capture data requirements and capture constraints. It may also have non-functional requirements such as reliability, consistency, extensibility, security and performance. These factors all drive design, analysis, testing etc. of the DB component and integrated systems. We need to generate a description of the data, it's organisation and its mapping onto the database system. There are many different methodologies that can drive this process and notations that can be used. Almost universally, a data design is described used \textbf{Entity Relationship Diagrams (ER diagrams)}. They capture conceptual design and the data models which can be easily mapped to the database schema. We may partiton our ER diagrams for large, complex designs. 
+	
 	\subsection{ER Diagrams}
+	ER diagrams use different shaped components to represent different things. Ovals are attributes, rectangles are entity sets, diamonds are relation sets, lines show links. Labels on lines indicate role and cardinality. Double outlined boxes show weak entity sets.
+	
+	\par
+	Attributes are written in ovals, with primary keys underlined. In weak entity sets, the primary key is a dashed underline. We may have composite attributes, for example an address. We may also have derived attributes, such as age, which we write in a dashed oval. Multivalued attributes are written in double outlined ovals. 
+	
+	\par 
+	Relationships show the association between entities, with their name inside a diamond. They have lines linking to entity sets, attributes and relations. Roles may label the links if neccesary. 
+	
+	\subsubsection{Cardinality}
+	We can describe constraints on the participation of entities in a relation. For example, a student may have at least one and possibly several tutors. A tutor may have 0 or several students. Every driver must have exactly one license. A customer can have 0 or more accounts. What we are trying to express is whether an entity must participate (total) or whether it is optional (partial). If it participates, what are the limits on the number of times it can participate? 
+	
+	\subsubsection{Weak Entity Sets}
+	A weak entity set is one where the entities cannot (neccesarily) be distinguished - there is no key. They are drawn using double lined boxes, for entity sets and relationships. They can only be identified uniquely in the context of an owner.
 	
 	\section{Database Normalisation}
 	We want to normalise our databases so that we can remove functional dependencies from a table. Should we not normalise our tables we may get \textbf{insertion anomalies}, \textbf{update anomalies}, \textbf{deletion anomalies}. There are various levels of normal forms, and typically these all work by identifying a removing functional dependencies that exist in the data. We can do this by creating new tables and unpacking the data.
