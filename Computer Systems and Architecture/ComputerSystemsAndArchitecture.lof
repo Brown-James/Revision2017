@@ -8,14 +8,16 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Registers and their input/output ports}}{9}
 \contentsline {figure}{\numberline {9}{\ignorespaces The ALU and it's input/output ports}}{10}
 \contentsline {figure}{\numberline {10}{\ignorespaces The datapath for R-type instructions}}{10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Datapath for branch instructions}}{11}
-\contentsline {figure}{\numberline {12}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{11}
-\contentsline {figure}{\numberline {13}{\ignorespaces The logical operator \textbf {NOT} built from transistors}}{11}
-\contentsline {figure}{\numberline {14}{\ignorespaces (Left) A \textbf {NAND} gate built from four transistors. (Right) A \textbf {NOR} gate built from four transistors}}{12}
-\contentsline {figure}{\numberline {15}{\ignorespaces Truth table for a two input decoder}}{12}
-\contentsline {figure}{\numberline {16}{\ignorespaces A 2-4 decoder built from logic gates}}{13}
-\contentsline {figure}{\numberline {17}{\ignorespaces Truth table for a 2-1 multiplexer}}{13}
-\contentsline {figure}{\numberline {18}{\ignorespaces A 2-1 multiplexer built from logic gates}}{13}
-\contentsline {figure}{\numberline {19}{\ignorespaces Logic gates which implemet a half-adder}}{14}
-\contentsline {figure}{\numberline {20}{\ignorespaces A full-adder built from two half adders and an \textbf {XOR} gate}}{14}
-\contentsline {figure}{\numberline {21}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{15}
+\contentsline {figure}{\numberline {11}{\ignorespaces The datapath for load/store instructions}}{11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Datapath for branch instructions}}{11}
+\contentsline {figure}{\numberline {13}{\ignorespaces The integrated datapath for ALU and load/store instructions}}{12}
+\contentsline {figure}{\numberline {14}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{12}
+\contentsline {figure}{\numberline {15}{\ignorespaces The logical operator \textbf {NOT} built from transistors}}{12}
+\contentsline {figure}{\numberline {16}{\ignorespaces (Left) A \textbf {NAND} gate built from four transistors. (Right) A \textbf {NOR} gate built from four transistors}}{13}
+\contentsline {figure}{\numberline {17}{\ignorespaces Truth table for a two input decoder}}{13}
+\contentsline {figure}{\numberline {18}{\ignorespaces A 2-4 decoder built from logic gates}}{14}
+\contentsline {figure}{\numberline {19}{\ignorespaces Truth table for a 2-1 multiplexer}}{14}
+\contentsline {figure}{\numberline {20}{\ignorespaces A 2-1 multiplexer built from logic gates}}{14}
+\contentsline {figure}{\numberline {21}{\ignorespaces Logic gates which implemet a half-adder}}{15}
+\contentsline {figure}{\numberline {22}{\ignorespaces A full-adder built from two half adders and an \textbf {XOR} gate}}{15}
+\contentsline {figure}{\numberline {23}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{16}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  2 MAY 2017 17:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  3 MAY 2017 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -769,86 +769,102 @@ File: images/r_type_datapath.png Graphic file (type png)
 <use images/r_type_datapath.png>
 Package pdftex.def Info: images/r_type_datapath.png used on input line 303.
 (pdftex.def)             Requested size: 384.1096pt x 170.64847pt.
- [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>] [10 
-<./images/alu.png> <./images/r_type_datapath.png>] <images/branch_jump_datapath
-.png, id=62, 789.95125pt x 396.48125pt>
+ [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>]
+<images/load_store_instructions_datapath.png, id=59, 867.24pt x 345.29pt>
+File: images/load_store_instructions_datapath.png Graphic file (type png)
+
+<use images/load_store_instructions_datapath.png>
+Package pdftex.def Info: images/load_store_instructions_datapath.png used on in
+put line 313.
+(pdftex.def)             Requested size: 384.1096pt x 152.93437pt.
+ [10 <./images/alu.png> <./images/r_type_datapath.png>]
+<images/branch_jump_datapath.png, id=63, 789.95125pt x 396.48125pt>
 File: images/branch_jump_datapath.png Graphic file (type png)
 
 <use images/branch_jump_datapath.png>
-Package pdftex.def Info: images/branch_jump_datapath.png used on input line 319
+Package pdftex.def Info: images/branch_jump_datapath.png used on input line 326
 .
 (pdftex.def)             Requested size: 384.1096pt x 192.78925pt.
+ [11 <./images/load_store_instructions_datapath.png> <./images/branch_jump_data
+path.png>]
+<images/alu_load_store_datapath.png, id=69, 932.48375pt x 369.38pt>
+File: images/alu_load_store_datapath.png Graphic file (type png)
 
-<images/transistors.png, id=63, 318.18875pt x 182.6825pt>
+<use images/alu_load_store_datapath.png>
+Package pdftex.def Info: images/alu_load_store_datapath.png used on input line 
+341.
+(pdftex.def)             Requested size: 426.79135pt x 169.06013pt.
+
+<images/transistors.png, id=70, 318.18875pt x 182.6825pt>
 File: images/transistors.png Graphic file (type png)
 
 <use images/transistors.png>
-Package pdftex.def Info: images/transistors.png used on input line 337.
+Package pdftex.def Info: images/transistors.png used on input line 358.
 (pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
 
-<images/not_gate_transistors.png, id=65, 238.8925pt x 322.20375pt>
+<images/not_gate_transistors.png, id=72, 238.8925pt x 322.20375pt>
 File: images/not_gate_transistors.png Graphic file (type png)
 
 <use images/not_gate_transistors.png>
-Package pdftex.def Info: images/not_gate_transistors.png used on input line 345
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 366
 .
 (pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
- [11 <./images/branch_jump_datapath.png> <./images/transistors.png> <./images/n
-ot_gate_transistors.png>]
-<images/nand_nor_transistors.png, id=71, 566.115pt x 391.4625pt>
+ [12 <./images/alu_load_store_datapath.png> <./images/transistors.png> <./image
+s/not_gate_transistors.png>]
+<images/nand_nor_transistors.png, id=77, 566.115pt x 391.4625pt>
 File: images/nand_nor_transistors.png Graphic file (type png)
 
 <use images/nand_nor_transistors.png>
-Package pdftex.def Info: images/nand_nor_transistors.png used on input line 358
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 379
 .
 (pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
 
-<images/2_4_decoder.png, id=72, 302.12875pt x 210.7875pt>
+<images/2_4_decoder.png, id=78, 302.12875pt x 210.7875pt>
 File: images/2_4_decoder.png Graphic file (type png)
 
 <use images/2_4_decoder.png>
-Package pdftex.def Info: images/2_4_decoder.png used on input line 396.
+Package pdftex.def Info: images/2_4_decoder.png used on input line 417.
 (pdftex.def)             Requested size: 213.39568pt x 148.8818pt.
- [12 <./images/nand_nor_transistors.png>]
-<images/2_1_multiplexer.png, id=77, 380.36842pt x 201.59526pt>
+ [13 <./images/nand_nor_transistors.png>]
+<images/2_1_multiplexer.png, id=83, 380.36842pt x 201.59526pt>
 File: images/2_1_multiplexer.png Graphic file (type png)
 
 <use images/2_1_multiplexer.png>
-Package pdftex.def Info: images/2_1_multiplexer.png used on input line 423.
+Package pdftex.def Info: images/2_1_multiplexer.png used on input line 444.
 (pdftex.def)             Requested size: 192.0548pt x 101.79095pt.
 
-<images/single_bit_adder.png, id=78, 243.91125pt x 162.6075pt>
+<images/single_bit_adder.png, id=84, 243.91125pt x 162.6075pt>
 File: images/single_bit_adder.png Graphic file (type png)
 
 <use images/single_bit_adder.png>
-Package pdftex.def Info: images/single_bit_adder.png used on input line 434.
+Package pdftex.def Info: images/single_bit_adder.png used on input line 455.
 (pdftex.def)             Requested size: 128.0387pt x 85.36029pt.
- [13 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
-<images/full_adder.png, id=82, 647.41875pt x 199.74625pt>
+ [14 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
+<images/full_adder.png, id=88, 647.41875pt x 199.74625pt>
 File: images/full_adder.png Graphic file (type png)
 
 <use images/full_adder.png>
-Package pdftex.def Info: images/full_adder.png used on input line 443.
+Package pdftex.def Info: images/full_adder.png used on input line 464.
 (pdftex.def)             Requested size: 341.43437pt x 105.34076pt.
 
-<images/simple_ALU.png, id=83, 933.4875pt x 530.98375pt>
+<images/simple_ALU.png, id=89, 933.4875pt x 530.98375pt>
 File: images/simple_ALU.png Graphic file (type png)
 
 <use images/simple_ALU.png>
-Package pdftex.def Info: images/simple_ALU.png used on input line 455.
+Package pdftex.def Info: images/simple_ALU.png used on input line 476.
 (pdftex.def)             Requested size: 426.79135pt x 242.76468pt.
- [14 <./images/single_bit_adder.png> <./images/full_adder.png>] [15 <./images/s
-imple_ALU.png>] [16] [17]
+ [15 <./images/single_bit_adder.png> <./images/full_adder.png>] [16 <./images/s
+imple_ALU.png>] [17] [18]
 (./ComputerSystemsAndArchitecture.lof)
 \tf@lof=\write6
 \openout6 = `ComputerSystemsAndArchitecture.lof'.
 
- [18]
+ [19]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
 
-(./ComputerSystemsAndArchitecture.ind) [19
+(./ComputerSystemsAndArchitecture.ind) [20
 
 ]
 (./ComputerSystemsAndArchitecture.aux)
@@ -857,10 +873,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19310 strings out of 494910
- 437791 string characters out of 6179836
- 568732 words of memory out of 5000000
- 22257 multiletter control sequences out of 15000+600000
+ 19322 strings out of 494910
+ 438267 string characters out of 6179836
+ 568752 words of memory out of 5000000
+ 22267 multiletter control sequences out of 15000+600000
  9873 words of font info for 37 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  62i,11n,64p,1457b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -876,10 +892,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (21 pages, 507812 bytes).
+Output written on ComputerSystemsAndArchitecture.pdf (22 pages, 577679 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 153 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

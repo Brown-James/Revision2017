@@ -1,4 +1,6 @@
 This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
-Scanning input file C_C++RevisionNotes.idx...done (0 entries accepted, 0 rejected).
-Nothing written in C_C++RevisionNotes.ind.
+Scanning input file C_C++RevisionNotes.idx....done (8 entries accepted, 0 rejected).
+Sorting entries....done (26 comparisons).
+Generating output file C_C++RevisionNotes.ind....done (27 lines written, 0 warnings).
+Output written in C_C++RevisionNotes.ind.
 Transcript written in C_C++RevisionNotes.ilg.

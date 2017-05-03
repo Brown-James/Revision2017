@@ -1,6 +1,6 @@
 \begin{theindex}
 
-  \item adder, 8, 13
+  \item adder, 8, 14
   \item address bus, 8
   \item ALU, 2
   \item arithmetic and logic unit, 2
@@ -14,7 +14,7 @@
   \indexspace
 
   \item cache, 2
-  \item combinational logic, 12
+  \item combinational logic, 13
   \item complex instruction set computer, 5
   \item control logic, 8
   \item control unit, 2
@@ -29,22 +29,22 @@
   \indexspace
 
   \item entry point, 3
-  \item exclusive OR, 13
-  \item exponent, 16
+  \item exclusive OR, 14
+  \item exponent, 17
 
   \indexspace
 
   \item fetch-decode-execute cycle, 3
-  \item fixed point representation, 15
-  \item floating-point number, 16
+  \item fixed point representation, 16
+  \item floating-point number, 17
 
   \indexspace
 
-  \item gnd, 11
+  \item gnd, 13
 
   \indexspace
 
-  \item half-adder, 13
+  \item half-adder, 14
   \item harvard architecture, 4
   \item high level language, 1
 
@@ -64,24 +64,25 @@
   \indexspace
 
   \item main memory, 2, 3
-  \item mantissa, 16
+  \item mantissa, 17
   \item microarchitecture, 1, 8
   \item microcoding, 5
-  \item multiplexer, 13
+  \item multiplexer, 14
+  \item multiplexing, 11
 
   \indexspace
 
-  \item NMOS, 11
-  \item not gate, 12
+  \item NMOS, 12
+  \item not gate, 13
 
   \indexspace
 
   \item operating system, 1
-  \item overflow, 14
+  \item overflow, 15
 
   \indexspace
 
-  \item PMOS, 11
+  \item PMOS, 12
   \item program counter, 2
 
   \indexspace
@@ -96,13 +97,13 @@
 
   \indexspace
 
-  \item transistor, 1, 11
+  \item transistor, 1, 12
   \item turing complete, 5
-  \item two's complement, 15
+  \item two's complement, 16
 
   \indexspace
 
-  \item vdd, 11
+  \item vdd, 13
   \item volatile, 2
   \item von Neumann architecture, 1
   \item von Neumann bottleneck, 4

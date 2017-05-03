@@ -42,20 +42,21 @@
 \indexentry{data bus}{8}
 \indexentry{adder}{8}
 \indexentry{sign extension unit}{10}
-\indexentry{transistor}{11}
-\indexentry{NMOS}{11}
-\indexentry{PMOS}{11}
-\indexentry{gnd}{11}
-\indexentry{vdd}{11}
-\indexentry{not gate}{12}
-\indexentry{combinational logic}{12}
-\indexentry{multiplexer}{13}
-\indexentry{adder}{13}
-\indexentry{exclusive OR}{13}
-\indexentry{half-adder}{13}
-\indexentry{overflow}{14}
-\indexentry{fixed point representation}{15}
-\indexentry{two's complement}{15}
-\indexentry{floating-point number}{16}
-\indexentry{mantissa}{16}
-\indexentry{exponent}{16}
+\indexentry{multiplexing}{11}
+\indexentry{transistor}{12}
+\indexentry{NMOS}{12}
+\indexentry{PMOS}{12}
+\indexentry{gnd}{13}
+\indexentry{vdd}{13}
+\indexentry{not gate}{13}
+\indexentry{combinational logic}{13}
+\indexentry{multiplexer}{14}
+\indexentry{adder}{14}
+\indexentry{exclusive OR}{14}
+\indexentry{half-adder}{14}
+\indexentry{overflow}{15}
+\indexentry{fixed point representation}{16}
+\indexentry{two's complement}{16}
+\indexentry{floating-point number}{17}
+\indexentry{mantissa}{17}
+\indexentry{exponent}{17}

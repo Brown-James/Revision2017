@@ -1,1 +1,12 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Pointers and Memory Management}{1}
+\contentsline {subsection}{\numberline {2.1}Pointers}{1}
+\contentsline {subsubsection}{\numberline {2.1.1}The * and \& Operators}{1}
+\contentsline {subsubsection}{\numberline {2.1.2}The Null Pointer}{2}
+\contentsline {subsection}{\numberline {2.2}Memory Management with \texttt {malloc} and \texttt {free}}{2}
+\contentsline {subsubsection}{\numberline {2.2.1}The \texttt {sizeof} operator}{2}
+\contentsline {subsubsection}{\numberline {2.2.2}Crashes vs Memory Errors}{2}
+\contentsline {section}{\numberline {3}Structures in C}{3}
+\contentsline {section}{\numberline {4}Typed Trees in C}{3}
+\contentsline {section}{\numberline {5}From C and Java to C++}{3}
+\contentsline {section}{\numberline {6}Templates in C++}{3}
