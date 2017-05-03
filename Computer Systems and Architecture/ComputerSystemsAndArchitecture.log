@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  24 APR 2017 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  2 MAY 2017 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -762,79 +762,93 @@ File: images/alu.png Graphic file (type png)
  <use images/alu.png>
 Package pdftex.def Info: images/alu.png used on input line 293.
 (pdftex.def)             Requested size: 85.35696pt x 120.36238pt.
- [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>]
-<images/transistors.png, id=58, 318.18875pt x 182.6825pt>
+
+<images/r_type_datapath.png, id=55, 630.355pt x 280.04625pt>
+File: images/r_type_datapath.png Graphic file (type png)
+
+<use images/r_type_datapath.png>
+Package pdftex.def Info: images/r_type_datapath.png used on input line 303.
+(pdftex.def)             Requested size: 384.1096pt x 170.64847pt.
+ [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>] [10 
+<./images/alu.png> <./images/r_type_datapath.png>] <images/branch_jump_datapath
+.png, id=62, 789.95125pt x 396.48125pt>
+File: images/branch_jump_datapath.png Graphic file (type png)
+
+<use images/branch_jump_datapath.png>
+Package pdftex.def Info: images/branch_jump_datapath.png used on input line 319
+.
+(pdftex.def)             Requested size: 384.1096pt x 192.78925pt.
+
+<images/transistors.png, id=63, 318.18875pt x 182.6825pt>
 File: images/transistors.png Graphic file (type png)
 
 <use images/transistors.png>
-Package pdftex.def Info: images/transistors.png used on input line 311.
+Package pdftex.def Info: images/transistors.png used on input line 337.
 (pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
 
-<images/not_gate_transistors.png, id=60, 238.8925pt x 322.20375pt>
+<images/not_gate_transistors.png, id=65, 238.8925pt x 322.20375pt>
 File: images/not_gate_transistors.png Graphic file (type png)
 
 <use images/not_gate_transistors.png>
-Package pdftex.def Info: images/not_gate_transistors.png used on input line 319
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 345
 .
 (pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
- [10 <./images/alu.png> <./images/transistors.png> <./images/not_gate_transisto
-rs.png>]
-<images/nand_nor_transistors.png, id=65, 566.115pt x 391.4625pt>
+ [11 <./images/branch_jump_datapath.png> <./images/transistors.png> <./images/n
+ot_gate_transistors.png>]
+<images/nand_nor_transistors.png, id=71, 566.115pt x 391.4625pt>
 File: images/nand_nor_transistors.png Graphic file (type png)
 
 <use images/nand_nor_transistors.png>
-Package pdftex.def Info: images/nand_nor_transistors.png used on input line 332
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 358
 .
 (pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
 
-<images/2_4_decoder.png, id=66, 302.12875pt x 210.7875pt>
+<images/2_4_decoder.png, id=72, 302.12875pt x 210.7875pt>
 File: images/2_4_decoder.png Graphic file (type png)
 
 <use images/2_4_decoder.png>
-Package pdftex.def Info: images/2_4_decoder.png used on input line 370.
+Package pdftex.def Info: images/2_4_decoder.png used on input line 396.
 (pdftex.def)             Requested size: 213.39568pt x 148.8818pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11 <./images/nand_nor_transistors.png>]
-<images/2_1_multiplexer.png, id=72, 380.36842pt x 201.59526pt>
+ [12 <./images/nand_nor_transistors.png>]
+<images/2_1_multiplexer.png, id=77, 380.36842pt x 201.59526pt>
 File: images/2_1_multiplexer.png Graphic file (type png)
 
 <use images/2_1_multiplexer.png>
-Package pdftex.def Info: images/2_1_multiplexer.png used on input line 397.
+Package pdftex.def Info: images/2_1_multiplexer.png used on input line 423.
 (pdftex.def)             Requested size: 192.0548pt x 101.79095pt.
 
-<images/single_bit_adder.png, id=73, 243.91125pt x 162.6075pt>
+<images/single_bit_adder.png, id=78, 243.91125pt x 162.6075pt>
 File: images/single_bit_adder.png Graphic file (type png)
 
 <use images/single_bit_adder.png>
-Package pdftex.def Info: images/single_bit_adder.png used on input line 408.
+Package pdftex.def Info: images/single_bit_adder.png used on input line 434.
 (pdftex.def)             Requested size: 128.0387pt x 85.36029pt.
-
-<images/full_adder.png, id=74, 647.41875pt x 199.74625pt>
+ [13 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
+<images/full_adder.png, id=82, 647.41875pt x 199.74625pt>
 File: images/full_adder.png Graphic file (type png)
 
 <use images/full_adder.png>
-Package pdftex.def Info: images/full_adder.png used on input line 417.
+Package pdftex.def Info: images/full_adder.png used on input line 443.
 (pdftex.def)             Requested size: 341.43437pt x 105.34076pt.
- [12 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
-<images/simple_ALU.png, id=79, 933.4875pt x 530.98375pt>
+
+<images/simple_ALU.png, id=83, 933.4875pt x 530.98375pt>
 File: images/simple_ALU.png Graphic file (type png)
 
 <use images/simple_ALU.png>
-Package pdftex.def Info: images/simple_ALU.png used on input line 429.
+Package pdftex.def Info: images/simple_ALU.png used on input line 455.
 (pdftex.def)             Requested size: 426.79135pt x 242.76468pt.
- [13 <./images/single_bit_adder.png> <./images/full_adder.png>] (./ComputerSyst
-emsAndArchitecture.lof)
+ [14 <./images/single_bit_adder.png> <./images/full_adder.png>] [15 <./images/s
+imple_ALU.png>] [16] [17]
+(./ComputerSystemsAndArchitecture.lof)
 \tf@lof=\write6
 \openout6 = `ComputerSystemsAndArchitecture.lof'.
 
- [14 <./images/simple_ALU.png>]
+ [18]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
- (./ComputerSystemsAndArchitecture.ind) [15
+
+(./ComputerSystemsAndArchitecture.ind) [19
 
 ]
 (./ComputerSystemsAndArchitecture.aux)
@@ -843,13 +857,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19295 strings out of 494910
- 437402 string characters out of 6179836
- 566712 words of memory out of 5000000
- 22245 multiletter control sequences out of 15000+600000
- 9537 words of font info for 35 fonts, out of 8000000 for 9000
+ 19310 strings out of 494910
+ 437791 string characters out of 6179836
+ 568732 words of memory out of 5000000
+ 22257 multiletter control sequences out of 15000+600000
+ 9873 words of font info for 37 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 62i,11n,64p,1406b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,64p,1457b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -859,12 +873,13 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt10.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (17 pages, 441554 bytes).
+/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on ComputerSystemsAndArchitecture.pdf (21 pages, 507812 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 108 words of extra memory for PDF output out of 10000 (max. 10000000)
 

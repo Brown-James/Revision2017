@@ -25,4 +25,9 @@
 \contentsline {subsection}{\numberline {9.4}Anti-Discrimination Laws}{9}
 \contentsline {section}{\numberline {10}The Internet}{9}
 \contentsline {subsection}{\numberline {10.1}Defamation and Civil Law}{9}
-\contentsline {section}{\numberline {11}Ethics}{9}
+\contentsline {subsection}{\numberline {10.2}Obscene Publications}{9}
+\contentsline {subsection}{\numberline {10.3}Spam}{9}
+\contentsline {section}{\numberline {11}Ethics}{10}
+\contentsline {subsection}{\numberline {11.1}Moral Philosophy}{10}
+\contentsline {subsection}{\numberline {11.2}Utilitarianism}{10}
+\contentsline {subsection}{\numberline {11.3}The Golden Rule}{10}
