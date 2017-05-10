@@ -1,2 +1,6 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces A box-and-arrow diagram}}{1}
 \contentsline {figure}{\numberline {2}{\ignorespaces The hardware level of a box-and-arrow diagram}}{1}
+\contentsline {figure}{\numberline {3}{\ignorespaces A piece of code to delete all elements of a linked list}}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces The same code with a use after free error}}{4}
+\contentsline {figure}{\numberline {5}{\ignorespaces A grammar for a Lisp-style language}}{7}
+\contentsline {figure}{\numberline {6}{\ignorespaces The abstract syntax tree of this language}}{7}

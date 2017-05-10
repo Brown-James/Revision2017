@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  3 MAY 2017 21:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  10 MAY 2017 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,6 +560,28 @@ File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
 \pgf@circ@res@temp=\dimen197
 \pgfstartlinewidth=\dimen198
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/easylist/easylist.sty
+Package: easylist 2014/01/11 v.1.4 Numbered items with a single command.
+\el@CounterTotal=\count137
+\el@Scratch=\count138
+\el@ControlCounter=\count139
+\el@CounterLevel=\count140
+\c@List1=\count141
+\c@List2=\count142
+\c@List3=\count143
+\c@List4=\count144
+\c@List5=\count145
+\c@List6=\count146
+\c@List7=\count147
+\c@List8=\count148
+\c@List9=\count149
+\c@List10=\count150
+\el@ProgressiveDimension=\dimen199
+\el@CounterBox=\box66
+\el@ControlBox=\box67
+\el@TotalMargin=\dimen256
+\el@LeftMove=\dimen257
+)
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (483.69684pt) is ignored.
@@ -579,30 +601,30 @@ LaTeX Warning: Label `fig:2 1 multiplexer' multiply defined.
 )
 \openout1 = `ComputerSystemsAndArchitecture.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count137
-\scratchdimen=\dimen199
-\scratchbox=\box66
-\nofMPsegments=\count138
-\nofMParguments=\count139
+\scratchcounter=\count151
+\scratchdimen=\dimen258
+\scratchbox=\box68
+\nofMPsegments=\count152
+\nofMParguments=\count153
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count140
-\MPscratchDim=\dimen256
-\MPnumerator=\count141
-\makeMPintoPDFobject=\count142
+\MPscratchCnt=\count154
+\MPscratchDim=\dimen259
+\MPnumerator=\count155
+\makeMPintoPDFobject=\count156
 \everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -680,204 +702,370 @@ e
 ABD: EveryShipout initializing macros [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ComputerSystemsAndArchi
-tecture.toc)
+tecture.toc [2])
 \tf@toc=\write5
 \openout5 = `ComputerSystemsAndArchitecture.toc'.
 
- [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
+ [3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
 
-<images/von_neumann.png, id=17, 747.79375pt x 438.63875pt>
+<images/von_neumann.png, id=20, 747.79375pt x 438.63875pt>
 File: images/von_neumann.png Graphic file (type png)
 
 <use images/von_neumann.png>
-Package pdftex.def Info: images/von_neumann.png used on input line 51.
+Package pdftex.def Info: images/von_neumann.png used on input line 52.
 (pdftex.def)             Requested size: 256.07741pt x 150.20609pt.
  [1 <./images/von_neumann.png>] [2] [3]
-<images/mips_architecture.png, id=31, 939.51pt x 479.7925pt>
+<images/mips_architecture.png, id=34, 939.51pt x 479.7925pt>
 File: images/mips_architecture.png Graphic file (type png)
 
 <use images/mips_architecture.png>
-Package pdftex.def Info: images/mips_architecture.png used on input line 136.
+Package pdftex.def Info: images/mips_architecture.png used on input line 137.
 (pdftex.def)             Requested size: 426.79135pt x 217.9545pt.
  [4 <./images/mips_architecture.png>]
-[5] <images/mips_register_conventions.png, id=39, 607.26875pt x 368.37625pt>
+[5] <images/mips_register_conventions.png, id=42, 607.26875pt x 368.37625pt>
 File: images/mips_register_conventions.png Graphic file (type png)
 
 <use images/mips_register_conventions.png>
 Package pdftex.def Info: images/mips_register_conventions.png used on input lin
-e 211.
+e 212.
 (pdftex.def)             Requested size: 298.75264pt x 181.23103pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] <images/rtype_instruction.png, id=43, 515.9275pt x 64.24pt>
+[6] <images/rtype_instruction.png, id=46, 515.9275pt x 64.24pt>
 File: images/rtype_instruction.png Graphic file (type png)
 
 <use images/rtype_instruction.png>
-Package pdftex.def Info: images/rtype_instruction.png used on input line 225.
+Package pdftex.def Info: images/rtype_instruction.png used on input line 226.
 (pdftex.def)             Requested size: 298.75264pt x 37.19942pt.
 
-<images/mips_load_store_instructions.png, id=44, 522.95375pt x 62.2325pt>
+<images/mips_load_store_instructions.png, id=47, 522.95375pt x 62.2325pt>
 File: images/mips_load_store_instructions.png Graphic file (type png)
 
 <use images/mips_load_store_instructions.png>
 Package pdftex.def Info: images/mips_load_store_instructions.png used on input 
-line 237.
+line 238.
 (pdftex.def)             Requested size: 298.75264pt x 35.55266pt.
  [7 <./images/mips_register_conventions.png> <./images/rtype_instruction.png> <
 ./images/mips_load_store_instructions.png>]
-<images/datapath_instruction_fetch.png, id=48, 339.2675pt x 137.51375pt>
+<images/datapath_instruction_fetch.png, id=51, 339.2675pt x 137.51375pt>
 File: images/datapath_instruction_fetch.png Graphic file (type png)
 
 <use images/datapath_instruction_fetch.png>
 Package pdftex.def Info: images/datapath_instruction_fetch.png used on input li
-ne 263.
+ne 264.
 (pdftex.def)             Requested size: 170.71393pt x 69.19315pt.
 
-<images/datapath_pc_adder.png, id=49, 366.36874pt x 246.9225pt>
+<images/datapath_pc_adder.png, id=52, 366.36874pt x 246.9225pt>
 File: images/datapath_pc_adder.png Graphic file (type png)
 
 <use images/datapath_pc_adder.png>
-Package pdftex.def Info: images/datapath_pc_adder.png used on input line 272.
+Package pdftex.def Info: images/datapath_pc_adder.png used on input line 273.
 (pdftex.def)             Requested size: 213.39568pt x 143.8255pt.
  [8 <./images/datapath_instruction_fetch.png>] <images/register_architecture.pn
-g, id=53, 334.24875pt x 173.64874pt>
+g, id=56, 334.24875pt x 173.64874pt>
 File: images/register_architecture.png Graphic file (type png)
 
 <use images/register_architecture.png>
 Package pdftex.def Info: images/register_architecture.png used on input line 28
-4.
+5.
 (pdftex.def)             Requested size: 256.07741pt x 133.04752pt.
 
-<images/alu.png, id=54, 139.52126pt x 196.735pt>
+<images/alu.png, id=57, 139.52126pt x 196.735pt>
 File: images/alu.png Graphic file (type png)
  <use images/alu.png>
-Package pdftex.def Info: images/alu.png used on input line 293.
+Package pdftex.def Info: images/alu.png used on input line 294.
 (pdftex.def)             Requested size: 85.35696pt x 120.36238pt.
 
-<images/r_type_datapath.png, id=55, 630.355pt x 280.04625pt>
+<images/r_type_datapath.png, id=58, 630.355pt x 280.04625pt>
 File: images/r_type_datapath.png Graphic file (type png)
 
 <use images/r_type_datapath.png>
-Package pdftex.def Info: images/r_type_datapath.png used on input line 303.
+Package pdftex.def Info: images/r_type_datapath.png used on input line 304.
 (pdftex.def)             Requested size: 384.1096pt x 170.64847pt.
  [9 <./images/datapath_pc_adder.png> <./images/register_architecture.png>]
-<images/load_store_instructions_datapath.png, id=59, 867.24pt x 345.29pt>
+<images/load_store_instructions_datapath.png, id=62, 867.24pt x 345.29pt>
 File: images/load_store_instructions_datapath.png Graphic file (type png)
 
 <use images/load_store_instructions_datapath.png>
 Package pdftex.def Info: images/load_store_instructions_datapath.png used on in
-put line 313.
+put line 314.
 (pdftex.def)             Requested size: 384.1096pt x 152.93437pt.
  [10 <./images/alu.png> <./images/r_type_datapath.png>]
-<images/branch_jump_datapath.png, id=63, 789.95125pt x 396.48125pt>
+<images/branch_jump_datapath.png, id=67, 789.95125pt x 396.48125pt>
 File: images/branch_jump_datapath.png Graphic file (type png)
 
 <use images/branch_jump_datapath.png>
-Package pdftex.def Info: images/branch_jump_datapath.png used on input line 326
+Package pdftex.def Info: images/branch_jump_datapath.png used on input line 327
 .
 (pdftex.def)             Requested size: 384.1096pt x 192.78925pt.
  [11 <./images/load_store_instructions_datapath.png> <./images/branch_jump_data
 path.png>]
-<images/alu_load_store_datapath.png, id=69, 932.48375pt x 369.38pt>
+<images/alu_load_store_datapath.png, id=72, 932.48375pt x 369.38pt>
 File: images/alu_load_store_datapath.png Graphic file (type png)
 
 <use images/alu_load_store_datapath.png>
 Package pdftex.def Info: images/alu_load_store_datapath.png used on input line 
-341.
+345.
 (pdftex.def)             Requested size: 426.79135pt x 169.06013pt.
 
-<images/transistors.png, id=70, 318.18875pt x 182.6825pt>
+
+LaTeX Warning: Reference `fig:alu load store instruction fetch datapath' on pag
+e 12 undefined on input line 350.
+
+
+<images/alu_load_store_instruction_fetch_datapath.png, id=73, 793.96625pt x 291
+.0875pt>
+File: images/alu_load_store_instruction_fetch_datapath.png Graphic file (type p
+ng)
+ <use images/alu_load_store_instruction_fetch_datapath.png>
+Package pdftex.def Info: images/alu_load_store_instruction_fetch_datapath.png u
+sed on input line 354.
+(pdftex.def)             Requested size: 426.79135pt x 156.47424pt.
+
+<images/integrated_branch_datapath.png, id=74, 794.97pt x 320.19624pt>
+File: images/integrated_branch_datapath.png Graphic file (type png)
+
+<use images/integrated_branch_datapath.png>
+Package pdftex.def Info: images/integrated_branch_datapath.png used on input li
+ne 362.
+(pdftex.def)             Requested size: 426.79135pt x 171.90668pt.
+ [12 <./images/alu_load_store_datapath.png> <./images/alu_load_store_instructio
+n_fetch_datapath.png>]
+<images/fully_integrated_datapath.png, id=78, 664.4825pt x 296.10625pt>
+File: images/fully_integrated_datapath.png Graphic file (type png)
+
+<use images/fully_integrated_datapath.png>
+Package pdftex.def Info: images/fully_integrated_datapath.png used on input lin
+e 371.
+(pdftex.def)             Requested size: 426.79135pt x 190.18959pt.
+
+<images/complete_mips_datapath.png, id=79, 657.45625pt x 344.28625pt>
+File: images/complete_mips_datapath.png Graphic file (type png)
+
+<use images/complete_mips_datapath.png>
+Package pdftex.def Info: images/complete_mips_datapath.png used on input line 3
+81.
+(pdftex.def)             Requested size: 426.79135pt x 223.49973pt.
+ [13 <./images/integrated_branch_datapath.png> <./images/fully_integrated_datap
+ath.png>]
+<images/alu_control_signals.png, id=83, 469.755pt x 213.79875pt>
+File: images/alu_control_signals.png Graphic file (type png)
+
+<use images/alu_control_signals.png>
+Package pdftex.def Info: images/alu_control_signals.png used on input line 399.
+
+(pdftex.def)             Requested size: 298.75264pt x 135.96947pt.
+
+Overfull \hbox (114.9369pt too wide) in paragraph at lines 407--418
+[][] 
+ []
+
+[14 <./images/complete_mips_datapath.png>]
+<images/transistors.png, id=87, 318.18875pt x 182.6825pt>
 File: images/transistors.png Graphic file (type png)
 
 <use images/transistors.png>
-Package pdftex.def Info: images/transistors.png used on input line 358.
+Package pdftex.def Info: images/transistors.png used on input line 430.
 (pdftex.def)             Requested size: 86.42406pt x 49.61761pt.
 
-<images/not_gate_transistors.png, id=72, 238.8925pt x 322.20375pt>
+<images/not_gate_transistors.png, id=89, 238.8925pt x 322.20375pt>
 File: images/not_gate_transistors.png Graphic file (type png)
 
 <use images/not_gate_transistors.png>
-Package pdftex.def Info: images/not_gate_transistors.png used on input line 366
+Package pdftex.def Info: images/not_gate_transistors.png used on input line 438
 .
 (pdftex.def)             Requested size: 86.42406pt x 116.56355pt.
- [12 <./images/alu_load_store_datapath.png> <./images/transistors.png> <./image
-s/not_gate_transistors.png>]
-<images/nand_nor_transistors.png, id=77, 566.115pt x 391.4625pt>
+ [15 <./images/alu_control_signals.png> <./images/transistors.png> <./images/no
+t_gate_transistors.png>]
+<images/nand_nor_transistors.png, id=94, 566.115pt x 391.4625pt>
 File: images/nand_nor_transistors.png Graphic file (type png)
 
 <use images/nand_nor_transistors.png>
-Package pdftex.def Info: images/nand_nor_transistors.png used on input line 379
+Package pdftex.def Info: images/nand_nor_transistors.png used on input line 451
 .
 (pdftex.def)             Requested size: 256.07741pt x 177.07637pt.
 
-<images/2_4_decoder.png, id=78, 302.12875pt x 210.7875pt>
+<images/2_4_decoder.png, id=95, 302.12875pt x 210.7875pt>
 File: images/2_4_decoder.png Graphic file (type png)
 
 <use images/2_4_decoder.png>
-Package pdftex.def Info: images/2_4_decoder.png used on input line 417.
+Package pdftex.def Info: images/2_4_decoder.png used on input line 489.
 (pdftex.def)             Requested size: 213.39568pt x 148.8818pt.
- [13 <./images/nand_nor_transistors.png>]
-<images/2_1_multiplexer.png, id=83, 380.36842pt x 201.59526pt>
+ [16 <./images/nand_nor_transistors.png>]
+<images/2_1_multiplexer.png, id=101, 380.36842pt x 201.59526pt>
 File: images/2_1_multiplexer.png Graphic file (type png)
 
 <use images/2_1_multiplexer.png>
-Package pdftex.def Info: images/2_1_multiplexer.png used on input line 444.
+Package pdftex.def Info: images/2_1_multiplexer.png used on input line 516.
 (pdftex.def)             Requested size: 192.0548pt x 101.79095pt.
 
-<images/single_bit_adder.png, id=84, 243.91125pt x 162.6075pt>
+<images/single_bit_adder.png, id=102, 243.91125pt x 162.6075pt>
 File: images/single_bit_adder.png Graphic file (type png)
 
 <use images/single_bit_adder.png>
-Package pdftex.def Info: images/single_bit_adder.png used on input line 455.
+Package pdftex.def Info: images/single_bit_adder.png used on input line 527.
 (pdftex.def)             Requested size: 128.0387pt x 85.36029pt.
- [14 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
-<images/full_adder.png, id=88, 647.41875pt x 199.74625pt>
+ [17 <./images/2_4_decoder.png (PNG copy)> <./images/2_1_multiplexer.png>]
+<images/full_adder.png, id=106, 647.41875pt x 199.74625pt>
 File: images/full_adder.png Graphic file (type png)
 
 <use images/full_adder.png>
-Package pdftex.def Info: images/full_adder.png used on input line 464.
+Package pdftex.def Info: images/full_adder.png used on input line 536.
 (pdftex.def)             Requested size: 341.43437pt x 105.34076pt.
 
-<images/simple_ALU.png, id=89, 933.4875pt x 530.98375pt>
+<images/simple_ALU.png, id=107, 933.4875pt x 530.98375pt>
 File: images/simple_ALU.png Graphic file (type png)
 
 <use images/simple_ALU.png>
-Package pdftex.def Info: images/simple_ALU.png used on input line 476.
+Package pdftex.def Info: images/simple_ALU.png used on input line 548.
 (pdftex.def)             Requested size: 426.79135pt x 242.76468pt.
- [15 <./images/single_bit_adder.png> <./images/full_adder.png>] [16 <./images/s
-imple_ALU.png>] [17] [18]
-(./ComputerSystemsAndArchitecture.lof)
+ [18 <./images/single_bit_adder.png> <./images/full_adder.png>] [19 <./images/s
+imple_ALU.png>] [20]
+<images/flip_flops.png, id=119, 926.46124pt x 579.16376pt>
+File: images/flip_flops.png Graphic file (type png)
+
+<use images/flip_flops.png>
+Package pdftex.def Info: images/flip_flops.png used on input line 622.
+(pdftex.def)             Requested size: 320.0935pt x 200.10333pt.
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+
+<images/cross_coupled_inverters.png, id=120, 281.05pt x 190.7125pt>
+File: images/cross_coupled_inverters.png Graphic file (type png)
+
+<use images/cross_coupled_inverters.png>
+Package pdftex.def Info: images/cross_coupled_inverters.png used on input line 
+642.
+(pdftex.def)             Requested size: 86.42406pt x 58.643pt.
+
+<images/sram_cell.png, id=121, 307.1475pt x 169.63374pt>
+File: images/sram_cell.png Graphic file (type png)
+
+<use images/sram_cell.png>
+Package pdftex.def Info: images/sram_cell.png used on input line 649.
+(pdftex.def)             Requested size: 86.42406pt x 47.73007pt.
+ [21 <./images/flip_flops.png>]
+<images/cross_coupled_nor_gates.png, id=125, 176.66pt x 149.55875pt>
+File: images/cross_coupled_nor_gates.png Graphic file (type png)
+
+<use images/cross_coupled_nor_gates.png>
+Package pdftex.def Info: images/cross_coupled_nor_gates.png used on input line 
+660.
+(pdftex.def)             Requested size: 86.42406pt x 73.16576pt.
+
+<images/bistable_d_latch.png, id=126, 296.10625pt x 168.63pt>
+File: images/bistable_d_latch.png Graphic file (type png)
+
+<use images/bistable_d_latch.png>
+Package pdftex.def Info: images/bistable_d_latch.png used on input line 667.
+(pdftex.def)             Requested size: 86.42406pt x 49.21793pt.
+
+<images/edge_triggered_flip_flop.png, id=127, 371.3875pt x 173.64874pt>
+File: images/edge_triggered_flip_flop.png Graphic file (type png)
+
+<use images/edge_triggered_flip_flop.png>
+Package pdftex.def Info: images/edge_triggered_flip_flop.png used on input line
+ 694.
+(pdftex.def)             Requested size: 320.0935pt x 149.66885pt.
+ [22 <./images/cross_coupled_inverters.png> <./images/sram_cell.png> <./images/
+cross_coupled_nor_gates.png> <./images/bistable_d_latch.png>]
+<images/d_type_flip_flop.png, id=132, 596.2275pt x 251.94125pt>
+File: images/d_type_flip_flop.png Graphic file (type png)
+
+<use images/d_type_flip_flop.png>
+Package pdftex.def Info: images/d_type_flip_flop.png used on input line 706.
+(pdftex.def)             Requested size: 320.0935pt x 135.25816pt.
+
+<images/flip_flop_register.png, id=133, 560.0925pt x 212.795pt>
+File: images/flip_flop_register.png Graphic file (type png)
+
+<use images/flip_flop_register.png>
+Package pdftex.def Info: images/flip_flop_register.png used on input line 716.
+(pdftex.def)             Requested size: 320.0935pt x 121.61584pt.
+ [23 <./images/edge_triggered_flip_flop.png> <./images/d_type_flip_flop.png>]
+<images/bus_schematic.png, id=137, 540.0175pt x 222.8325pt>
+File: images/bus_schematic.png Graphic file (type png)
+
+<use images/bus_schematic.png>
+Package pdftex.def Info: images/bus_schematic.png used on input line 736.
+(pdftex.def)             Requested size: 256.07741pt x 105.66972pt.
+ [24 <./images/flip_flop_register.png> <./images/bus_schematic.png>] [25] [26]
+<images/n_way_associative_cache.png, id=147, 453.695pt x 217.81375pt>
+File: images/n_way_associative_cache.png Graphic file (type png)
+
+<use images/n_way_associative_cache.png>
+Package pdftex.def Info: images/n_way_associative_cache.png used on input line 
+807.
+(pdftex.def)             Requested size: 256.07741pt x 122.93869pt.
+ [27 <./images/n_way_associative_cache.png>] [28]
+<images/mips_five_stage_pipeline.png, id=155, 852.18375pt x 522.95375pt>
+File: images/mips_five_stage_pipeline.png Graphic file (type png)
+
+<use images/mips_five_stage_pipeline.png>
+Package pdftex.def Info: images/mips_five_stage_pipeline.png used on input line
+ 909.
+(pdftex.def)             Requested size: 426.79135pt x 261.90712pt.
+
+<images/pipelining_bubble.png, id=156, 528.97626pt x 60.225pt>
+File: images/pipelining_bubble.png Graphic file (type png)
+
+<use images/pipelining_bubble.png>
+Package pdftex.def Info: images/pipelining_bubble.png used on input line 925.
+(pdftex.def)             Requested size: 298.75264pt x 34.01338pt.
+ [29] [30 <./images/mips_five_stage_pipeline.png> <./images/pipelining_bubble.p
+ng>] [31]
+(./ComputerSystemsAndArchitecture.lof
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+)
 \tf@lof=\write6
 \openout6 = `ComputerSystemsAndArchitecture.lof'.
 
- [19]
+ [32]
 runsystem(makeindex ComputerSystemsAndArchitecture.idx)...executed safely (allo
 wed).
 
 
-(./ComputerSystemsAndArchitecture.ind) [20
+(./ComputerSystemsAndArchitecture.ind) [33
 
 ]
 (./ComputerSystemsAndArchitecture.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19322 strings out of 494910
- 438267 string characters out of 6179836
- 568752 words of memory out of 5000000
- 22267 multiletter control sequences out of 15000+600000
- 9873 words of font info for 37 fonts, out of 8000000 for 9000
+ 19801 strings out of 494910
+ 445453 string characters out of 6179836
+ 583620 words of memory out of 5000000
+ 22724 multiletter control sequences out of 15000+600000
+ 10233 words of font info for 38 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  62i,11n,64p,1457b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -892,10 +1080,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on ComputerSystemsAndArchitecture.pdf (22 pages, 577679 bytes).
+Output written on ComputerSystemsAndArchitecture.pdf (36 pages, 959902 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 215 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 \begin{theindex}
 
-  \item adder, 8, 14
+  \item adder, 8, 17
   \item address bus, 8
   \item ALU, 2
   \item arithmetic and logic unit, 2
@@ -8,13 +8,18 @@
 
   \indexspace
 
-  \item bus, 2
+  \item branch prediction, 29
+  \item bubble, 29
+  \item bus, 2, 24
   \item bus controller, 2
+  \item bypassing, 30
 
   \indexspace
 
-  \item cache, 2
-  \item combinational logic, 13
+  \item cache, 2, 26
+  \item clock signal, 21
+  \item coherance, 28
+  \item combinational logic, 16
   \item complex instruction set computer, 5
   \item control logic, 8
   \item control unit, 2
@@ -25,28 +30,34 @@
   \item data bus, 8
   \item datapath, 8
   \item digital logic, 1
+  \item direct-mapped, 27
+  \item dynamic branch prediction, 31
 
   \indexspace
 
   \item entry point, 3
-  \item exclusive OR, 14
-  \item exponent, 17
+  \item exclusive OR, 17
+  \item exponent, 20
 
   \indexspace
 
   \item fetch-decode-execute cycle, 3
-  \item fixed point representation, 16
-  \item floating-point number, 17
+  \item fixed point representation, 19
+  \item flip-flop, 21
+  \item floating-point number, 20
+  \item forwarding, 30
+  \item fully associative cache, 27
 
   \indexspace
 
-  \item gnd, 13
+  \item gnd, 16
 
   \indexspace
 
-  \item half-adder, 14
+  \item half-adder, 17
   \item harvard architecture, 4
   \item high level language, 1
+  \item hit, 26
 
   \indexspace
 
@@ -54,6 +65,8 @@
   \item instruction register, 2
   \item instruction set, 1, 5
   \item instructions, 1
+  \item interrupt request channel, 25
+  \item interrupts, 25
   \item IO controller, 2
 
   \indexspace
@@ -64,48 +77,69 @@
   \indexspace
 
   \item main memory, 2, 3
-  \item mantissa, 17
+  \item mantissa, 20
+  \item master-slave flip-flop, 21
+  \item memory-mapped I/O, 24
   \item microarchitecture, 1, 8
   \item microcoding, 5
-  \item multiplexer, 14
+  \item microcontrollers, 25
+  \item miss, 26
+  \item multiplexer, 17
   \item multiplexing, 11
 
   \indexspace
 
-  \item NMOS, 12
-  \item not gate, 13
+  \item n-way associative cache, 27
+  \item NMOS, 15
+  \item not gate, 16
 
   \indexspace
 
   \item operating system, 1
-  \item overflow, 15
+  \item overflow, 18
 
   \indexspace
 
-  \item PMOS, 12
+  \item peripheral, 23
+  \item pipeline, 21
+  \item pipelining, 29
+  \item PMOS, 15
+  \item polling, 25
   \item program counter, 2
 
   \indexspace
 
   \item reduced instruction set computer, 5
+  \item refill strategy, 27
   \item register operation, 7
   \item registers, 2
 
   \indexspace
 
+  \item set-reset latch, 22
   \item sign extension unit, 10
+  \item static branch prediction, 31
+  \item superscalar processors, 29
 
   \indexspace
 
-  \item transistor, 1, 12
+  \item tag, 26
+  \item thrashing, 27
+  \item transistor, 1, 15
   \item turing complete, 5
-  \item two's complement, 16
+  \item two's complement, 19
 
   \indexspace
 
-  \item vdd, 13
+  \item vdd, 16
+  \item virtual memory, 26
   \item volatile, 2
   \item von Neumann architecture, 1
   \item von Neumann bottleneck, 4
+
+  \indexspace
+
+  \item write-back cache, 28
+  \item write-through cache, 29
 
 \end{theindex}

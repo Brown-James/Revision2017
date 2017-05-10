@@ -1,10 +1,20 @@
 \begin{theindex}
 
+  \item abstract syntax trees, 5
+
+  \indexspace
+
+  \item class template, 9
   \item core dump, 2
 
   \indexspace
 
   \item free, 2
+  \item function template, 9
+
+  \indexspace
+
+  \item graph, 6
 
   \indexspace
 
@@ -13,6 +23,7 @@
   \indexspace
 
   \item malloc, 2
+  \item members, 3
 
   \indexspace
 
@@ -23,5 +34,9 @@
   \item segfault, 2
   \item segmentation fault, 2
   \item stdlib.h, 2
+
+  \indexspace
+
+  \item typed tree, 6
 
 \end{theindex}

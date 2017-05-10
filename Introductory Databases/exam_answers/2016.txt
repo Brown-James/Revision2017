@@ -1,0 +1,32 @@
+INSERT INTO subscribers(phoneno, name, city) VALUES (78771111, 'John Smith', 'London');
+INSERT INTO subscribers(phoneno, name, city) VALUES (78772222, 'Ann Smith', 'London');
+INSERT INTO subscribers(phoneno, name, city) VALUES (78773333, 'Simon Smith', 'Birmingham');
+INSERT INTO subscribers(phoneno, name, city) VALUES (78774444, 'James Brown', 'Edinburgh');
+
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78773333, '01:52:00', 30);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78773333, '01:05:00', 60);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78773333, '02:45:00', 172);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78772222, '12:07:00', 600);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78772222, '14:33:00', 755);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78774444, 78771111, '19:27:00', 333);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78772222, 78774444, '19:22:00', 365);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78773333, 78774444, '11:52:00', 178);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78773333, 78771111, '12:30:23', 257);
+INSERT INTO calls(caller, receiver, starttime, duration) VALUES (78772222, 78773333, '11:15:02', 323);
+
+-- SELECT subscribers.city AS city, SUM(calls.duration)
+-- FROM calls, subscribers
+-- WHERE calls.receiver = subscribers.phoneno
+-- GROUP BY subscribers.city
+-- ORDER BY subscribers.city;
+
+-- SELECT subscribers.name as name
+-- FROM calls, subscribers
+-- WHERE calls.caller = subscribers.phoneno AND duration >= 600
+-- UNION
+-- SELECT subscribers.name as name
+-- FROM calls, subscribers
+-- WHERE calls.receiver = subscribers.phoneno AND duration >= 600
+SELECT DISTINCT subscribers.name FROM calls, subscribers WHERE calls.caller = subscribers.phoneno AND calls.caller NOT IN (SELECT DISTINCT caller FROM calls WHERE receiver IN (SELECT subscribers.phoneno FROM subscribers WHERE subscribers.city = 'London'));
+
+SELECT subscribers.name, SUM(duration) FROM calls, subscribers GROUP BY caller HAVING SUM(duration) > 500;

@@ -47,41 +47,93 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Integrating the Datapath}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The integrated datapath for ALU and load/store instructions}}{12}}
 \newlabel{fig:alu load store datapath}{{13}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}CPU Control}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Digital Logic}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Digital Logic}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Transistors}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{12}}
-\newlabel{fig:transistors}{{14}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces The logical operator \textbf  {NOT} built from transistors}}{12}}
-\newlabel{fig:not_transistors}{{15}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces (Left) A \textbf  {NAND} gate built from four transistors. (Right) A \textbf  {NOR} gate built from four transistors}}{13}}
-\newlabel{fig:nand_nor_transistors}{{16}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Decoders}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Truth table for a two input decoder}}{13}}
-\newlabel{fig:truth table two input decoder}{{17}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces A 2-4 decoder built from logic gates}}{14}}
-\newlabel{fig:2 4 decoder}{{18}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Multiplexers}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Truth table for a 2-1 multiplexer}}{14}}
-\newlabel{fig:2 1 multiplexer}{{19}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces A 2-1 multiplexer built from logic gates}}{14}}
-\newlabel{fig:2 1 multiplexer}{{20}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.4}A Simple Adder}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Logic gates which implemet a half-adder}}{15}}
-\newlabel{fig:half adder}{{21}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces A full-adder built from two half adders and an \textbf  {XOR} gate}}{15}}
-\newlabel{fig:full_adder}{{22}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.5}A Simple ALU}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Number Representation}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Positive Integers}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{16}}
-\newlabel{fig:simple ALU}{{23}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Positive Real Numbers}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Negative Numbers and Two's Complement}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Floating Point Numbers}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Clocked Logic}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}I/O and Peripherals}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Improving Performance}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces The integrated datapath for the ALU and load/store instructions, and instruction fetch}}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Integrated datapath for ALU and load/store instructions, instruction fetch and branches}}{13}}
+\newlabel{fig:integrated branch datapath}{{15}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Integrated datapath for ALU and load/store instructions, instruction fetch, branches and jumps}}{13}}
+\newlabel{fig:fully_integrated_datapath}{{16}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces The complete MIPS datapath}}{14}}
+\newlabel{fig:complete mips datapath}{{17}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}CPU Control}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}ALU Control}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}The Main Control Unit}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Summary of ALU control signals}}{15}}
+\newlabel{fig:alu control signals}{{18}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Digital Logic}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Digital Logic}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Transistors}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{15}}
+\newlabel{fig:transistors}{{19}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces The logical operator \textbf  {NOT} built from transistors}}{15}}
+\newlabel{fig:not_transistors}{{20}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces (Left) A \textbf  {NAND} gate built from four transistors. (Right) A \textbf  {NOR} gate built from four transistors}}{16}}
+\newlabel{fig:nand_nor_transistors}{{21}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Decoders}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Truth table for a two input decoder}}{16}}
+\newlabel{fig:truth table two input decoder}{{22}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces A 2-4 decoder built from logic gates}}{17}}
+\newlabel{fig:2 4 decoder}{{23}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Multiplexers}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Truth table for a 2-1 multiplexer}}{17}}
+\newlabel{fig:2 1 multiplexer}{{24}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces A 2-1 multiplexer built from logic gates}}{17}}
+\newlabel{fig:2 1 multiplexer}{{25}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.4}A Simple Adder}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Logic gates which implemet a half-adder}}{18}}
+\newlabel{fig:half adder}{{26}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces A full-adder built from two half adders and an \textbf  {XOR} gate}}{18}}
+\newlabel{fig:full_adder}{{27}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.5}A Simple ALU}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Number Representation}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Positive Integers}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{19}}
+\newlabel{fig:simple ALU}{{28}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Positive Real Numbers}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Negative Numbers and Two's Complement}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Floating Point Numbers}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Clocked Logic}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Clocks and flip-flops}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces A timing diagram showing the effect of banks of ﬂip-ﬂops on the propagation of a signal through a circuit}}{21}}
+\newlabel{fig:flip flops}{{29}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}The Master-Slave Flip-Flop}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces The most basic memory element, a pair of cross coupled inverters}}{22}}
+\newlabel{cross coupled inverters}{{30}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces A six transistor SRAM cell. When the enable signal E is 0, the memory element is isolated}}{22}}
+\newlabel{fig:sram cell}{{31}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Cross coupled NOR gates form a bistable circuit}}{22}}
+\newlabel{fig:cross coupled nor gates}{{32}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces A modified bistable circuit forms a D-latch}}{22}}
+\newlabel{fig:bistable d latch}{{33}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces A pair of D-latches form an edge-triggered flip-flop}}{23}}
+\newlabel{fig:edge triggered flip flop}{{34}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces A write-enabled D-type flip-flop}}{23}}
+\newlabel{fig:d type flip flop}{{35}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Building a Register}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}I/O and Peripherals}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Input/Output Devices}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces A write enabled D-type flop flop}}{24}}
+\newlabel{fig:flip flop register}{{36}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {37}{\ignorespaces Schematic of the bus}}{24}}
+\newlabel{fig:bus schematic}{{37}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}I/O Models}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Polling}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Interrupts}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Direct Memory Access (DMA)}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Improving Performance}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Caches}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}Structure and Design of Caches}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.3}Cache Associativity}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces Address mapping in a 2-way set associative cache}}{27}}
+\newlabel{fig:n way associative cache}{{38}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.4}Refill Strategies}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.5}Performance Benefits of Caches}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.6}Writing Strategies}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Pipelining}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces The MIPS five stage pipeline}}{30}}
+\newlabel{fig:mips five stage pipeline}{{39}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces Execution is delayed by two cycles until the results of the \texttt  {addi} instruction are available}}{30}}
+\newlabel{fig:pipelining bubble}{{40}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Branch Prediction}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3}Superscalar Processors}{31}}

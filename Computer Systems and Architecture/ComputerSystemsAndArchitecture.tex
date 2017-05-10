@@ -6,6 +6,7 @@
 \graphicspath{{images/}}
 \usepackage{geometry}
 \usepackage{circuitikz}
+\usepackage[ampersand]{easylist}
 \geometry{a4paper,
 total={170mm, 257mm},
 left = 30mm,
@@ -334,7 +335,10 @@ top = 30mm
 	A 2-1 multiplexer is a switch which allows one of the inputs to pass, based on a control signal $C$. With $N$ control wires, we can choose $2^{N}$ inputs. For example, an 8-1 multiplexer will require 3 control wires. Multiplexing will allow us to combine and integrate different sections of the datapath that we designed for the different types of instruction. Firstly, we will integrate the ALU-based instructions which use the IR, the ALU and the registers; and the load-store instructions which use the IR, the registers, the ALU, data memory and a sign extension unit. The challenge is to integrate these two datapaths using only one ALU, and one set of registers. The two datapaths we are trying to integrate can be seen in Figures \ref{fig:r type datapath} and \ref{fig:load store instructions datapath}.
 	
 	\par 
-	In an ALU instruction, the ALU inputs both come from the registers, and the result of the operation is written back to the registers. In a load/store instruction, the ALU inputs are from the registers and sign-extension unit, whilst the registers need to be written by the data memory. Therefore we need to multiplex the data that is to be written into the registers; and the ALU inputs, as show in \ref{fig:alu load store datapath}.
+	In an ALU instruction, the ALU inputs both come from the registers, and the result of the operation is written back to the registers. In a load/store instruction, the ALU inputs are from the registers and sign-extension unit, whilst the registers need to be written by the data memory. Therefore we need to multiplex the data that is to be written into the registers; and the ALU inputs, as show in \ref{fig:alu load store datapath}. 
+	
+	\par 
+	The introduced multiplexers that have been introduced are controlled by two signal, \texttt{alu\_ src} controls whether ALU input B is from the registers (during an ALU instruction) or form the sign extension unit (during a load/store); \texttt{mem\_ to \_ reg} controls whether the ALU (during an ALU operation) or the memory (during a load) writes to the registers. The CPU control will set the state of these according to which type of instruction is being executed. Since it's only during stores taht the memory is being written, the control must also set the relevant control signals (\texttt{mem\_ read}, \texttt{mem\_ write}).
 	
 	\begin{figure}
 		\centering
@@ -343,7 +347,75 @@ top = 30mm
 		\label{fig:alu load store datapath}
 	\end{figure}		
 	
+	Now we can integrate the instruction fetch datapath, which is relatively straightforward to incorporate, with no multiplexing required. This is shown in Figure \ref{fig:alu load store instruction fetch datapath}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{alu_load_store_instruction_fetch_datapath}
+		\caption{The integrated datapath for the ALU and load/store instructions, and instruction fetch}
+	\end{figure}
+	
+	In order to add branches to this datapath, we need to add an adder which will add the branch offset to the PC. In normal operation the PC is incremented by 4 each cycle, whereas in branches it is updated by 4+\texttt{offset}. As we need to be able to select which value the PC will take, we insert a multiplexer to select between them as shown in \ref{fig:integrated branch datapath}.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{integrated_branch_datapath}
+		\caption{Integrated datapath for ALU and load/store instructions, instruction fetch and branches}
+		\label{fig:integrated branch datapath}
+	\end{figure}
+	
+	We haven't yet included jumps into our datapath. This is because it is easier to do this once we have integrated things together. We will only consider a `plain' jump rather than the more sophisticated jump-register or jump-and-link instructions for now. In the jump instruction, a 26-bit memory address is encoded in the instruction. This is assumed to be a word address not a byte address, so it first must be converted into a byte address by shifting it left by two bits. Following this, it is concatenated with the four most significant bits from the PC to form a full 32-bit address. Due to this, the jump instruction can therefore span up to 256MB relative to the current position in the code. We then multiplex the jump address with the PC update value from the branch multiplexer and selected using the `jump' signal.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{fully_integrated_datapath}
+		\caption{Integrated datapath for ALU and load/store instructions, instruction fetch, branches and jumps}
+		\label{fig:fully_integrated_datapath}
+	\end{figure}
+	
+\par 
+	Our design for a datapath can now execute a small subset of MIPS instructions. Incorporating other instructions follows a similar process (for example, jump-and-link requires the PC to be fed into the \texttt{write\_ data} port of the registers, with the \texttt{write\_ addr} set to 11111 (for \$31)). There are a couple of modifications we need to make to this datapath in order to truly accurately represent the MIPS design. Firstly, different instruction formats must be fully accomodated. Bits 31-26 contain the opcode, but the role of the rest of the bits changes between the different instruction types. In particular, in R-type instructions the destination register address is given by bit 15-11, whilst in load/store instructions the destination register is given by bits 20-16. Therefore, we need to add an extra multiplexer to the \texttt{write\_ addr} port of the registers. We also add ALU control, which takes the \texttt{func} field (bits 5-0) from the instruction and configures the ALU. This can be done completely separately to the rest of CPU control.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{complete_mips_datapath}
+		\caption{The complete MIPS datapath}
+		\label{fig:complete mips datapath}
+	\end{figure}
+	
+	Now, we have to address how to control this datapath so that it can be configured to execute each instruction. There are many control signals which must be set for each instruction. The information required to do this is encoded in the \textbf{opcode} and \textbf{func} (if appropriate) fields which must be read and interpreted to infer the correct configuration of the datapath that allows the data to reach the correct functional units. Furthermore, the ALU must be configured correctly and the memory configured to allow reads/writes if neccesary.		
+	
 	\subsection{CPU Control}
+	Control of a complex modern CPU is extremely difficult. We will start with the easiest aspect of CPU control: the ALU.
+	
+	\subsubsection{ALU Control}
+	The ALU performs a large number of different operations, and the addition of a separate ALU controller simplifies the design of the control logic significantly. Note that for ALU instructions, the opcode is always \texttt{000000}, and the precise function is specified by the \texttt{func} code. There are other kinds of instructions for the ALU other than R-type instructions, so ALU control is not as simple as just reading the func code. For this, we have an additional control signal \texttt{alu\_ op} which gives the ALU controller some extra information about what kind of instruction is being executed and whether \texttt{func} is needed or not.
+	
+	\par
+	\textbf{Loads and Stores} use the ALU to add the address offset to the base register, so it therefore must always be configured for addition. Branches on equality and inequality require the ALU to perform a comparisson. For R-type instructions, the ALU function is determined by the \texttt{func} instruction field. \texttt{alu\_ op} is associated with each of these instruction types. The main control unit identifies the type of instruction from the opcode and sets the \texttt{alu\_ op} control bits accordingly.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{alu_control_signals}
+		\caption{Summary of ALU control signals}
+		\label{fig:alu control signals}
+	\end{figure}
+	
+	\subsubsection{The Main Control Unit}
+	Whilst the ALU controller handles the configuration of the ALU, it does so only in response to instructions from the main control unit. This unit is responsible for \textbf{decoding} the opcode of the current instruction to detemine what type of instruction it is, and configure the datapath (including ALU controller) appropriately. Whilst constructing the datapath, we have introduced a lot of control signals:
+	
+	\begin{tabular}{c|c}
+	\texttt{reg\_ write} & When true, allows writes to the register addressed by \texttt{write\_ addr} \\
+	\texttt{alu\_ src} & Selects whether ALU input is from register (False) or sign-extension unit (True) \\
+	\texttt{mem\_ to\_ reg} & Selects whether ALU output (False) or memory (True) is sent to registers \\
+	\texttt{reg\_ wsrc} & Selects whether the register \texttt{write\_ address} is bits [20-16] (True) or [15-11](False) of the instruction \\
+	\texttt{pc\_ src} & Selects whether PC+4 (False) or PC+4+branch (True) is sent to PC \\
+	\texttt{jump} & If true, sends jump address to PC; if false, sends the output of \texttt{pc\_ src} to PC \\
+	\texttt{mem\_ read} & If true, reading from memory is permitted \\
+	\texttt{mem\_ write} & If true, writes to memory are permitted \\
+	\texttt{alu\_ op} & Control bits for the ALU
+	\end{tabular}
+	
 	
 	\section{Digital Logic}
 	\subsection{Digital Logic}
@@ -540,12 +612,341 @@ top = 30mm
 	Floating-point arithmetic is rather complex and the details are beyond the scope of this module.
 	
 	\subsection{Clocked Logic}
+	Using combinational logic alone would make it very hard to build a full machine, as it takes different amounts of time for combinational circuits to stabilise, meaning when the input to a logic gate is changed it takes a finite amount of time for the output to change too. This time changes depending on the position of the chip, operating voltage, quality of materials and temperature. For these reasons, it's very difficult to know exactly how long to wait to ensure the correct answer. Asynchronous devices have been developed but these have only really been used as research devices so far and not deployed commercially. Almost all commercially available processors use an externally provided \textbf{clock signal}\index{clock signal} to ensure that the output of a functional unit is stable at a particular well-defined moment in time.
+	
+	\subsubsection{Clocks and flip-flops}
+	To allow all signals to stabilise before they are used, we need to store them for the duration of the clock cycle. The start of a clock cycle is indicated by the \textbf{rising edge} of the clock signal. On this event, the outputs of the blocks of combinational logic are captured by special devices called \textbf{flip-flops}\index{flip-flop}. The output of the flip-flop only changes on the rising clock edge, regardless of any changes on its inputs. Because of this, it is stable for the whole clock cycle which allows the outputs of any subsequent block of combinational logic to stabilise before the inputs change again. This is shown in Figure \ref{fig:flip flops}. Regardless of how the input changes at A, B remains stable for the entire clock cycle. This means that C has time to stabilise before the next cycle begins and transient states such as A4 do not propagate through the circuit at all. Such states can easily occur in complex logic as different paths through it may take different amounts of time and could lead to false results being produced.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{flip_flops}
+		\caption{A timing diagram showing the effect of banks of ﬂip-ﬂops on the propagation of a signal through a circuit}
+		\label{fig:flip flops}
+	\end{figure}
+	
+	Flips-Flops are widely used throughout the CPU wherever there is something to store or protect. In MIPS, each register is simply a bank of 32 flip-flops, and also an essential component of the pipeline\index{pipeline}.
+	
+	\subsubsection{The Master-Slave Flip-Flop}
+	The most common type of flip-flop used in modern CPUs is the \textbf{master-slave} (or D-type) flip-flop\index{master-slave flip-flop}. A basic D-type has two inputs, \texttt{datain} and \texttt{clock}, and one output \texttt{dataout}. Since logic gates are level sensitive not change senstive, it's not clear how to make a circuit that is edge-triggered. The key is to make it in two stages:
+	
+	\begin{itemize}
+		\item The first stage allows the input data to pass only when the clock is low
+		\item The second stage only allows data to pass when clock is high
+	\end{itemize}	
+	
+	The basic building block is the \textbf{set-reset latch}\index{set-reset latch}, which implements a simple memory element. The simplest memory element is a pair of cross coupled inverters.
+
+	\begin{figure}
+		\begin{minipage}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.45\textwidth]{cross_coupled_inverters}
+		\caption{The most basic memory element, a pair of cross coupled inverters}
+		\label{cross coupled inverters}		
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.45\textwidth]{sram_cell}
+		\caption{A six transistor SRAM cell. When the enable signal E is 0, the memory element is isolated}
+		\label{fig:sram cell}
+		\end{minipage}
+	\end{figure}
+	
+	We need something with a little more functionality than the simple SRAM cell provides, and we use properties of NOR gates to achieve this. A NOR gate can be programmed to behave like an inverter by setting one of its inputs to 0, making the output the inverse of the other input. 
+	
+	\begin{figure}[ht]
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.45\textwidth]{cross_coupled_nor_gates}
+			\caption{Cross coupled NOR gates form a bistable circuit}
+			\label{fig:cross coupled nor gates}		
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.45\textwidth]{bistable_d_latch}
+			\caption{A modified bistable circuit forms a D-latch}
+			\label{fig:bistable d latch}		
+		\end{minipage}
+	\end{figure}
+	
+	\begin{itemize}
+		\item If R=0 and S=1, then Q=1, Q'=0 (setting the latch)
+		\item If R=1 and S=0, then Q=0, Q'=1 (resetting the latch)
+		\item If R=1 and S=1 then both outputs are 0
+		\item If R and S are both zero, the outputs hold their current values
+	\end{itemize}	
+	
+	This component acts as a programmable memory element. In practice, we add extra logic to prevent R=S=1 and ensure the outputs are always the inverse of each other forming a \textbf{D-latch}.	
+	
+	\begin{easylist}[itemize]
+		& C=1 $\rightarrow$ R=S=0 regardless of the state of D: the latch is closed to the input and holds its current state.
+		& C=0 $\rightarrow$ R=$\neg$D and S=D
+		&& D=0 $\rightarrow$ S=0, R=1 $\rightarrow$ Q=0, Q'=1
+		&& D=1 $\rightarrow$ S=1, R=0 $\rightarrow$ Q=1, Q'=0
+		& S=R=1 can never happen
+	\end{easylist}
+	
+	Whilst C=0, data on input D propagates through the circuit to output Q. The D-latch is therefore transparent whilst the clock is low. We combine two D-latches to form an edge-triggered flip-flop.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{edge_triggered_flip_flop}
+		\caption{A pair of D-latches form an edge-triggered flip-flop}
+		\label{fig:edge triggered flip flop}
+	\end{figure}
+	
+	When the clock is low, the first D-latch (the master) is open and the output of this latch follows its input. The second latch is closed as it takes the inverse of the clock. When the clock is high, the second latch (the slave) is open and the first latch is closed. On the rising edge, the second latch captures the output of the first at that time, and prevents it from being changed until the next rising edge. We must therefore ensure that the input data is stable when the clock rises, otherwise the state after the change will be unpredictable. The output of the flip-flop can be read at any time, and is stable for the whole clock cycle expect for a very short period after the rising clock edge when it may change as the input is captured.
+	
+	\par 
+	A very common modification is to add a mechanism so the flip-flop can be selectively written so we can use it in, for example, a register where we don't want the stored value to be overwritten on every cycle. Usually, we feed the output back to the input, and add extra logic such that when write=1 the input of the master latch gets D and when write=0 the input of the master latch gets Q.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{d_type_flip_flop}
+		\caption{A write-enabled D-type flip-flop}
+		\label{fig:d type flip flop}
+	\end{figure}		
+	
+	\subsubsection{Building a Register}
+	The edge-triggered-flip-flop can be used as the basis for a register. A 32-bit register will simple be a bank of 32 D-type flip-flops organised such that the input to each flip-flop corresponds to one bit of the input data, and the output from each flip-flop corresponds to one bit of the output data. The clock and write signals are shared by all flip-flops, although we allow individual bytes to be written, in which case the register has separate write signals for each byte. This would be neccesary for MIPS, which has a store-byte (sb) instruction.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{flip_flop_register}
+		\caption{A write enabled D-type flop flop}
+		\label{fig:flip flop register}
+	\end{figure}
 	
 	\section{I/O and Peripherals}
+	\subsection{Input/Output Devices}
+	Input and output are an essential part of computer systems. In most systems, I/O devices are not an integrated part of the main processor and memory and because of this we need to provide mechanisms that allow external devices to communicate with the processor, memory and the programs they execute. I/O has a few requirements:
+	
+	\begin{itemize}
+		\item A communications channel between the processor and the I/O device (otherwise known as a \textbf{peripheral}\index{peripheral}).
+		\item A way of identifying which I/O device we are communicating with.
+		\item A mechanism by which we can determine whether the I/O device requires the processors attention, as I/O devices do not need constant attention from the processor due to their events occuring much less frequently than the processor clock speed.
+	\end{itemize}
+	
+	\par 
+	The communications channel we need is achieved by the \textbf{bus}\index{bus}. The bus is a complex set of wires that carry signals which must be multiplexed between various devices and abide by various rules and protocols which determine which devices can send and recieve signals. Bus time is shared between all the system's devices and the bus controller will arbitrate between the devices to determine which can have access at any given moment.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{bus_schematic}
+		\caption{Schematic of the bus}
+		\label{fig:bus schematic}
+	\end{figure}
+	
+	\subsection{I/O Models}
+	The bus allows the CPU to communicate with peripherals in two ways: it can send them commands and it can send/recieve data. In principle, this is quite similar to how the CPU interacts with memory. In many ways, peripherals can be treated similarly to memory in what is known as \textbf{memory-mapped I/O}\index{memory-mapped I/O}.
+	
+	\par 
+	In this scheme, each I/O device is allocated a region of the address space (a block memory addresses). Each address in the memory will correspond to some form of register or buffer on the peripheral device. Memory mapped I/O is commonly employed in RISC designs as it allows I/O to be implemented with the minimum of addition of additional complexity since it is accessed by exactly the same mechanisms as the memory. MIPS is an example of a RISC design which uses this system. Addresses \texttt{0xFFFF0000} through \texttt{0xFFFFFFFF} are reserved for I/O device registers. This is a meager 64kB (16k words) of memory, a tiny amount of the total memory available but provides ample capacity to support I/O devices.
+	
+	\par 
+	Alternatively, we could use \textbf{isolated} or \textbf{port-mapped I/O}. In this scheme, I/O devices have their own address space, instead of sharing the memory's address space. This is often done by adding a single control wire which indicates whether an address is for memory or I/O and requires special instructions which ensure that the correct address space is accessed. This comes at the cost of additional complexity in the form of specialised instructions for accessing the two different address spaces. This model is adopted by the x86 family of processors, which employs a logically separate I/O bus with its own address space.
+	
+	\par 
+	Understanding how to control peripherals is just part of the problem of I/O. We also have to understand how to control the devices. For output devices, this is much easier. We simply send the appropriate instructions to the correct addresses or ports at the desired point in your code. We do need to check that the device is ready to accept the instructions before sending them. 
+	
+	\par 
+	For recieving inputs, the task is harder. Currently, we do not know when to check for data that has been sent to us, so we just do it constantly. The approach we have described so far is known as \textbf{programmed I/O}, and is sometimes is employed by microcontrollers\index{microcontrollers}. For multi-functional computers we need a less costly method of managing the I/O process - there are two means in common use to achieve this: \textbf{polling}\index{polling} and \textbf{interrupts}\index{interrupts}.
+	
+	\subsection{Polling}
+	Take the example of reading keystrokes in from the keyboard as they are typed. We have no way of `knowing' that there is a keystroke waiting to be read. We know the keyboard has a status register that tells us whether there is a value waiting in the keyboards data buffer. So far, we continuously checked the status register until there was data to be retrieved - and we have already noted how inefficient this is.
+	
+	\par 
+	The keyboard generates data at a very slow rate compared to the processor, so it's not really neccesary to check the register so frequently. Instead, we test or \textbf{poll} the device regularly (but less frequently than we did before) allowing the CPU to perform other tasks between polling events. Polling requires no additional hardware and can be done entirely in software but may still waste a significant amount of processor time even if the polling frequency is reduced. If we reduce the polling frequency even further, we will help aliviate the problem further but we then run the risk of multiple events occurring between poll events and the earlier ones will be missed by the CPU. Polling gives us a simple software solution to I/O control, but it is by no means optimal.
+	
+	\subsection{Interrupts}
+	Rather than repeatedly probing the device to see when it is ready as we do with polling, we would like a mechanism for the peripheral device to tell the CPU when it is ready - effectively allowing them to interrupt the current process. In this scheme, each device is allocated a special hardware \textbf{interrupt request channel}\index{interrupt request channel} (IRQ) which can be used to signal the processor that it needs to pay some attention to the corresponding device. In between interruptions, the CPU is free to get on with other tasks without needing to repeatedly poll the device.
+	
+	\par 
+	Interrupts require some specialist action by the programmer, who has to include a handler (subroutine) to deal with interrupt requests, and manually initiate I/O by sending appropraite commans to the relevant I/O controller. These routines are usually included in the device driver associated with a particular peripheral. Interrupt request channels are checked by the CPU each time a new instruction is fetched, to ensure that instructions are never left unfinished. If there is a pending request, the CPU acknowledges the request and disables any further interrupts. The CPU state is saved to the stack, and the interrupt handling subroutine is loaded. The state of the CPU is retrieved  once the interrupt has been handled so that the main program's execution can continue. In this scheme, the CPU does not waste cycles polling the peripherals, so in this sense is a major upgrade. They are also far from perfect. The CPU is still responsible for serving the task, which may involve many millions of load/store operations in the case of a large data transfer between two hard disks. This may even block a more urgent request. We could solve this by prioritising devices and allowing a high priority device to interrupt a low priority device. Even better would be to pass control of memory intensive peripheral requests to a separate device that is dedicated to data transfer.
+	
+	\subsection{Direct Memory Access (DMA)}
+	The DMA module is essentially a mini processor that specialises in transferring data between (virtual) memory locations which can include memory-mapped or isolated peripherals. When the CPU needs to read or write a block of data, it issues commands to the DMA controller which consists of the address of the I/O device, the starting location of the data block, the number of words of data to be transferred and whether the transfer is read or write. The CPU can then return to the interrupted program leaving the DMA module to do the memory transfer via the system bus. 
+	\par 
+	If the system has a cache, then care is required with the DMA. In particular, if the cache is write-back then we need to ensure that the correct version of the data is being copied. In this case, the cache would normally be \textbf{flushed} (any changed entries written back to memory) before the DMA transfer is allowed to start.
+		
+	
 	
 	\section{Improving Performance}
 	\subsection{Caches and Virtual Memory}
+	So far, we have only spoken of memory as having two levels: \textbf{registers} and \textbf{the main memory}. This is a simplification, in reality most machine have at least two other levels - \textbf{cache}\index{cache} and \textbf{virtual memory}\index{virtual memory}. The cache is a moderately fast, medium-sized memory which acts as a buffer between main memory and the registers.
+	
+	\subsubsection{Caches}
+	Caches are a long established mechanism for improving machine performance and are usually used to store a copy of some part of the main memory. This leads to performance improvements because of two basic properties of computer programs:
+	
+	\begin{itemize}
+		\item \textbf{The Principle of Spatial Locality}: This principle states that if you have recently referenced a particular item, you are likely to want to access nearby items soon. This is true of instructions because of their normally sequential execution sequence, and is true because memory is normally allocated in such a way that a program's data is stored in continguous memory locations. 
+		
+		\item \textbf{The Principle of Temporal Locality}: This principle states that if you have recently referenced an item, you are likely to want to reference it again soon. The main constructs in software that leads to this are various types of loop.
+	\end{itemize}	
+	
+	Caches take advantage of these principles by storing instructions and data that are likely to be used again so taht they can be accessed more quickly. When a memory access is made, the cache is searched to see if it can be found there. If the item is in the cache, it is availble to the CPU much more quickly than if it were in main memory only. If the item is not in the cache, it is fetched from main memory into the cache and made available to the CPU. Over time, the contents of the cache stabilise and many fewer accesses to main memory are required as most memory requests can be serviced by the cache. Usually, separate caches are used for instructions and for data, since they are dealth with quite separately by the processor.
+	
+	\subsubsection{Structure and Design of Caches}
+	Fundamentaly, caches are nothing more than a block of memory, but they have a few special features over and above main memory that are neccessary for them to perform their function. It is not sufficient for the cache to simply mirror the contents of the memory, the cache also needs to know whereabouts in the memory the item came from. For this reason, the cache must be able to store both the item that is to be cached and the address of that item in memory. Therefore, a cache consists fo two blocks of memory: one that stores the item itself and one storing the address of that item. In the cache, this is normally called the \textbf{tag}\index{tag}.
+	
+	\par 
+	When a request is made to the cache, the memory address being accessed is compared to all the other addresses stored in the cache. If the address is in the cache, the corresponding item in the cache is read/written - a cache \textbf{hit}\index{hit}. Otherwise, we must access main memory - a cache \textbf{miss}\index{miss}. The addition of a cache to the system is therefore not free, it actually increases time taken to service a memory access in the case of a cache miss.
+	
+	\subsubsection{Cache Associativity}
+	One of the biggest factors affecting the performance of a cache is its degree of associativity. This is the number of different locations that an item of data can occupy in the cache.
+	
+	\par
+	One of the most common types of cache is the \textbf{direct-mapped}\index{direct-mapped}, which is one-way associative. In the design, data from each address in main memory can go in only one location in the cache. This makes the cache easy to design and fast (in terms of access times). A subset of the address is hard-coded into the cache so that when an address \texttt{101x} is presented, it is only neccesary to look at one cache entry. The remaining address bits are checked against the tag for that entry, and if they match, this is a cache hit and the corresponding entry in the data array is accessed. The largest problem with this approach is that we cannot store items with addresses \texttt{111x} and \texttt{111y} in the cache at the same time. The potential consequence of this is known as \textbf{thrashing}\index{thrashing}, where entries in the cache are continually swapped which destroys any performance benefit that the cache may have brought. Careful choices of the hard-wired address bit can minimise this, but sometimes this may not be enough.
+	
+	\par 
+	One solution is to allow each piece of data to be stored in multiple locations in the cache. In an \textbf{n-way associative cache}\index{n-way associative cache}, each address in main memory maps to $n$ cache entries. A smaller portion of the memory address is hardcoded in to the cache, and the memory address then has to be compared with $n$ entries in the tag.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{n_way_associative_cache}
+		\caption{Address mapping in a 2-way set associative cache}
+		\label{fig:n way associative cache}
+	\end{figure}
+	
+	If we set $n$ to be the same as the number of locations in the cache, we say the cache is \textbf{fully associative}\index{fully associative cache}. There is no hardwired address mapping, and any item can go anywhere in the cache. All tag entries have to be checked for the desired address which increases complexity, but it can greatly reduce the potential for thrashing.
+	
+	\subsubsection{Refill Strategies}
+	Following a cache miss, the requested item is retrieved from memory and should then be stored in the cache as it is likely to be used again soon. In a direct-mapped cache, there is only one location where this new item can go. In an n-way associative cache, there are $n$ possible locations that we could store the item so we need to decide which one should be replaced. This is governed by the \textbf{refill strategy}\index{refill strategy}. 
+	
+	\par 
+	The simplest strategy is to replace the item that has been least recently used (LRU) on the grounds that it is less likely to be needed soon. This may cause problems in loops, especially when the loop body is larger than the cache size. This method also requires a lot of extra housekeeping if $n$ is large. 
+	
+	\par 
+	Another strategy is to simply randomly replace, which does not use any of the principles of how the cache operates, but is far easier to implement. It will greatly increase miss rate, so the designer must choose whether they increased complexity or increased miss rate is most acceptable.
+	
+	\subsubsection{Performance Benefits of Caches}
+	When calculating the performance benefit, we make the following assumptions:
+	\begin{itemize}
+		\item All instructions can be fetched in a single cycle (removing the need for an instruction cache).
+		\item All instructions execute in a single cycle, apart from those which access memory
+		\item There are $N$ instructions in the program
+		\item A proportion $m$ of the instructions access memory
+		\item The cycle time is given by $t_{cyc}$.
+		\item The memory access time (additive to the cycle time) is given by $t_{mem}$.
+		\item The cache access time is given by $t_{cache}$.
+		\item The cache hit rate is $h$.
+	\end{itemize}
+	
+	Using these parameters, the time taken to execute the program consists of three parts:
+	
+	\begin{itemize}
+		\item The time taken to load all instructions (and execute non-memory instructions, which is done simultaneously with the next fetch): $N \times t_{cyc}$
+		\item The time taken to access the cahce for memory instructions: $N \times m \times t_{cache}$.
+		\item The time taken to access main memory when the cache misses: $N \times m \times (1 - h) \times t_{mem}$.	
+	\end{itemize}
+	
+	Therefore, the total program execution time is 
+	\begin{align*}
+	T &= N \times t_{cyc} + N \times m \times t_{cache} + N \times m \times (1 - h) \times t_{mem}\\
+	  &= N (t_{cyc} + m(t_{cache} + (1 - h)t_{mem}))\\ 
+	  &= N \langle t\rangle
+	\end{align*}
+	
+	where $\langle t \rangle$ is the average time to execute an instruction.
+	
+	\par Consider a program running on a machine with 1ns cycle times (1GHz clock rate) and a memory access time of 10ns. The program takes 6s to run, and 20\% of its instructions access memory. A cache is then added with an expected hit rate of 80\%, and an access time of 5ns. We will calculate the time of execution of the program with the cache. Without the cache, we have that the average time to complete an instruction is:
+	\begin{align*}
+	\langle t_{1} \rangle &= t_{cyc} + m \times t_{mem} \\
+	&= 1\text{ns} = 0.2 \times 10\text{ns} \\
+	&= 3ns
+	\end{align*}
+	
+	Now lets introduce the cache:
+	\begin{align*}
+	\langle t_{2} \rangle &= t_{cyc} + m(t_{cache} + (1 - h)t_{mem}) \\
+	&= 1\text{ns} + 0.2 \times (5\text{ns} + 0.2 \times 10\text{ns}) \\
+	&= 1\text{ns} + 0.2 \times 7\text{ns} \\
+	&= 2.4\text{ns}
+	\end{align*}
+	
+	Therefore, the cache has reduced the total execution time of the program from 6s to 4.8s, a 20\% reduction in program execution time.
+	
+	\subsubsection{Writing Strategies}
+	Read access to caches are easy: if the data is in the cache, get it from there, otherwise go out to main memory and get it from there. Write access raise some potential difficulties. Foremost is whether we should update the cache and memory simultaneously. An important issue is the \textbf{coherance}\index{coherance} of caches and the memory.
+	\par 
+	In a \textbf{write-back}\index{write-back cache} cache, only the cache (not the memory) is updated during a write hit. This reduces the number of memory accesses, especially when a variable is updated frequently, but we must make sure that main memory is updated when this entry in the cache is replaced. For this, we must have a write flag in the cache that informs us something has changed and the memory is out of date.
+	
+	\par 
+	In a \textbf{write-through}\index{write-through cache} cache, both main memory and the cache are updated simultaneously. This ensures that memory and cache are consistent (coherent) but requires extra memory accesses.
+	
+	\par 
+	The choice of write policy depends on the system. In a system with a single CPU core accessing memory, write-back is probably a safe strategy. If other devices such as DMA modules are allowed to talk directly with memory, then care is required to ensure that memory is kept up to date. This means these devices neeed to either be routed through the cache or the cache must be flushed such the updated words are written back to memory.
+	
 	\subsection{Pipelining and Branch Prediction}
+	We have studied caches and their performance benefits, but there are a number of other methods which are used to 
+	\begin{itemize}
+		\item Improve the processors throughput of instructions - \textbf{pipelining}\index{pipelining}
+		\item Execute more than one instructions at a time - \textbf{superscalar processors}\index{superscalar processors}
+		\item Predict what the machine will do next - \textbf{branch prediction}\index{branch prediction}
+	\end{itemize}	
+	
+	\subsubsection{Pipelining}
+	The basic idea behind pipelining is that we don't wait for an instruction to finish executing before we start the next instruction. Imagine a factory: production lines break the manufacturing process into a series of sub-stages. There may be many items on the line simulataneously, each at a different stage of production. Each item may take the same amount of time to produce, but throughput is much higher.
+	
+	\par 
+	Implementation of a pipeline is a complex process. Its essence is to split the datapath into pieces, each piece responsible for one portion of the pipeline. Pipeline registers are added between pipeline stages to store intermediate results, and during each cycle the processor only needs to push an instruction through one pipeline stage. This allows the CPU to run at a much higher clock speed.
+	
+	\par We may break down MIPS instructions to a five stage pipeline:
+	
+	\begin{enumerate}
+		\item \textbf{IF (Instruction Fetch)}: Fetch instruction from memory
+		\item \textbf{ID (Instruction Decode)}: Decode instruction and read registers (can happen simultaneously in MIPS)
+		\item \textbf{EX (EXecute)}: Execute the operation or calculate memory address
+		\item \textbf{MEM (MEMory)}: Access memory if required
+		\item \textbf{WB (Write Back)}: Write result into a register if required.
+	\end{enumerate}	
+	
+	This is often referred to as the class five-stage RISC pipeline due to its use in several common 1990s RISC CPUs. It was designed to in principle allow the CPU to complete one instruction per cycle, with each pipeline stage working on a different instruction.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{mips_five_stage_pipeline}
+		\caption{The MIPS five stage pipeline}
+		\label{fig:mips five stage pipeline}
+	\end{figure}
+	
+	\par There are some situations where pipeling can cause significant problems. Consider the following:
+	
+	\begin{verbatim}
+	addi $t0, $t0, $t0; // add 1 to t0
+	add $t0, $t0, $t0;  // double t0
+	\end{verbatim}	
+	
+	Here, the result of the first instruction must be known before the second can be done, so we must wait until the \texttt{addi} has been written to registers before the ALU stage of the add instruction can complete. We must delay the start of the \texttt{add} by adding a \textbf{bubble}\index{bubble} into the pipeline as shown in Figure \ref{fig:pipelining bubble}. These situations may be spotted by the compiler at compile-time or by the processer in a pre-processing step.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{pipelining_bubble}
+		\caption{Execution is delayed by two cycles until the results of the \texttt{addi} instruction are available}
+		\label{fig:pipelining bubble}
+	\end{figure}
+		
+	Another way of dealing with this is to make the result of the ALU stage of the pipeline available immediately by adding a physical short-cut. This is known as \textbf{forwarding}\index{forwarding} or \textbf{bypassing}\index{bypassing}. In the pipelined MIPS system this would be from the output of the EX/MEM pipeline register to the input of the EX pipeline stage
+	
+	\subsubsection{Branch Prediction}
+	When we have a branch, we must know the result of the comparison before we know which instruction we should be executing next. If we can accurately predict what should happen next, we can get a significant performance boost - particularly if the branch instruction is executed often as is the case with loops. We have two possible instructions to execute next. If the branch is not taken, the instruction we want is the next in the program sequence. If the branch is taken, we must compute the branch address before we known which instruction we must execute. If a good guess can be made as to which branch will be taken, one of the branches can be speculatively executed to good effect.
+	
+	There are two simple choice we could make. Firstly, we could assume that all branches are not taken, and allow the CPU to just execute the next instruction in the code before the results of the branch comparison are known. If the branch isn't taken, carry on. If the branch is taken, we have to flush the pipeline of incorrect instructions so the the correct instructions can be executed.
+	
+	\par On the other hand, we could assume branches are always taken. This isn't as simple, as the branch instruction involves both a comparison and the computation of the branch address. Due to this, the address of the next instruction is not known until after this has been done. If we add specific hardware to computing branch addresses, this can usually be done with only one cycle of delay to the pipeline, which will require a bubble in the pipeline. As before, if the branch is not taken, we must flush the pipeline and execute the correct instruction.
+	
+	\par 
+	We can improve by looking at the context in which a branch is used. For example, a branch which breaks out of a loop when the termination condition is met is far more likely to be taken than it is to not be taken. Similarly, in a long chain of if-elseif statements it has been shown that branches are taken more often than they are not taken. Accurate predictions can also be made on the opcode alone: perhaps a branch-on-equal is much less likely to be taken than a branch-on-less-than-or-equal. Making accurate decisions requires careful analysis of the behaviour of programs and also compilers. This is usually referred to as \textbf{static branch predicition}\index{static branch prediction}.
+	
+	\par A more \textbf{dynamic branch prediction}\index{dynamic branch prediction} methodology can give even more benfits at the cost of resources. One common approach is for the CPU to keep a history of each branch and use it to predict future behaviour. These methods can be up to 90\% accurate but introduce significant design complexity.
+	
+	\par Another approach is to use delayed branching, where code is reordered so that the branch is executed out-of-sequence and earlier than would normally be the case so that the result of the branch comparison can be known in time to determine the correct branch to take at the correct time. This works well provided the branch comparison does not depend on the result of a preceeding instruction.	
+	
+	\subsubsection{Superscalar Processors}
+	In recent years, we have been able to put more and more functional units on a chip. Superscalar machines have multiple pipelines which can execute multiple instructions in parallel. With $N$ pipelines,	performance is increased by a factor of $N$. This comes at the cost of making control very difficult. Especially difficult is ensuring correct instruction ordering as we cannot execute instructions in parallel if they ae co-dependent.
+	
+	\par Superscalar techniques differ from modern multi-core methods (which also use superscalar techniques within each core) as they are designed got instruction-level parallelism within a single executing process. The two techniques can happily coexist though.
 	
 	\newpage
 	\listoffigures

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  3 MAY 2017 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.23)  8 MAY 2017 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -692,14 +692,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-<images/box_arrow_diagram.png, id=15, 199.74625pt x 42.1575pt>
+<images/box_arrow_diagram.png, id=17, 199.74625pt x 42.1575pt>
 File: images/box_arrow_diagram.png Graphic file (type png)
 
 <use images/box_arrow_diagram.png>
 Package pdftex.def Info: images/box_arrow_diagram.png used on input line 42.
 (pdftex.def)             Requested size: 86.42406pt x 18.23993pt.
 
-<images/box_arrow_diagram_memory.png, id=16, 197.73875pt x 37.13875pt>
+<images/box_arrow_diagram_memory.png, id=18, 197.73875pt x 37.13875pt>
 File: images/box_arrow_diagram_memory.png Graphic file (type png)
 
 <use images/box_arrow_diagram_memory.png>
@@ -711,37 +711,67 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 107.
- [2] [3] (./C_C++RevisionNotes.lof)
+ [2] [3]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 180
+.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 180.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 180.
+
+[4] [5] [6]
+Overfull \hbox (59.94301pt too wide) in paragraph at lines 360--360
+[]\OT1/cmtt/m/n/10 enum exptag {islet, isconstant, isvar, isopapp};[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 370.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 370.
+ [7] [8] [9]
+(./C_C++RevisionNotes.lof)
 \tf@lof=\write5
 \openout5 = `C_C++RevisionNotes.lof'.
 
-
-[4]
+ [10]
 runsystem(makeindex C_C++RevisionNotes.idx)...executed safely (allowed).
 
- (./C_C++RevisionNotes.ind) [5
+ (./C_C++RevisionNotes.ind) [11
 
-] (./C_C++RevisionNotes.aux) ) 
+]
+(./C_C++RevisionNotes.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 10947 strings out of 494910
- 199430 string characters out of 6179836
- 240319 words of memory out of 5000000
- 14148 multiletter control sequences out of 15000+600000
+ 10970 strings out of 494910
+ 199788 string characters out of 6179836
+ 243319 words of memory out of 5000000
+ 14166 multiletter control sequences out of 15000+600000
  9706 words of font info for 36 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,7n,64p,10465b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on C_C++RevisionNotes.pdf (7 pages, 110175 bytes).
+ 41i,13n,64p,10465b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt12.pfb>
+Output written on C_C++RevisionNotes.pdf (13 pages, 160476 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

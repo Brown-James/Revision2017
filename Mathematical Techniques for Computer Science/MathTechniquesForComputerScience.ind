@@ -1,5 +1,21 @@
 \begin{theindex}
 
+  \item affine subspace, 5
+
+  \indexspace
+
+  \item basis, 5
+
+  \indexspace
+
+  \item codes, 5
+
+  \indexspace
+
+  \item dimension, 5
+
+  \indexspace
+
   \item echelon form, 1, 2
 
   \indexspace
@@ -8,10 +24,36 @@
 
   \indexspace
 
-  \item gaussian elimination, 1
+  \item gaussian elimination, 1, 4
 
   \indexspace
 
   \item linear equation, 1
+
+  \indexspace
+
+  \item null vector, 3
+
+  \indexspace
+
+  \item parametric, 4
+
+  \indexspace
+
+  \item scalar, 3
+  \item sub-vector space, 5
+  \item subspace, 5
+
+  \indexspace
+
+  \item two point description of a line, 5
+
+  \indexspace
+
+  \item unit vector, 3
+
+  \indexspace
+
+  \item vector space, 5
 
 \end{theindex}

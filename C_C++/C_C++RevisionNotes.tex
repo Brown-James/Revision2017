@@ -115,13 +115,348 @@ top = 30mm
 	In C, crashes and memory errors are not the same thing. Crashes usually have many names, such as core dumps\index{core dump} or segmentation faults\index{segmentation fault}\index{segfault}. Crashes are errors which have been detected by the hardware or the OS. In C, a memory error \textit{may} lead to a segfault, but it is not guaranteed that it will. A write error which does not lead to a segfault may instead lead to corrupted memory - this could be even worse! A C program with a memory error is always wrong. A memory leak is not the same as a memory error, and not always a bad situation. A memory leak may lead to a crash though when the program eventually runs out of memory.
 	
 	\section{Structures in C}
-	A structure (or \texttt{struct}) is much like a Java class that contains only data and no methods.	
+	A structure (or \texttt{struct}) is much like a Java class that contains only data and no methods. When talkinga about structures, we say that they have \textbf{members}\index{members}, not variables. In C, we cannot define functions inside a struct but we can in C++. In C, functions are defined outside of structs and often access them via pointers. Structures and pointers (along with \texttt{malloc}) lets us build many classic data structures such as lists, trees and graphs.
+	
+	\par 
+	The syntax for C structures is very similar to the syntax of Java classes:
+	
+	\begin{verbatim}
+	struct s {
+	    T1 m1;
+	    ...
+	    Tk mk;
+	};
+	\end{verbatim}
+	
+	After a structure, \texttt{s}, has been declared, \texttt{struct s} can be used as a type name:
+	
+	\begin{verbatim}
+	int n;          // declares n as an int
+	struct s y;     // declares y as a struct s
+	struct s *p;    // declares p as a pointer to a struct s
+	\end{verbatim}	
+	
+	Access to structure members is done by using the dot operator, e.g. \texttt{s.m1}. Structure members are laid out in memory in order, with possibly a few bytes of padding between structure members due to alignment, depending on the hardware. For this reason, \texttt{sizeof(struct S)} $\geq$ \texttt{sizeof(T1) + ... + sizeof(Tk)}.
+	
+	\subsection{The $->$ operator}
+	\texttt{p -> m} is an abbreviation for \texttt{(*p).m}. It defrences the pointer and then access the structure member. This operation is very, very common in C and C++ code. This operation can be chained together, for example \texttt{p->m1->m2->m3}.
+	
+	\par 
+	This operator will be commonly used to traverse over a list like so, as C does not have an iterator idiom:
+	\begin{verbatim}
+	while(p) {
+	    ...
+	    p = p -> next;
+	}
+	\end{verbatim}
+	
+	It would be incorrect to right something like \texttt{while(p->next){...})}, as this ignores the fact that a linked list may be \texttt{null}, which represents the empty list. We should begin by testing for the \texttt{null} pointer.
+	\begin{figure}
+	\begin{minipage}[b]{0.48\textwidth}
+	\begin{verbatim}
+	while(lp) {
+	    q = lp;
+	    lp = lp -> next;
+	    free(q);
+	}
+	\end{verbatim}
+	\caption{A piece of code to delete all elements of a linked list}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.48\textwidth}
+	\begin{verbatim}
+	while(lp) {
+	    free(lp);
+	    lp = lp -> next;
+	}
+	\end{verbatim}
+	\caption{The same code with a use after free error}
+	\end{minipage}
+	\end{figure}
+	
+	\section{Pointer Arithmetic and Arrays}
+	\subsection{Arrays and Strings in C}
+	In C, we define an array in the same way we would define an array in Java: \texttt{char b[2];}. The size of the array is also not stored, like it is in Java, and we have to track the array bounds ourselves. When an array is passed into a function, a pointer to the start of the array must be passed - not the contents of the array. In Java, \texttt{a[i]} will either refer to the i-th element of the array or throw an index out-of-bounds exception if i is too big. In C, a[i] will either refer to the i-th element of the array or cause undefined behaviour if i is too big - this is completely undesirable behaviour. Not doing bounds checks is faster, for example: if we want to multiply two 100000 x 100000 matricies, do we really want the compiler to do a bounds check for each array access? 
+	\par In C, a string is an array of char's which is terminated by a zero byte. The zero byte, \texttt{\textbackslash 0} is not the same as the character "0" (which in ASCII is 48).
+	
+	\subsubsection{The Arguments to Main}
+	The \texttt{main} function takes two arguments: an array of strings and the number of strings there are passed like so:
+	\begin{verbatim}
+	main(int argc, char *argv[]) { ... }
+	\end{verbatim}
+	
+	Should we not need the arguments, in C (but not C++) we can also write:
+	
+	\begin{verbatim}
+	main() { ... }	
+	\end{verbatim}	
+	
+	\subsection{Pointer Arithmetic}
+	In C, we can add an integer to a pointer, but we cannot add two pointers. Array access is achieved through pointer arithmetic. When adding to a pointer, \texttt{p + 1} does not mean \texttt{p} plus one byte. Instead, in \texttt{p + n}, \texttt{n} is scaled up by the size of the type of what \texttt{p} points to. 
+	
+	\subsection{Buffer Overflows}
+	All array access in C are potentially dangerous, and as strings in C are arrays they too are dangerous. Arrays can potentially overflow, so we should always check the bounds of the array. An example of a vulnerable function is as follows:
+	
+	\begin{verbatim}
+	void mystrcpy(char *q, char *p) {
+	    while(*q++ = *p++);
+	}
+	...
+	char a[] = "abc";
+	char b[2];
+	mystrcpy(b, a);
+	\end{verbatim}
+	
+	If we use this function with more characters than array space allocated (as shown in the above example), the function will continue to copy - even if it is overwriting other data - until it hits the zero byte in the string. Some C compilers will do some buffer overflow mitigation, but should not be relied upon. Instead, we should use functions with bounds such as \texttt{strncpy} and \texttt{fgets}. For more advanced attacks using buffer overflow attacks, we need to understand how C is compiled. If we can overwrite the return address of the function, we can alter the flow of the program. It may even be possible to `return' back to code we have injected.
+	
+	\subsection{First-class functions in C and C++}
+	C has \textbf{pointers} to functions. In C, functions cannot be defined inside of other functions, but functions in C can be passed as a parameter very easily - they are just code pointers. If we have a function pointer \texttt{p}, then we can call it via \texttt{(*p)(...)}. We may use this in the \texttt{fold} function for example, which takes a binary operator function as an argument:
+	
+	\begin{verbatim}
+	int fold(int n, int (*bin)(int, int), struct Linked *p) {
+	    while(p) {
+	        n = bin(n, p->data);
+    	   p = p->next;
+	    }
+	    return n
+	}
+	\end{verbatim}
 	
 	\section{Typed Trees in C}
-
-	\section{From C and Java to C++}
+	Using what we already know, we can build n-ary trees using structures and pointers. Recursion in these trees ends by \texttt{null} pointers, hence the \texttt{if(p)} and \texttt{while(p)} idioms. These trees only have one kind of node, which may be sufficient for some situations. In Computer Science, we have more complex trees with different kinds of nodes with different numbers and kinds of child nodes. These trees need a different type system of different numbers. The most common example of these kinds of trees is \textbf{abstract syntax trees}\index{abstract syntax trees}. These are fundamental for compilers.
 	
+	\subsection{\texttt{struct}, \texttt{union} and \texttt{enum}}
+	Using what we have, we cannot represent typed trees such as abstract syntax trees very easily. The addition of \texttt{union} and \texttt{enum} can make doing this much easier. 
+	
+	\subsubsection{\texttt{union}}
+	The syntax of \texttt{union} is like that of \texttt{struct}. 
+	
+	\begin{verbatim}
+	union u {
+	    T1 m1;
+	    T2 m2;
+	    ...
+	    Tk mk;
+	};
+	\end{verbatim}
+	
+	We can think of unions as a choice between any of the members. The official C11 draft standard says in section 6.7.2.1 that a union is a type consisting of a sequence of members whose storage overlap. Unions are not tagged, so the memory does not know whether is contains data of type \texttt{T1} or type \texttt{T2}. If we want a tagged union, we need to enclose the \texttt{union} within a \texttt{struct} with a \texttt{enum}
+	
+	\subsubsection{\texttt{enum}}
+	\texttt{enum} is the enumeration type, much like as it is in Java. 
+	
+	\begin{verbatim}
+	enum dwarf { thorin, oin, gloin, fili, kili };
+	\end{verbatim}
+
+	In it's implementation small integers are used, for example \texttt{thorin = 0} and so on.
+	
+	\subsubsection{Tagged unions idiom}
+	We will use an \texttt{enum} as the tag for our union. We then package the \texttt{union} in a \texttt{struct} along with the \texttt{enum}.
+	
+	\begin{verbatim}
+	enum ABtag { isA, isB };
+	
+	struct taggedAorB {
+	    enum ABtag tag;
+	    union {
+	        A a;
+	        B b;
+	    } AorB;
+	};
+	\end{verbatim}
+	
+	Here the \texttt{struct} can either be A or B, and we know which it will be by looking at the tag in the \texttt{enum}. We can access the tagged unions with \texttt{switch}:
+	
+	\begin{verbatim}
+	struct taggedAorB x;
+	...
+	switch(x.tag) {
+	    case isA:
+	        // use x.AorB.a
+	    case isB:
+	        // use x.AorB.b
+	}
+	\end{verbatim}
+	
+	\par Having to invent names for \texttt{struct}, \texttt{union} and \texttt{enum} members can be tedious. We may wish to use a systematic naming scheme for a given situation and stick to it, but this is a matter of taste. Since C11, we can use anonymous \texttt{struct}s and \texttt{union}s, like so:
+	
+	\begin{verbatim}
+	struct s2 {
+	    struct t2 { int q; ... } ;
+	    int n;
+	}
+	\end{verbatim}
+
+	The inner \texttt{struct} is anonymous by lacking a member name, but the compiler still knows what \texttt{q} is.
+
+	
+	\subsection{Typed Trees}
+	We have explored how to create tagged \texttt{union}s, which can be processed with a \texttt{switch} statement. If we add pointers and recursion, we can create \textbf{typed trees}\index{typed tree}. From trees a pointers, we can also get \textbf{graphs}\index{graph}
+	
+	\subsubsection{Trees with values only at the leaves}
+	\begin{verbatim}
+	enum treetag { isLeaf, isInternal } tag;
+	
+	struct intbt {
+	    enum treetag tag;
+	    union {
+	        // if tag == isLeaf, use this:
+	        int Leaf; // no recursion
+	        // if tag == isInternal, use this:
+	        struct {
+	            struct intbt *left;     // recursion
+	            struct intbt *right;    // recursion
+	        } Internal;
+	    } LeafOrInternal;
+	};
+	\end{verbatim}	
+		
+	This is not the same as a tree using \texttt{struct} and pointers. A tree built like such would require \texttt{null} pointers to terminate. As our abstract syntax trees are not supposed to contain null pointers at all, we would like to ensure that this is the case. We can use the \texttt{assert} macro from \texttt{assert.h}. \texttt{assert(p)} means that we are not expecting a null pointer in \texttt{p}. An error will be thrown if the assertion fails. We can use assertions in debugging, and turn them off in production code. 
+	
+	\subsubsection{AST for Lisp-style expresions}
+	
+	\begin{figure}[ht]
+		\begin{minipage}[t]{0.45\textwidth}
+		\caption{A grammar for a Lisp-style language}
+		\begin{align*}
+		&E \rightarrow n  &\text{(constant)} \\
+		&E \rightarrow x  &\text{(variable)} \\
+		&E \rightarrow (+ L)  &\text{(addition)} \\
+		&E \rightarrow (* L)  &\text{(multiplication)} \\
+		&E \rightarrow (= x E E)  &\text{(let binding)} \\
+		&L \rightarrow E L	 &\text{(expression list)} \\
+		&L \rightarrow		&\text{(empty list)}
+		\end{align*}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.45\textwidth}
+		\caption{The abstract syntax tree of this language}
+		\begin{verbatim}
+		enum op {isplus, ismult};
+		enum exptag {islet, isconstant, isvar, isopapp};
+		
+		struct exp {
+		    enum exptag tag;
+		    union {
+		        int constant;
+		        char var[8];
+		        struct {
+		            enum op op;
+		            struct explist *exps;
+		        }; // anonymous struct
+		        struct {
+		            char bvar[8];
+		            struct exp *bexp;
+		            struct exp *body;
+		        }; // anonymous
+		    }; // anonymous
+		};
+		
+		struct explist {
+		    struct exp *head;
+		    struct explist *tail;
+		};
+		\end{verbatim}
+		\end{minipage}			
+	\end{figure}		
+		
+	
+	\section{From C and Java to C++}
+	By now, we have covered all of the most important contructs of the C programming language. We now move to C++. C++ aims to be as efficient as C, but with more structure to the language. It is both a high-level and a low-level language, without garbage collection. C++ also has object orientation, but you are not forced to use it.
+	
+	\subsection{Virtual Functions}
+	\begin{itemize}
+		\item \textbf{Non-Virtual}: the compiler determines from the type what function to call at compile time
+		\item \textbf{Virtual}: what function to call is determined at run-time from the object and its run time class
+	\end{itemize}
+	
+	At runtime, each object of a class with virtual functions contains an additional pointer to the virtual function table (vtable). Take these two examples:
+	
+	\begin{verbatim}
+		class Animal {
+		public: void speak() { std::cout << "Noise\n"; }
+		// not virtual
+		};
+		
+		class Pig : public Animal {
+		public: void speak() { std::cout << "Oink!\n"; }
+		};
+		
+		int main(int argc, char *argv[]) {
+		    Animal *peppa = new Pig();
+		    peppa->speak();
+		    // the type of peppa is Animal
+		}
+	\end{verbatim}		
+	
+	\begin{verbatim}
+		class Animal {
+		public: virtual void speak() { std::cout << "Noise\n"; }
+		};
+		class Pig : public Animal {
+		public: void speak() { std::cout << "Oink!\n"; }
+		};
+		int main(int argc, char *argv[]) {
+		    Animal *peppa = new Pig();
+		    peppa->speak();
+		    // peppa points to an object of class Pig
+		}
+	\end{verbatim}
+	
+	In the both examples, we have defined the type of peppa to be an animal, and then instantiated it as a pig. The first example uses a non-virtual function. At compile time, the compiler checks the type of peppa and sees it is an animal. Therefore, when \texttt{speak()} is called, "Noise" is printed. In the second example, \texttt{speak()} is a virtual method in \texttt{Animal}.  When \texttt{speak()} is called at run-time, what function to call is determined by the object and its run-time class, which is  \texttt{Pig}. For this reason, "Oink" is printed.
+	
+	\par This is a very simple example, and we could in theory make the compiler deduce the type of peppa as it is only ever instaniated to a pig, and never changed. In this example, the code will be less efficient for no real gain as it has to pass around the vtable and check the correct function to call in the virtual example. However, take the following example:
+	
+	\begin{verbatim}
+	Animal *ap;
+	if(...) {
+	    ap = new Baboon();
+	else
+	    ap = new Weasel();
+	ap->speak();
+	\end{verbatim}
+	
+	Now it would not be so easy to predetermine the type of ap at compile-time, which shows the value of virtual functions. Whether ap points to being a baboon or a weasel will only be known at run-time.
+	
+	\subsubsection{Pure Virtual Functions}
+	A pure virtual function has no implementation in the base class. This has a slightly peculiar notation: 
+	
+	\begin{verbatim}
+	class C {
+	    public:
+	    virtual T1 f(T2) = 0; // declare f as pure virtual
+	    ...
+	}
+	\end{verbatim}
+	
+	This does not suggest anything is equal to zero, the \texttt{= 0} is supposed to suggest that something is missing. Any derived classes of C should implement \texttt{f}. For example, we could have said that there is really a noise that any animal can make and we could have defined it as a pure virtual function: \texttt{public: virtual void speak() = 0;}
+	
+	\par 
+	Furthermore, we could use pure virutal functions in our abstract syntax tree example. Each of the nodes in the tree would be an object (instance of a class) with their pointers to any children nodes. Each node would use the evaluation function of its own class, removing the need for a switch statement. This is dynamic `polymorphism' via virtual functions.
+	
+	\subsection{New and Delete}
+	C has \texttt{malloc} and \texttt{free} for heap allocation and deallocation. C++ has \texttt{new} and \texttt{delete} fo heap allocation and deallocation. We can also define \textbf{constructors} (not surprising) and \textbf{destructors} (somewhat surprising) in C++.
+	
+	\par 
+	C++ destructors for some class \texttt{A} are called \texttt{~A}. We do not call destructors directly, we let our call to \texttt{delete} do it implicitly. The clean-up done by the destructor may involve deleting other objects `owned' by the object to be deleted. For example, if we delete the root of a tree, we would possbily want to recursively delete all of the child nodes as well. We may also perform other resource management in a destructor such as closing any opened files.
+	
+	\subsection{Strings in C++}
+	C uses 0-terminated character arrays as strings, which is full of pitfalls like buffer overflows and off-by-one bugs. C++ has a dedicated string class which can be used.
+	 
 	\section{Templates in C++}
+	Templates are very similar to generics in Java. There are two kinds of templates in C++: \textbf{class templates}\index{class template} and \textbf{function templates}\index{function template}. Roughly, these correspond to polymorphic data types and polymorphic functions in functional languages. The syntax is as follows:
+	
+	\begin{verbatim}
+	template<class T>
+	class Linked {
+	public:
+	    T head;
+	    Linked<T>* tail;
+	};
+	\end{verbatim}
+	
+	\subsection{Type inference and auto}
 		
 	\newpage
 	\listoffigures

@@ -11,13 +11,30 @@
 \contentsline {figure}{\numberline {11}{\ignorespaces The datapath for load/store instructions}}{11}
 \contentsline {figure}{\numberline {12}{\ignorespaces Datapath for branch instructions}}{11}
 \contentsline {figure}{\numberline {13}{\ignorespaces The integrated datapath for ALU and load/store instructions}}{12}
-\contentsline {figure}{\numberline {14}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{12}
-\contentsline {figure}{\numberline {15}{\ignorespaces The logical operator \textbf {NOT} built from transistors}}{12}
-\contentsline {figure}{\numberline {16}{\ignorespaces (Left) A \textbf {NAND} gate built from four transistors. (Right) A \textbf {NOR} gate built from four transistors}}{13}
-\contentsline {figure}{\numberline {17}{\ignorespaces Truth table for a two input decoder}}{13}
-\contentsline {figure}{\numberline {18}{\ignorespaces A 2-4 decoder built from logic gates}}{14}
-\contentsline {figure}{\numberline {19}{\ignorespaces Truth table for a 2-1 multiplexer}}{14}
-\contentsline {figure}{\numberline {20}{\ignorespaces A 2-1 multiplexer built from logic gates}}{14}
-\contentsline {figure}{\numberline {21}{\ignorespaces Logic gates which implemet a half-adder}}{15}
-\contentsline {figure}{\numberline {22}{\ignorespaces A full-adder built from two half adders and an \textbf {XOR} gate}}{15}
-\contentsline {figure}{\numberline {23}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{16}
+\contentsline {figure}{\numberline {14}{\ignorespaces The integrated datapath for the ALU and load/store instructions, and instruction fetch}}{12}
+\contentsline {figure}{\numberline {15}{\ignorespaces Integrated datapath for ALU and load/store instructions, instruction fetch and branches}}{13}
+\contentsline {figure}{\numberline {16}{\ignorespaces Integrated datapath for ALU and load/store instructions, instruction fetch, branches and jumps}}{13}
+\contentsline {figure}{\numberline {17}{\ignorespaces The complete MIPS datapath}}{14}
+\contentsline {figure}{\numberline {18}{\ignorespaces Summary of ALU control signals}}{15}
+\contentsline {figure}{\numberline {19}{\ignorespaces (Left) Circuit symbol for an NMOS transistor. (Right) Circuit symbol for a PMOS transistor}}{15}
+\contentsline {figure}{\numberline {20}{\ignorespaces The logical operator \textbf {NOT} built from transistors}}{15}
+\contentsline {figure}{\numberline {21}{\ignorespaces (Left) A \textbf {NAND} gate built from four transistors. (Right) A \textbf {NOR} gate built from four transistors}}{16}
+\contentsline {figure}{\numberline {22}{\ignorespaces Truth table for a two input decoder}}{16}
+\contentsline {figure}{\numberline {23}{\ignorespaces A 2-4 decoder built from logic gates}}{17}
+\contentsline {figure}{\numberline {24}{\ignorespaces Truth table for a 2-1 multiplexer}}{17}
+\contentsline {figure}{\numberline {25}{\ignorespaces A 2-1 multiplexer built from logic gates}}{17}
+\contentsline {figure}{\numberline {26}{\ignorespaces Logic gates which implemet a half-adder}}{18}
+\contentsline {figure}{\numberline {27}{\ignorespaces A full-adder built from two half adders and an \textbf {XOR} gate}}{18}
+\contentsline {figure}{\numberline {28}{\ignorespaces A simple ALU capable of performing addition, bitwise-AND and bitwise-OR operations}}{19}
+\contentsline {figure}{\numberline {29}{\ignorespaces A timing diagram showing the effect of banks of ﬂip-ﬂops on the propagation of a signal through a circuit}}{21}
+\contentsline {figure}{\numberline {30}{\ignorespaces The most basic memory element, a pair of cross coupled inverters}}{22}
+\contentsline {figure}{\numberline {31}{\ignorespaces A six transistor SRAM cell. When the enable signal E is 0, the memory element is isolated}}{22}
+\contentsline {figure}{\numberline {32}{\ignorespaces Cross coupled NOR gates form a bistable circuit}}{22}
+\contentsline {figure}{\numberline {33}{\ignorespaces A modified bistable circuit forms a D-latch}}{22}
+\contentsline {figure}{\numberline {34}{\ignorespaces A pair of D-latches form an edge-triggered flip-flop}}{23}
+\contentsline {figure}{\numberline {35}{\ignorespaces A write-enabled D-type flip-flop}}{23}
+\contentsline {figure}{\numberline {36}{\ignorespaces A write enabled D-type flop flop}}{24}
+\contentsline {figure}{\numberline {37}{\ignorespaces Schematic of the bus}}{24}
+\contentsline {figure}{\numberline {38}{\ignorespaces Address mapping in a 2-way set associative cache}}{27}
+\contentsline {figure}{\numberline {39}{\ignorespaces The MIPS five stage pipeline}}{30}
+\contentsline {figure}{\numberline {40}{\ignorespaces Execution is delayed by two cycles until the results of the \texttt {addi} instruction are available}}{30}

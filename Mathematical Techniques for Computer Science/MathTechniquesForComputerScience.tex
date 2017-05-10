@@ -5,6 +5,7 @@
 \usepackage{mathtools}
 \graphicspath{{images/}}
 \usepackage{geometry}
+\usepackage{amsfonts}
 \geometry{a4paper,
 total={170mm, 257mm},
 left = 30mm,
@@ -161,8 +162,135 @@ top = 30mm
 	
 	\subsubsection{Vectors}
 	We can also interpret a pair of numbers $\left(\begin{array}{c} v_{1} \\ v_{2}\end{array}\right)$ as a movement in the plane $v_{1}$ units parallel to the $x$-axis and $v_{2}$ units parallel to the $y$-axis. Lower case letters with arrows above are used to notate vectors: $\overrightarrow{v}, \overrightarrow{w}, \overrightarrow{u}$ etc. A vector also has a length, once again computed by the Pythagorean theorem $ |\overrightarrow{v}| = \sqrt{v_{1}^{2} + v_{2}^{2}} $. This is the distance a point travels under the movement described by $\overrightarrow{v}$. A vector of length 1 is called a \textbf{unit vector}\index{unit vector}.
+	
+	\par We define $\overrightarrow{0} = \left( \begin{array}{c} 0 \\ 0 \end{array} \right)$ as the \textbf{null vector}\index{null vector}. For all vectors $\overrightarrow{v} \neq \overrightarrow{0}$, there is a unit vector which points in the same direction. This is computed by:
+	
+	\[ \frac{\overrightarrow{v}}{|\overrightarrow{v}|} = \left( \begin{array}{c} v_{1} / |\overrightarrow{v}| \\ v_{2} / |\overrightarrow{v}| \end{array} \right) \]
+	
+	\par 
+	Movements via vectors can be composed: we write $\overrightarrow{v} + \overrightarrow{w}$ for the movement of $\overrightarrow{v}$ followed by $\overrightarrow{w}$. The result is a straight line movement with coordinates $\left( \begin{array}{c} v_{1} + w_{1} \\ v_{2} + w_{2} \end{array} \right)$. Movements can also be shrunk by a \textbf{scalar}\index{scalar} as such:
+	$\frac{1}{2} \cdot \overrightarrow{v} = \left( \begin{array}{c} v_{1}/2 \\ v_{2}/2 \end{array} \right)$
+	
+	\subsubsection{Representing Straight Lines}
+	Given a point $P$ and a vector $\overrightarrow{v} \neq \overrightarrow{0}$, we can consider all points $X$ that you can reach from $P$ by following some distance along the direction along the vector $\overrightarrow{v}$. We write $X = P + s \cdot \overrightarrow{v}$ for this, where $s$ is allowed to be a positive or negative number. This is called the \textbf{parametic}\index{parametric} representation of a line where the \textbf{parameter} is $s$. If we are given two different points, $P$ and $Q$ in the plane then this defines a straight line whose generating expresion is $X = P + s \cdot \overrightarrow{PQ}$
+	
+	\subsubsection{Intersecting Two Lines}
+	If we have two lines  and $Y = Q + t \cdot \overrightarrow{w}$ we can find their point of intersection as so.
+	Intersection point satisfies $X = Y$ so 
+	\[ \left( \begin{array}{c} p_{1} + sv_{1} \\ p_{2} + sv_{2} \end{array} \right) = P + s \cdot \overrightarrow{v} = Q + t \cdot \overrightarrow{w} = \left( \begin{array}{c} q_{1} + tw_{1} \\ q_{2} + tw_{2} \end{array} \right) \]
+	
+	This gives us two ordinary equations, one for each coordinate:
+	
+	\begin{align*}
+	p_{1} + sv_{1} &= q_{1} + tw_{1} \\
+	p_{2} + sv_{2} &= q_{2} + tw_{2}
+	\end{align*}
+	
+	This has two unknown, $s$ and $t$. $s$ tells us how far in the direction of $\overrightarrow{v}$ we have to move from $P$ in order to reach the point of intersection, and likewise for $t$ and $\overrightarrow{w}$. We can compute either $s$ or $t$ through Gaussian elimination\index{gaussian elimination}:
+	
+	\begin{align*}
+	v_{1}s - w_{1}t &= q_{1} - p_{1} \\
+	v_{2}s - w_{2}t &= q_{2} - p_{2}
+	\end{align*}
+	
 	\subsection{In Three Dimensions}
-	\subsection{Other Ways of Describing Lines and Planes}
+	For a coordinate system in three dimensions, we need a third axis which is usually called the $z$-axis. The $z$-axis must be orthogonal to the other two axes, and the unit of length must be the same on all three. The normal rules for vectors and points, such as length and distance between points apply.
+	
+	\subsubsection{Planes}
+	The parametric representation of a plane has the form $X = P + s \cdot \overrightarrow{v} + t \cdot \overrightarrow{w}$. $P$ is a point and $\overrightarrow{v}$ and $\overrightarrow{w}$ are vectors (which cannot be the null vector). Further, $\overrightarrow{w}$ must not be the same as $\overrightarrow{v}$, otherwise just a line will be generated.
+	
+	\par Three points $P$, $Q$ and $R$ which are not all on the same line determine a plane:
+	
+	\[ X = P + s \cdot \overrightarrow{PQ} + t \cdot \overrightarrow{PR} \]
+	
+	From this, we have a variety of intersection tasks we may wish to compute:
+	
+	\begin{enumerate}
+		\item Test whether a given point lies on a give line or a plane
+		\item Find the intersection point between two lines
+		\item Find the intersection point between a line and a plane
+		\item Find the intersection line between two planes
+	\end{enumerate}
+	
+	All of these problems can be solved in the same way as described earlier, using a system of linear equations for each coordinate.
+	
+	\subsubsection{Two-Point Description of a Line}
+	The vector that moves $P$ to $Q$ is denoted by $\overrightarrow{PQ}$, and has the coordinates $\left( \begin{array}{c} q_{1} - p_{1} \\ q_{2} - p_{2} \end{array} \right)$ in 2D. The parametric representation for the line through $P$ and $Q$ can therefore be written as 
+	\[ X = P + s \cdot \overrightarrow{PQ} \]
+	
+	Using the laws of vector algebra we can write this as follows:
+	
+	\begin{align*}
+		X &= P + s \cdot (Q - P)\\
+		  &= P + s \cdot Q - s \cdot P\\
+		  &= (1 - s) \cdot P + s \cdot Q
+	\end{align*}
+	
+	The \textbf{two-point description of a line}\index{two point description of a line} is therefore $X = (1 - s) \cdot P + s \cdot Q$. Sometimes this may be written as $X = s \cdot P + t \cdot Q$ with the side condition that $s + t = 1$.
+	
+	\subsubsection{Three-Point Description of a Plane}
+	Just as we did in the previous section, we can also do the exact same as we did with lines to a plane in order to produce the \textbf{three-point description of a plane}. The three point description of a plane is $X = (1 - s - t) \cdot P + s \cdot Q + t \cdot R$.
+	
+	\subsection{Vector Spaces}
+	We have discussed the operations and laws of vectors earlier. To repeat: we have a \textbf{null vector}, we can add two vectors and we can multiply vectors with a scalar. We can also solve the equation $\overrightarrow{v} + \overrightarrow{x} = \overrightarrow{0}$ for $\overrightarrow{x}$ by simply setting $\overrightarrow{x} = (-1) \cdot \overrightarrow{v}$. Any structure that carries these two operations and satisfies these laws is called a \textbf{vector space}\index{vector space}. 
+	
+	\par We can go one step further an realise that scalars could come from any field $\mathbb{F}$, such as GF(2). Then we say that we have a `vector space over $\mathbb{F}$'.
+	
+	If $\overrightarrow{v}$ is an element of some \textbf{vector space} then we can generate a \textbf{subspace}\index{subspace}(sometimes called a \textbf{sub-vector space}\index{sub-vector space}) by considering all vectors of the form $s\cdot \overrightarrow{v}$, which contains the null vector.
+	
+	\par Another way to look at this is to look at our parametric representations. We pick a point and allow all movements from a subspace to act on this point. This construction leads to what in general is called an \textbf{affine subspace}\index{affine subspace}. In other words, lines and planes are affine subspaces of 2D/3D.
+	
+	\subsubsection{Bases}
+	We now know how to generate subspaces. This works well and yields the expected result unless we choose the generators unwisely. For example, if one of the generators is the null vector then that does not contribute anything. Also, if two generators point in the same direction (one is a scalar multiple of the other) then we are introducing redundancy as one of them could be dropped. A set of generators that can not be made any smaller is called a \textbf{basis}\index{basis} of the subspace. The number of elements of the basis is called the \textbf{dimension}\index{dimension} of the subspace.
+	
+	\par 
+	If we start with a set of generators and we are not sure whether is is redundant or not, then we can write the vectors as rows into a matrix and run Gaussian elimination (without any right hand side). The rows of the resulting echelon form will form a basis that generates the same subspace as the generating set from before.
+	
+	\subsubsection{Codes} 
+	Subspaces in $\text{GF(2)}^{n}$ are used as linear \textbf{codes}\index{codes} in coding theory. Coding in this sense has nothing at all to do with programming or cryptography; its purpose is to spot and correct errors in the storage and transmission of data. Without coding, CDs and DVDs could not exist.
+	
+	\section{A Different Way of Representing Lines and Planes}
+	Conside the linear equation $x_{1} - 2x_{2} = 3$. The solutions for this are given by
+	
+	\begin{align*}
+	x_{2} &: \; \text{choose freely} \\
+	x_{1} &= 3 + 2x_{2}
+	\end{align*}
+	
+	We can write the possible solutions in a vector form:
+	
+	\[ X = \left( \begin{array}{c} x_{1} \\ x_{2} \end{array} \right) = \left(\begin{array}{c} 3 + 2x_{2} \\ x_{2} \end{array} \right) = \left( \begin{array}{c} 3 \\ 0 \end{array} \right) + x_{2} \cdot \left( \begin{array}{c} 2 \\ 1 \end{array} \right) \]
+	
+	From this, we can see all the solutions for this set of linear equations lies upon a line. This is true in general: the solution space of a linear equation in two unknowns is a line in 2D. The same is true for planes and systems with three unknowns.
+	
+	\subsection{Translating Between the Parametric and Equational Representations}
+	\subsubsection{Lines}
+	If we are given the parametric representation of a line in 2D
+	
+	\[ X = P + s \cdot \overrightarrow{v} = \left( \begin{array}{c}p_{1} \\ p_{2} \end{array} \right) + s \cdot \left( \begin{array}{c} v_{1} \\ v_{2} \end{array} \right) \]
+	
+	and we want to find an equation in the form $ax_{1} + bx_{2} = d$ which describes the same line then all we need to do is set 
+	
+	\begin{align*}
+	a &= -v_{2}\\
+	b &= v_{1}\\
+	d &= ap_{1} + bp_{2}
+	\end{align*}
+	
+	\subsubsection{Planes}
+	As we have just done for lines, we can do the same for planes. Given the parametric representation
+	\[ X = P + s \cdot \overrightarrow{v} + t \cdot \overrightarrow{w} = \left( \begin{array}{c} p_{1} \\ p_{2} \\ p_{3} \end{array} \right) + s \cdot \left( \begin{array}{c} v_{1} \\ v_{2} \\ v_{3} \end{array} \right) + t \cdot \left( \begin{array}{c} w_{1} \\ w_{2} \\ w_{3} \end{array} \right) \]
+	
+	and we are looking for an equation \[ax_{1} + bx_{2} + cx_{3} = d \] which describes the same plane then all we need to do is set
+	
+	\begin{align*}
+	a &= v_{2}w_{3} - v_{3}w_{2} \\
+	b &= v_{3}w_{1} - v_{1}w_{3} \\
+	c &= v_{1}w_{2} - v_{2}w_{1} \\
+	d &= ap_{1} - bp_{2} + cp_{3}
+	\end{align*}		
+	
+	\section{The Inner Product}	
 	
 	\section{Matrices}
 	

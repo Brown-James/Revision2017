@@ -20,21 +20,40 @@
 \contentsline {subsubsection}{\numberline {4.1.2}Instruction Execution}{8}
 \contentsline {subsubsection}{\numberline {4.1.3}Branches and Jumps}{10}
 \contentsline {subsection}{\numberline {4.2}Integrating the Datapath}{11}
-\contentsline {subsection}{\numberline {4.3}CPU Control}{12}
-\contentsline {section}{\numberline {5}Digital Logic}{12}
-\contentsline {subsection}{\numberline {5.1}Digital Logic}{12}
-\contentsline {subsubsection}{\numberline {5.1.1}Transistors}{12}
-\contentsline {subsubsection}{\numberline {5.1.2}Decoders}{13}
-\contentsline {subsubsection}{\numberline {5.1.3}Multiplexers}{14}
-\contentsline {subsubsection}{\numberline {5.1.4}A Simple Adder}{14}
-\contentsline {subsubsection}{\numberline {5.1.5}A Simple ALU}{15}
-\contentsline {subsection}{\numberline {5.2}Number Representation}{15}
-\contentsline {subsubsection}{\numberline {5.2.1}Positive Integers}{15}
-\contentsline {subsubsection}{\numberline {5.2.2}Positive Real Numbers}{16}
-\contentsline {subsubsection}{\numberline {5.2.3}Negative Numbers and Two's Complement}{16}
-\contentsline {subsubsection}{\numberline {5.2.4}Floating Point Numbers}{17}
-\contentsline {subsection}{\numberline {5.3}Clocked Logic}{18}
-\contentsline {section}{\numberline {6}I/O and Peripherals}{18}
-\contentsline {section}{\numberline {7}Improving Performance}{18}
-\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{18}
-\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{18}
+\contentsline {subsection}{\numberline {4.3}CPU Control}{14}
+\contentsline {subsubsection}{\numberline {4.3.1}ALU Control}{14}
+\contentsline {subsubsection}{\numberline {4.3.2}The Main Control Unit}{14}
+\contentsline {section}{\numberline {5}Digital Logic}{15}
+\contentsline {subsection}{\numberline {5.1}Digital Logic}{15}
+\contentsline {subsubsection}{\numberline {5.1.1}Transistors}{15}
+\contentsline {subsubsection}{\numberline {5.1.2}Decoders}{16}
+\contentsline {subsubsection}{\numberline {5.1.3}Multiplexers}{17}
+\contentsline {subsubsection}{\numberline {5.1.4}A Simple Adder}{17}
+\contentsline {subsubsection}{\numberline {5.1.5}A Simple ALU}{18}
+\contentsline {subsection}{\numberline {5.2}Number Representation}{18}
+\contentsline {subsubsection}{\numberline {5.2.1}Positive Integers}{18}
+\contentsline {subsubsection}{\numberline {5.2.2}Positive Real Numbers}{19}
+\contentsline {subsubsection}{\numberline {5.2.3}Negative Numbers and Two's Complement}{19}
+\contentsline {subsubsection}{\numberline {5.2.4}Floating Point Numbers}{20}
+\contentsline {subsection}{\numberline {5.3}Clocked Logic}{20}
+\contentsline {subsubsection}{\numberline {5.3.1}Clocks and flip-flops}{21}
+\contentsline {subsubsection}{\numberline {5.3.2}The Master-Slave Flip-Flop}{21}
+\contentsline {subsubsection}{\numberline {5.3.3}Building a Register}{23}
+\contentsline {section}{\numberline {6}I/O and Peripherals}{23}
+\contentsline {subsection}{\numberline {6.1}Input/Output Devices}{23}
+\contentsline {subsection}{\numberline {6.2}I/O Models}{24}
+\contentsline {subsection}{\numberline {6.3}Polling}{25}
+\contentsline {subsection}{\numberline {6.4}Interrupts}{25}
+\contentsline {subsection}{\numberline {6.5}Direct Memory Access (DMA)}{25}
+\contentsline {section}{\numberline {7}Improving Performance}{26}
+\contentsline {subsection}{\numberline {7.1}Caches and Virtual Memory}{26}
+\contentsline {subsubsection}{\numberline {7.1.1}Caches}{26}
+\contentsline {subsubsection}{\numberline {7.1.2}Structure and Design of Caches}{26}
+\contentsline {subsubsection}{\numberline {7.1.3}Cache Associativity}{27}
+\contentsline {subsubsection}{\numberline {7.1.4}Refill Strategies}{27}
+\contentsline {subsubsection}{\numberline {7.1.5}Performance Benefits of Caches}{27}
+\contentsline {subsubsection}{\numberline {7.1.6}Writing Strategies}{28}
+\contentsline {subsection}{\numberline {7.2}Pipelining and Branch Prediction}{29}
+\contentsline {subsubsection}{\numberline {7.2.1}Pipelining}{29}
+\contentsline {subsubsection}{\numberline {7.2.2}Branch Prediction}{30}
+\contentsline {subsubsection}{\numberline {7.2.3}Superscalar Processors}{31}

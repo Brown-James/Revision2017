@@ -43,20 +43,53 @@
 \indexentry{adder}{8}
 \indexentry{sign extension unit}{10}
 \indexentry{multiplexing}{11}
-\indexentry{transistor}{12}
-\indexentry{NMOS}{12}
-\indexentry{PMOS}{12}
-\indexentry{gnd}{13}
-\indexentry{vdd}{13}
-\indexentry{not gate}{13}
-\indexentry{combinational logic}{13}
-\indexentry{multiplexer}{14}
-\indexentry{adder}{14}
-\indexentry{exclusive OR}{14}
-\indexentry{half-adder}{14}
-\indexentry{overflow}{15}
-\indexentry{fixed point representation}{16}
-\indexentry{two's complement}{16}
-\indexentry{floating-point number}{17}
-\indexentry{mantissa}{17}
-\indexentry{exponent}{17}
+\indexentry{transistor}{15}
+\indexentry{NMOS}{15}
+\indexentry{PMOS}{15}
+\indexentry{gnd}{16}
+\indexentry{vdd}{16}
+\indexentry{not gate}{16}
+\indexentry{combinational logic}{16}
+\indexentry{multiplexer}{17}
+\indexentry{adder}{17}
+\indexentry{exclusive OR}{17}
+\indexentry{half-adder}{17}
+\indexentry{overflow}{18}
+\indexentry{fixed point representation}{19}
+\indexentry{two's complement}{19}
+\indexentry{floating-point number}{20}
+\indexentry{mantissa}{20}
+\indexentry{exponent}{20}
+\indexentry{clock signal}{21}
+\indexentry{flip-flop}{21}
+\indexentry{pipeline}{21}
+\indexentry{master-slave flip-flop}{21}
+\indexentry{set-reset latch}{22}
+\indexentry{peripheral}{23}
+\indexentry{bus}{24}
+\indexentry{memory-mapped I/O}{24}
+\indexentry{microcontrollers}{25}
+\indexentry{polling}{25}
+\indexentry{interrupts}{25}
+\indexentry{interrupt request channel}{25}
+\indexentry{cache}{26}
+\indexentry{virtual memory}{26}
+\indexentry{tag}{26}
+\indexentry{hit}{26}
+\indexentry{miss}{26}
+\indexentry{direct-mapped}{27}
+\indexentry{thrashing}{27}
+\indexentry{n-way associative cache}{27}
+\indexentry{fully associative cache}{27}
+\indexentry{refill strategy}{27}
+\indexentry{coherance}{28}
+\indexentry{write-back cache}{28}
+\indexentry{write-through cache}{29}
+\indexentry{pipelining}{29}
+\indexentry{superscalar processors}{29}
+\indexentry{branch prediction}{29}
+\indexentry{bubble}{29}
+\indexentry{forwarding}{30}
+\indexentry{bypassing}{30}
+\indexentry{static branch prediction}{31}
+\indexentry{dynamic branch prediction}{31}

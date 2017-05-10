@@ -272,6 +272,16 @@ top = 30mm
 	\subsubsection{Weak Entity Sets}
 	A weak entity set is one where the entities cannot (neccesarily) be distinguished - there is no key. They are drawn using double lined boxes, for entity sets and relationships. They can only be identified uniquely in the context of an owner.
 	
+	\subsection{Mapping from ER diagrams to database design}
+	The mapping from ER diagrams to a DB schema can be straightforward, but some judgement and refinement is needed. The rules you should follow should be seen more as guidelines, it's entirely possible you may want to preserve more of the structure at a cost in terms of space and computation. As usual, there are different ways to do this mapping. The design will be mapped to tables and constraints within those tables. Any modifications we make should be reflected back into the ER diagram.
+	
+	\par 
+	Entity sets map straight into our database tables. We know their table name, their attributes and their names as well as the primary key. For composite attributes we may include their simple components or make a separate table and reference it with a foreign key. For each attribute we should also know the domain of it and any other constraints. 
+	
+	\par For weak entity sets we follow the same procedure as a normal entity set, but include the key of the owner entity. Since the weak entity cannot exist without the owner, deletion of the owner must be propagated to the weak entity with \texttt{ON DELETE CASCADE}.
+	
+	\par With relationship sets, the obvious way is to map to a table. In some cases this is neccesary, and has the virtues of maintaining structure and avoiding uneccesary attributes in other tables. The 'standard' approach is to avoid creating an uneccesary table if possible. For each 1:1 relationship, we add the key of one entity as a foreign key as another. We move the attributes of the relationship to the owner of the foreign key. In a 1:N relationship, we add the key of the entity on the N side as a foreign key of the other. Any attributes of the relationship are moved to that entity. For each M:N relationship, we add a new table containing the participating entities as foreign keys, as well as any of the attributes of the relationship. The key of the new relation is the combination of the foreign keys.
+	
 	\section{Database Normalisation}
 	We want to normalise our databases so that we can remove functional dependencies from a table. Should we not normalise our tables we may get \textbf{insertion anomalies}, \textbf{update anomalies}, \textbf{deletion anomalies}. There are various levels of normal forms, and typically these all work by identifying a removing functional dependencies that exist in the data. We can do this by creating new tables and unpacking the data.
 	

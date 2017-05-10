@@ -6,3 +6,9 @@
 \indexentry{core dump}{2}
 \indexentry{segmentation fault}{2}
 \indexentry{segfault}{2}
+\indexentry{members}{3}
+\indexentry{abstract syntax trees}{5}
+\indexentry{typed tree}{6}
+\indexentry{graph}{6}
+\indexentry{class template}{9}
+\indexentry{function template}{9}
